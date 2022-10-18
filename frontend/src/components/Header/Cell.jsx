@@ -8,13 +8,16 @@ function cell(props) {
   const url = name.toLowerCase();
   console.log(name.toLowerCase());
   // name = name.toLowerCase();
+
   return (
       
     <>
+    {console.log(props.active)}
     {
     url == "home" ? 
-    <Link className={`${styles.link} ${props.active ? "color-black" : "" }`} to={`/`}> {props.name} </Link> :     
-    <Link className={`${styles.link} color-black}`} to={`/${url}`}> {props.name} </Link>    
+    
+    <Link className={`${styles.link} ${props.active ? {} : null }`} to={`/`}> {props.name} </Link> :     
+    <Link className={` ${styles.link} ${props.active ? styles.active : null }`} to={`/${url}`}> {props.name} </Link>    
     }  
     </>
   ); 
