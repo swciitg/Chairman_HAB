@@ -14,7 +14,7 @@ function cell(props) {
     {
     url == "home" ? 
     <Link className={`${styles.link} ${props.active ? "color-black" : "" }`} to={`/`}> {props.name} </Link> :     
-    <Link className={`${styles.link}`} to={`/${url}`}> {props.name} </Link>
+    <Link className={`${styles.link} color-black}`} to={`/${url}`}> {props.name} </Link>    
     }  
     </>
   ); 
