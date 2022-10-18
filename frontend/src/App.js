@@ -8,6 +8,7 @@ import MembersScreen from "./screens/Members/MembersScreen";
 import ProjectsScreen from "./screens/Projects/ProjectsScreen";
 import PublicationsScreen from "./screens/Publications/PublicationsScreen";
 import ResearchScreen from "./screens/Research/ResearchScreen";
+import Header from "./components/Header/Header";
 function App() {
   return (
    <>
@@ -22,6 +23,7 @@ function App() {
         </Routes>
       </BrowserRouter>
       <Toaster />
+      <Header />
    </> 
   );
 }
