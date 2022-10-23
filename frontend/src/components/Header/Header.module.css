@@ -7,8 +7,9 @@
   display: flex;
   align-items: center;
   background-color: #0088ff;
-  font-family: Raleway;
+  font-family: "Raleway";
   font-size: 16px;
+  color: white;
 }
 
 .head img {
@@ -30,19 +31,15 @@
   text-decoration: none;
 }
 
-.navbar .link:first-child {
-  margin-left: 50px;
+.link:hover {
+  text-decoration: underline;
 }
 
-.link:hover{
-    text-decoration: underline;
+.link:visited {
+  color: #eaedf1;
+  text-decoration: none;
 }
-
-.link:visited{
-    color: #EAEDF1;
-    text-decoration: none;
-}
-.active{
+.active {
   font-weight: bold;
-  color : black;
+  color: black;
 }

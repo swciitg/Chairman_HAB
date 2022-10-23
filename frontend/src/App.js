@@ -20,20 +20,19 @@ function App() {
         <Link to="/members">Members</Link>
       </div> */}
 
-
       <BrowserRouter basename={BASEURL}>
-      <Header />
+        <Header />
         <Routes>
-        <Route path="/admin/*" exact element={<AdminScreen/>} />
-        <Route path="/home/*" exact element={<HomeScreen/>} />
-        <Route path="/members/*" exact element={<MembersScreen/>} />
-        <Route path="/projects/*" exact element={<ProjectsScreen/>} />
-        <Route path="/publications/*" exact element={<PublicationsScreen/>} />
-        <Route path="/research/*" exact element={<ResearchScreen/>} />
+          <Route path="/admin/*" exact element={<AdminScreen />} />
+          <Route path="/*" exact element={<HomeScreen />} />
+          <Route path="/research/*" exact element={<ResearchScreen />} />
+          <Route path="/projects/*" exact element={<ProjectsScreen />} />
+          <Route path="/publications/*" exact element={<PublicationsScreen />} />
+          <Route path="/members/*" exact element={<MembersScreen />} />
         </Routes>
       </BrowserRouter>
       <Toaster />
-   </> 
+    </>
   );
 }
 
