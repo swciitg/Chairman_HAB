@@ -1,25 +1,19 @@
-import React, { useState } from "react";
-import { Link } from 'react-router-dom';
+import React from "react";
+import { NavLink } from 'react-router-dom';
 import styles from "./Header.module.css";
-
 
 function Cell(props) {
   const name = props.name;
   const url = name.toLowerCase();
-  const [isOpen, setOpen] = useState(false);
+  const activeStyle = ({isActive}) => {
+    return {
+      fontWeight: isActive ? 'bold' : 'normal',
+    }
+  }
 
   return (
-    <>
-    {console.log(url)}
-    {
-    url === "home" ? 
-    <Link onClick={() => setOpen(!isOpen)} className={`${styles.link} ${isOpen && "font-bold"}`} to={`/`}> {props.name} </Link> :     
-    <Link onClick={() => setOpen(!isOpen)} className={`${styles.link} ${isOpen && "font-bold"}`} to={`/${url}`}> {props.name} </Link>    
-    }  
-    
-    </>
-  ); 
-  // return <li id="field">{props.name}</li>;
+    <NavLink to={url} style={activeStyle}  className={`inline md:block py-2 pr-4 pl-3 text-white md:p-0 ${styles.link}`}>{name}</NavLink> 
+    ); 
 }
 
 export default Cell;

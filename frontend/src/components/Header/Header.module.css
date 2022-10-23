@@ -23,23 +23,12 @@
 }
 
 .navbar .link {
-  display: inline-block;
   margin: 10px 0px;
   padding: 0px 15px;
   font-size: 18px;
   font-family: Raleway;
-  text-decoration: none;
 }
 
 .link:hover {
   text-decoration: underline;
-}
-
-.link:visited {
-  color: #eaedf1;
-  text-decoration: none;
-}
-.active {
-  font-weight: bold;
-  color: black;
 }
