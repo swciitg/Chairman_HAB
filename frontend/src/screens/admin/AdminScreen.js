@@ -3,6 +3,9 @@ import Sidebar from "../../components/Admin/Sidenav/Sidebar";
 import "./AdminScreen.css";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import ProjectsScreen from "./Projects/Projects";
+import AddProjectsScreen from "./Projects/AddProjects";
+import EditProjectsScreen from "./Projects/EditProjects";
 // import useAuthCheck from "../../hooks/useAuthCheck";
 
 const AdminScreen = () => {
@@ -24,7 +27,22 @@ const AdminScreen = () => {
         <>
           {userData?.is_staff ? ( */}
             <Sidebar>
-              <Routes>        
+              <Routes> 
+              <Route
+                  exact
+                  path={`/projects`}
+                  element={<ProjectsScreen />}
+                />       
+                <Route
+                  exact
+                  path={`/projects/add`}
+                  element={<AddProjectsScreen />}
+                /> 
+                 <Route
+                  exact
+                  path={`/projects/:id`}
+                  element={<EditProjectsScreen />}
+                /> 
               </Routes>
             </Sidebar>
           {/* ) : (
