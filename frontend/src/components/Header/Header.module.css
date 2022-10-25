@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  background-color: #0088ff;
+  /* font-family: "Raleway"; */
+  font-size: 16px;
+  color: white;
+}
+
+.head img {
+  width: 40px;
+  margin: 15px;
+}
+
+.navbar {
+  padding: 10px;
+  background-color: #1e254d;
+}
+
+.navbar .link {
+  margin: 10px 0px;
+  padding: 0px 15px;
+  font-size: 18px;
+  color: #EAEDF1;
+  /* font-family: Raleway; */
+}
+
+.link:hover {
+  text-decoration: underline;
+}
