@@ -4,7 +4,8 @@ import styles from "./Header.module.css";
 
 function Cell(props) {
   const name = props.name;
-  const url = name.toLowerCase();
+  let url = name.toLowerCase();
+  if(url == "home") url = "";
   const activeStyle = ({isActive}) => {
     return {
       fontWeight: isActive ? 'bold' : 'normal',

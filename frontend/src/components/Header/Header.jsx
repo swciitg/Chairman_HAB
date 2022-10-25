@@ -3,10 +3,16 @@ import Head from "./Head";
 import Navbar from "./Navbar";
 
 function Header() {
-  return <div>
+  return (
+
+    <div>
     <Head />
-    <Navbar />
-  </div>;
+    <div className="hidden md:block">
+
+    <Navbar/>
+    </div>
+  </div>
+  );
 }
 
 export default Header;

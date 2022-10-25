@@ -1,15 +1,29 @@
-import React from "react";
+import React,  { useState } from "react";
 import Heading from "./Heading";
 import logo from "./logo.svg"
 import styles from "./Header.module.css";
+import Navbar from "./Navbar";
+import { GiHamburgerMenu } from "react-icons/gi";
 
-function head() {
+const Head = () => {
+  const [hidden, setHidden] = useState("hidden");
+
+  const handleClick = () => {
+    if (hidden == "") setHidden("hidden");
+    else setHidden("");
+  }
   return (
+    <div>
     <div className={styles.head}>
       <img src={logo} alt="iitg logo" />
-      <Heading name="Terahertz photonics and plasmonics laboratory" />
+      <Heading name="TERAHERTZ PHOTONICS AND PLASMONICS LABORATORY" />
+      <button onClick={handleClick}>
+      <GiHamburgerMenu className="md:hidden text-xl self-center mr-4" />
+      </button>
+    </div>
+     <Navbar hidden={hidden}/>
     </div>
   );
 }
 
-export default head;
+export default Head;
