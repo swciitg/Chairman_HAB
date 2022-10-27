@@ -10,7 +10,7 @@ const profileSchema = new Schema({
     labPhone: {type: String, required: true },
     officePhone: {type: String, required: true },
     labEmail: {type: String, required: true },
-    personalEnail: {type: String, required: true },
+    personalEmail: {type: String, required: true },
     OrcidID: {type: String, required: true },
     ReasearchID: {type: String, required: true },
     scopusAuthorID: {type: String, required: true },

@@ -10,7 +10,7 @@ mongoose.Promise = global.Promise;
 
 app.use(bodyParser.json());
 
-app.use('/api', require('./routes/api'));
+app.use('/api', require('./routes/groupMembers'));
 
 app.use(function(err, req, res, next){
     // console.log(err);
