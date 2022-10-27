@@ -5,7 +5,7 @@ const router = express.Router();
 const multer = require("multer");
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-      cb(null, `${__dirname}/../../uploads/experimentalFacilities`);
+      cb(null, `${__dirname}/../../uploads/grp`);
     },
     filename: (req, file, cb) => {
       const fileName = file.originalname.replace(/\s/g, "");
