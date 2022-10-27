@@ -9,6 +9,8 @@ import ProjectsScreen from "./screens/Projects/ProjectsScreen";
 import PublicationsScreen from "./screens/Publications/PublicationsScreen";
 import ResearchScreen from "./screens/Research/ResearchScreen";
 import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+import  Table  from "./components/Project-Table/Table";
 function App() {
   return (
     <>
@@ -22,6 +24,7 @@ function App() {
 
       <BrowserRouter basename={BASEURL}>
         <Header />
+        <Footer />
         <Routes>
           <Route path="/admin/*" exact element={<AdminScreen />} />
           <Route path="/*" exact element={<HomeScreen />} />
