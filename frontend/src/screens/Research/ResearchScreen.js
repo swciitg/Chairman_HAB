@@ -23,7 +23,7 @@ const ResearchScreen = () => {
 
   return (
     <>
-      <div className="mt-4 mx-20">
+      <div className="mt-12 mx-20">
         <div className="md:flex md:flex-row md:justify-between mt-4 md:mb-8">
           <h1
             className="font-semibold text-xl underline md:text-5xl"
