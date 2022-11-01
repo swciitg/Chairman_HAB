@@ -1,30 +1,38 @@
-import React from "react";
-import Btn from "./Btn";
-import Card from "./Card";
+import React, { useState } from "react";
 import Heading from "./Heading";
+import HiddenCards from "./HiddenCards";
+import VisCards from "./VisCards";
 
 const PublicationsScreen = () => {
+  const [state, setState] = useState(0);
+  const [string, setString] = useState("LOAD ALL v");
+
+  const togglebtn = () => {
+    if (state == 0) {
+      setState(1);
+      setString("LOAD LESS ^");
+    } else {
+      setState(0);
+      setString(() => {
+        return "LOAD ALL v";
+      });
+    }
+    // state == 0 && setState(1) && setString("SEE LESS");
+    // state == 1 && setState(0) && setString("SEE MORE");
+  };
+
   return (
-    <div className="mx-24 my-16">
+    <div className="md:mx-24 mx-5 my-16">
       Publications
       <Heading name="hello" />
-      <Card
-        head="Angana Bhattacharya, Rakesh Sarkar and Gagan Kumar, “Excitation of near field coupled dual toroidal resonances in a bilayer terahertz metamaterial configuration.”"
-        bold="Journal of Physics D: Applied Physics 54,285102(2021)."
+      <VisCards />
+      {state ? <HiddenCards /> : null}
+      <input
+        type="button"
+        value={string}
+        onClick={togglebtn}
+        className="rounded bg-white border-2 px-4 py-1 text-xs"
       />
-      <Card
-        head="Angana Bhattacharya, Rakesh Sarkar and Gagan Kumar, “Excitation of near field coupled dual toroidal resonances in a bilayer terahertz metamaterial configuration.”"
-        bold="Journal of Physics D: Applied Physics 54,285102(2021)."
-      />
-      <Card
-        head="Angana Bhattacharya, Rakesh Sarkar and Gagan Kumar, “Excitation of near field coupled dual toroidal resonances in a bilayer terahertz metamaterial configuration.”"
-        bold="Journal of Physics D: Applied Physics 54,285102(2021)."
-      />
-      <Card
-        head="Angana Bhattacharya, Rakesh Sarkar and Gagan Kumar, “Excitation of near field coupled dual toroidal resonances in a bilayer terahertz metamaterial configuration.”"
-        bold="Journal of Physics D: Applied Physics 54,285102(2021)."
-      />
-      <Btn />
     </div>
   );
 };
