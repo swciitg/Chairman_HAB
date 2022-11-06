@@ -1,5 +1,5 @@
 import styles from "./Table.module.css";
-
+import Details from "./Details";
 
 const Table =() =>{
   return (
@@ -24,6 +24,7 @@ const Table =() =>{
             <th className={`${styles.background}  w-1/6`}>Duration</th>
             <th className={`${styles.background}  w-1/6`}>Investigation</th>
           </tr>
+          <Details/>
           <tr className={`w-24`} >
             <td>1</td>
             <td >DST Fast Track Young Scientist </td>
