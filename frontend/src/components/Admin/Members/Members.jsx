@@ -1,6 +1,6 @@
 import styles from "./Member.modules.css";
 import Pic from'./pic.png';
-const Footer = () =>  {
+const Members = () =>  {
     
     return (
 <div className={` ${styles.main-body} flex flex-col`}>
@@ -683,4 +683,4 @@ const Footer = () =>  {
 </div>
         );
     }
-export default Footer;
+export default Members;
