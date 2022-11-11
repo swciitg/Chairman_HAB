@@ -3,22 +3,22 @@ body{
     background-repeat: no-repeat;
  
 }
-.main-body{
+.main_body{
     padding-left: 4vw;
     padding-right: 4vw;
 
  
   
 }
-.Research-Group-Content{
+.Research_Group_Content{
     height: 400px;
   padding-right: 2vw;
     }
-.img-height-1{
+.img_height_1{
         height: 330px !important; 
         width:330px !important ;
     }
-.Research-Group-heading{
+.Research_Group_heading{
         height: 100px;
         font-family: 'Raleway';
 font-style: normal;
@@ -27,7 +27,7 @@ font-size: 34px;
 line-height: 44px;
 width: 90vw;
         }
-.Research-Group-details-1{
+.Research_Group_details_1{
 
 letter-spacing: 3.22%;
 font-family: 'Raleway';
@@ -37,7 +37,7 @@ font-size: 25px;
 overflow-wrap: break-word;
 line-height: 30px;
 }
-.Research-Group-details-2{
+.Research_Group_details_2{
 
     letter-spacing: 3.22%;
     font-family: 'Raleway';
@@ -47,7 +47,7 @@ line-height: 30px;
     line-height: 30px;
     overflow-wrap: break-word;
     }
-    .Research-Group-details-3{
+    .Research_Group_details_3{
 
         letter-spacing: 3.22%;
         font-family: 'Raleway';
@@ -58,23 +58,23 @@ line-height: 30px;
         overflow-wrap: break-word;
         }
 
-.Research-Group-details-3 a{
+.Research_Group_details_3 a{
     text-decoration-style: none;
     color: #0033ffcc;
 }
-.Research-Group-ids{
+.Research_Group_ids{
     color:#0095ffcc;
     overflow-wrap: break-word;
 }
-.Research-Group{
+.Research_Group{
     height: 550px;
     justify-content: space-evenly;
 }
-.height-2{
+.height_2{
     height: 400px;
    
 }
-.Members-cards{
+.Members_cards{
 height: 480px;
 width: 550px;
 margin: 10px 15px;
@@ -85,23 +85,23 @@ margin: 10px 0px;
 border-radius: 10px;
 border: 1px solid rgba(215, 221, 225, 1);
 }
-.Members-cards-img img{
+.Members_cards_img img{
     height: 135px;
     width: 135px;
     border-radius: 75px;
 }
-.height-1{
+.height_1{
     height: 400px;
     width: 25vw;
     
 }
-.height-3{
+.height_3{
     height: 400px;
     width: 55vw;
   justify-content:center ;
  
 }
-.height-4{
+.height_4{
     height: 400px;
     /* width: 50vw; */
     padding-right: 2vw;
@@ -113,18 +113,18 @@ border: 1px solid rgba(215, 221, 225, 1);
     width: 90vw;
     flex-wrap: wrap;
 }
-.Members-cards-img{
+.Members_cards_img{
     margin-left: 1vw;
     margin-right: 1vw;
     width: 170px;
     box-sizing: border-box;
 }
-.Members-cards-content{
+.Members_cards_content{
     width: 320px;
     box-sizing: border-box;
 
 }
-.Alumni-cards{
+.Alumni_cards{
     height: 290px;
     /* width: 550px;  */
     width: 43vw;
@@ -133,7 +133,7 @@ border: 1px solid rgba(215, 221, 225, 1);
 border: 1px solid rgba(215, 221, 225, 1);
 border-radius: 10px;
 }
-.Past-Members-cards{
+.Past_Members_cards{
     margin: 8px;
     border: 1px solid rgba(215, 221, 225, 1);
     border-radius: 10px; 
@@ -150,7 +150,7 @@ letter-spacing: 0.0322em;
 color: #1C1C1C;
 
 }
-.Collaberators-cards{
+.Collaberators_cards{
     margin: 8px;
     border: 1px solid rgba(215, 221, 225, 1);
     border-radius: 10px; 
@@ -167,7 +167,7 @@ letter-spacing: 0.0322em;
 color: #1C1C1C;
 
 }
-.Load-button{
+.Load_button{
  
     border: 1px solid rgba(215, 221, 225, 1);
     border-radius: 10px; 
@@ -188,17 +188,17 @@ color: #1C1C1C;
     
     color: rgba(28, 28, 28, 0.8);
 }
-.drop-arrow{
+.drop_arrow{
     font-size: 15px;
     font-weight: 600;
     padding-bottom: 6%;
     padding-left: 5%;
 }
-.Research-Group , .Group-Members , .Past-Members , .Alumni , .Collaberators{
+.Research_Group , .Group_Members , .Past_Members , .Alumni , .Collaberators{
     margin-bottom: 70px;
 }
 @media screen and (max-width: 1170px) {
-    .Alumni-cards{
+    .Alumni_cards{
         min-width: 350px;
         width: 38vw;
         height: 430px; 
@@ -206,7 +206,7 @@ color: #1C1C1C;
     flex-direction: column;
   
     }
-    .Members-cards{
+    .Members_cards{
       
         min-width: 380px;
         width: 40vw;
@@ -216,35 +216,35 @@ color: #1C1C1C;
         flex-direction: column;
    
         }
-    .Members-cards-img img{
+    .Members_cards_img img{
         height: 140px;
         width: 140px;
         border-radius: 70px;
     }
-    .Members-cards-img{
+    .Members_cards_img{
         width: 100%;
         height: 170px;
         box-sizing: border-box;
     }
-    .Load-button{
+    .Load_button{
         width: 15vw;
         /* height: 80px; */
     }
-    .Research-Group-Content{
+    .Research_Group_Content{
         height: 800px;
         flex-direction: column;
       padding-right: 2vw;
         }
-        .height-1{
+        .height_1{
             height: 400px;
             width: 90vw;
             
         }
-        .Research-Group{
+        .Research_Group{
             height: 950px;
             justify-content: space-evenly;
         }
-        .height-3{
+        .height_3{
             height: 400px;
             width: 85vw;
           justify-content:center ;
@@ -257,7 +257,7 @@ color: #1C1C1C;
       justify-content: center;
         
     }
-    .Alumni-cards{
+    .Alumni_cards{
         min-width: 450px;
         width: 70vw;
         height: 430px; 
@@ -265,13 +265,13 @@ color: #1C1C1C;
     flex-direction: row;
  
     }
-    .height-3{
+    .height_3{
         height: 400px;
         width: 90vw;
       justify-content:center ;
      
     } 
-    .Load-button{
+    .Load_button{
         width: 22vw;
         /* height: 80px; */
     }
@@ -280,12 +280,12 @@ color: #1C1C1C;
     }
 }
 @media screen and (max-width: 900px) {
-    .wild-cards{
+    .wild_cards{
 
         justify-content: center;
           
       }
-    .Members-cards{
+    .Members_cards{
       
         min-width: 450px;
         width: 70vw;
@@ -297,13 +297,13 @@ color: #1C1C1C;
         }
 }
 @media screen and (max-width: 550px) {
-    .height-3{
+    .height_3{
         height: 600px;
         width: 90vw;
       justify-content:center ;
      
     } 
-    .Research-Group{
+    .Research_Group{
         margin-bottom: 70px;
     }
 }
