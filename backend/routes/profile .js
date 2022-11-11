@@ -15,12 +15,12 @@ const storage = multer.diskStorage({
 
 const Profile = require('../controller/profile');
 const upload = multer({ storage: storage });
-router.post('/:profile', upload.single("image"), Profile.postProfile);
+router.post('/', upload.single("image"), Profile.postProfile);
 
-router.get('/:profile', Profile.getProfile);
+router.get('/', Profile.getProfile);
 
-router.put('/:profile/:id', upload.single("image"), Profile.editProfile);
+router.put('/:id', upload.single("image"), Profile.editProfile);
 
-router.delete('/:profile/:id', Profile.deleteProfile);
+router.delete('/:id', Profile.deleteProfile);
 
 module.exports = router;

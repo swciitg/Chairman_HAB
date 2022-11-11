@@ -4,14 +4,14 @@ const router = express.Router();
 
 const JournalPublications = require('../controller/journalPublications');
 
-router.get('/journalPublications', JournalPublications.getJournalPublications);
+router.get('/', JournalPublications.getJournalPublications);
 
-router.post('/journalPublications', JournalPublications.postJournalPublications);
+router.post('/', JournalPublications.postJournalPublications);
 
-router.propfind('/journalPublications/:id', JournalPublications.findJournalPublications);
+router.propfind('/:id', JournalPublications.findJournalPublications);
 
-router.put('/journalPublications/:id', JournalPublications.updateJournalPublications);
+router.put('/:id', JournalPublications.editJournalPublications);
 
-router.delete('/journalPublications/:id', JournalPublications.deleteJournalPublications);
+router.delete('/:id', JournalPublications.deleteJournalPublications);
 
 module.exports = router;

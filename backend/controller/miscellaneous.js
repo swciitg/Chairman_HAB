@@ -1,6 +1,6 @@
 const Miscellaneous = require("../models/miscellaneous");
 
-const factory = require("../handlerFactory");
+const factory = require("./handlerFactory");
 
 exports.getMiscellaneous = async (req, res) => {
   try {

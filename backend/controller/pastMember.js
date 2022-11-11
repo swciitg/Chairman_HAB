@@ -1,6 +1,6 @@
-const PastMembers = require("../models/pastMembers");
+const PastMembers = require("../models/pastMember");
 
-const factory = require("../handlerFactory");
+const factory = require("./handlerFactory");
 
 exports.getPastMembers = async (req, res) => {
   try {

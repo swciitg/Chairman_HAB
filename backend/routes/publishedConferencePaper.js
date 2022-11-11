@@ -1,15 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const PublishedConferencePaper = require('../controllers/publishedConferencePaper');
+const PublishedConferencePaper = require('../controller/publishedConferencePapers');
 
-router.get('/publishedConferencePaper', PublishedConferencePaper.getPublishedConferencePapers);
+router.get('/', PublishedConferencePaper.getPublishedConferencePapers);
 
-router.propfind('/publishedConferencePaper/:id', PublishedConferencePaper.findPublishedConferencePapers);
+router.propfind('/:id', PublishedConferencePaper.findPublishedConferencePapers);
 
-router.post('/publishedConferencePaper', PublishedConferencePaper.postPublishedConferencePapers);
+router.post('/', PublishedConferencePaper.postPublishedConferencePapers);
 
-router.put('/publishedConferencePaper/:id', PublishedConferencePaper.putPublishedConferencePapers);
+router.put('/:id', PublishedConferencePaper.editPublishedConferencePapers);
 
-router.delete('/publishedConferencePaper/:id', PublishedConferencePaper.deletePublishedConferencePapers);
+router.delete('/:id', PublishedConferencePaper.deletePublishedConferencePapers);
 
 module.exports = router;

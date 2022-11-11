@@ -78,6 +78,8 @@ app.use('/api/projects', require('./routes/projects'));
 app.use('/api/publishedConferencePapers', require('./routes/publishedConferencePaper'));
 app.use('/api/simulationSoftwares', require('./routes/simulationSoftwares'));
 app.use('/api/updates', require('./routes/updates'));
+app.use('/api/profile', require('./routes/profile '));
+app.use('/api/alumni', require('./routes/alumni(PhD-Scholars)'));
 
 app.use('/auth',authRoutes);
 
@@ -89,8 +91,8 @@ app.use(function(err, req, res, next){
 
 
 // create home route
-app.get('/',(res,req)=>{
-    res.render('home');
+app.get('/',(req,res)=>{
+    res.send('home');
 })
 const port=process.env.PORT
 app.listen( port || 3000,()=>{

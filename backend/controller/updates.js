@@ -1,6 +1,6 @@
-const Updates = require("../models/Updates");
+const Updates = require("../models/updates");
 
-const factory = require("../handlerFactory");
+const factory = require("./handlerFactory");
 
 exports.getUpdates = async (req, res) => {
   try {

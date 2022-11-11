@@ -15,14 +15,14 @@ const storage = multer.diskStorage({
 
 const Alumni = require('../controller/alumni(PhD-Scholars)');
 const upload = multer({ storage: storage });
-router.post('/:alumni', upload.single("image"), Alumni.postAlumni);
+router.post('/', upload.single("image"), Alumni.postAlumni);
 
-router.get('/:alumni/:id', Alumni.getOneAlumniImage);
+router.get('/:id', Alumni.getOneAlumniImage);
 
-router.get('/:alumni', Alumni.getAlumniProfile);
+router.get('/', Alumni.getAlumniProfile);
 
-router.put('/:alumni/:id', upload.single("image"), Alumni.editAlumni);
+router.put('/:id', upload.single("image"), Alumni.editAlumni);
 
-router.delete('/:alumni/:id', Alumni.deleteAlumniProfile);
+router.delete('/:id', Alumni.deleteAlumniProfile);
 
 module.exports = router;

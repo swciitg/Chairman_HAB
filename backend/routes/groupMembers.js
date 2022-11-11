@@ -15,14 +15,14 @@ const storage = multer.diskStorage({
 
 const GroupMember = require('../controller/groupMembers');
 const upload = multer({ storage: storage });
-router.post('/:groupMembers', upload.single("image"), GroupMember.postMember);
+router.post('/', upload.single("image"), GroupMember.postMember);
 
-router.get('/:groupMembers/:id', GroupMember.getOneMemberImage);
+router.get('/:id', GroupMember.getOneMemberImage);
 
-router.get('/:groupMembers', GroupMember.getGroupMembers);
+router.get('/', GroupMember.getGroupMembers);
 
-router.put('/:groupMembers/:id', upload.single("image"), GroupMember.editMember);
+router.put('/:id', upload.single("image"), GroupMember.editMember);
 
-router.delete('/:groupMembers/:id', GroupMember.deleteMember);
+router.delete('/:id', GroupMember.deleteMember);
 
 module.exports = router;

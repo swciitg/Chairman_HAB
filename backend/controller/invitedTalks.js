@@ -1,6 +1,6 @@
 const InvitedTalks = require("../models/invitedTalks");
 
-const factory = require("../handlerFactory");
+const factory = require("./handlerFactory");
 
 exports.getInvitedTalks = async (req, res) => {
   try {

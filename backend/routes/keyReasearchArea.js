@@ -15,14 +15,14 @@ const storage = multer.diskStorage({
 
 const KeyReasearchArea = require('../controller/keyReasearchArea');
 const upload = multer({ storage: storage });
-router.post('/:keyReasearchArea', upload.single("image"), KeyReasearchArea.postReasearch);
+router.post('/', upload.single("image"), KeyReasearchArea.postReasearch);
 
-router.get('/:keyReasearchArea/:id', KeyReasearchArea.getOneReasearchImage);
+router.get('/:id', KeyReasearchArea.getOneReasearchImage);
 
-router.get('/:keyReasearchArea', KeyReasearchArea.getkeyReasearchArea);
+router.get('/', KeyReasearchArea.getkeyReasearchArea);
 
-router.put('/:keyReasearchArea/:id', upload.single("image"), KeyReasearchArea.editReasearch);
+router.put('/:id', upload.single("image"), KeyReasearchArea.editReasearch);
 
-router.delete('/:keyReasearchArea/:id', KeyReasearchArea.deleteReasearch);
+router.delete('/:id', KeyReasearchArea.deleteReasearch);
 
 module.exports = router;

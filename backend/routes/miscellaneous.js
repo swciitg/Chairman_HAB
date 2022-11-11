@@ -2,16 +2,16 @@ const express = require('express');
 
 const router = express.Router();
 
-const MiscellaneousController = require('../controllers/miscellaneous');
+const MiscellaneousController = require('../controller/miscellaneous');
 
-router.get('/miscellaneous', MiscellaneousController.getMiscellaneous);
+router.get('/', MiscellaneousController.getMiscellaneous);
 
-router.propfind('/miscellaneous/:id', MiscellaneousController.findMiscellaneous);
+router.propfind('/:id', MiscellaneousController.findMiscellaneous);
 
-router.post('/miscellaneous', MiscellaneousController.postMiscellaneous);
+router.post('/', MiscellaneousController.postMiscellaneous);
 
-router.put('/miscellaneous/:id', MiscellaneousController.putMiscellaneous);
+router.put('/:id', MiscellaneousController.editMiscellaneous);
 
-router.delete('/miscellaneous/:id', MiscellaneousController.deleteMiscellaneous);
+router.delete('/:id', MiscellaneousController.deleteMiscellaneous);
 
 module.exports = router;

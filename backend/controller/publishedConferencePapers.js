@@ -1,6 +1,6 @@
-const PublishedConferencePapers = require("../models/PublishedConferencePapers");
+const PublishedConferencePapers = require("../models/publishedConferencePapers");
 
-const factory = require("../handlerFactory");
+const factory = require("./handlerFactory");
 
 exports.getPublishedConferencePapers = async (req, res) => {
   try {

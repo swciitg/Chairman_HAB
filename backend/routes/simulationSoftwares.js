@@ -15,14 +15,14 @@ const storage = multer.diskStorage({
 
 const SimulationSoftwares = require('../controller/simulationSoftwares');
 const upload = multer({ storage: storage });
-router.post('/:simulationSoftwares', upload.single("image"), SimulationSoftwares.postSimulation);
+router.post('/', upload.single("image"), SimulationSoftwares.postSimulation);
 
-router.get('/:simulationSoftwares/:id', SimulationSoftwares.getOneSimulationImage);
+router.get('/:id', SimulationSoftwares.getOneSimulationImage);
 
-router.get('/:simulationSoftwares', SimulationSoftwares.getsimulationSoftwares);
+router.get('/', SimulationSoftwares.getsimulationSoftwares);
 
-router.put('/:simulationSoftwares/:id', upload.single("image"), SimulationSoftwares.editSimulation);
+router.put('/:id', upload.single("image"), SimulationSoftwares.editSimulation);
 
-router.delete('/:simulationSoftwares/:id', SimulationSoftwares.deleteSimulation);
+router.delete('/:id', SimulationSoftwares.deleteSimulation);
 
 module.exports = router;
