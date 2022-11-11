@@ -1,4 +1,8 @@
+import Alumni_cards from "./Alumni-card";
+import Collaberators_cards from "./Collaberators-card";
+import Group_member_cards from "./Group-member-card";
 import styles from "./Member.modules.css";
+import Past_Members from "./Past-Members-card";
 import Pic from'./pic.png';
 const Members = () =>  {
     
@@ -71,7 +75,7 @@ const Members = () =>  {
     </div>
     </div>
 </div>
-<div className={`${styles.Group-Members}`}>
+<div className={`${styles.Group_Members}`}>
     <div className={`${styles.Research-Group-heading}  flex items-center `}>
           Group Members
     </div>
@@ -120,252 +124,8 @@ const Members = () =>  {
     
    
     </div>
-    <div className={`flex items-center justify-center ${styles.Members-cards} `}>
-        <div className={` ${styles.Members-cards-img} flex justify-center items-center w-1/3`}>
- <img scr={Pic} alt="" />
-        </div>
-        <div className={`${styles.Members-cards-content}  flex  flex-col `}>
-        
-             <div className={` ${styles.Research-Group-details-1 }`}>                Mr. Rakesh Sarkar
-             </div>
-             <br/>
-             <div className={` ${styles.Research-Group-details-2}`}>Department of Physics</div>
-             <div className={` ${styles.Research-Group-details-3}`}>
-                 
-                 
- 
-                 
-           
-                 
-            
-                </div>
- 
-                 <div className={` ${styles.Research-Group-details-3}`}> PhD student</div>
-                 <div className={` ${styles.Research-Group-details-3}`}>
-                     Research interest:Terahertz metamaterial,polarization rotation devices,
-                     Electromagnetically induced transparency and toroidal metamaterial.
-                 </div>
-                 <div className={` ${styles.Research-Group-details-3}`}>
-                     Google Scholar: Rakesh_GS
- 
-                 </div>
-                 <div className={` ${styles.Research-Group-details-3}`}>
-                     Email: rakeshphys163@gmail.com
- 
- 
-                 </div>  <div className={` ${styles.Research-Group-details-3}`}>
-                     Phone: +91 9382011054 (M) 
- 
-                 </div>
-        </div>
-     
-    
-     </div>
-     <div className={`flex items-center justify-center ${styles.Members-cards} `}>
-        <div className={` ${styles.Members-cards-img} flex justify-center items-center w-1/3`}>
- <img scr={Pic} alt=""/>
-        </div>
-        <div className={`${styles.Members-cards-content}  flex  flex-col `}>
-        
-             <div className={` ${styles.Research-Group-details-1 }`}>                Mr. Rakesh Sarkar
-             </div>
-             <br/>
-             <div className={` ${styles.Research-Group-details-2}`}>Department of Physics</div>
-             <div className={` ${styles.Research-Group-details-3}`}>
-                 
-                 
- 
-                 
-           
-                 
-            
-                </div>
- 
-                 <div className={` ${styles.Research-Group-details-3}`}> PhD student</div>
-                 <div className={` ${styles.Research-Group-details-3}`}>
-                     Research interest:Terahertz metamaterial,polarization rotation devices,
-                     Electromagnetically induced transparency and toroidal metamaterial.
-                 </div>
-                 <div className={` ${styles.Research-Group-details-3}`}>
-                     Google Scholar: Rakesh_GS
- 
-                 </div>
-                 <div className={` ${styles.Research-Group-details-3}`}>
-                     Email: rakeshphys163@gmail.com
- 
- 
-                 </div>  <div className={` ${styles.Research-Group-details-3}`}>
-                     Phone: +91 9382011054 (M) 
- 
-                 </div>
-        </div>
-     
-    
-     </div>
-     <div className={`flex items-center justify-center ${styles.Members-cards} `}>
-        <div className={` ${styles.Members-cards-img} flex justify-center items-center w-1/3`}>
- <img scr={Pic} alt=""/>
-        </div>
-        <div className={`${styles.Members-cards-content}  flex  flex-col `}>
-        
-             <div className={` ${styles.Research-Group-details-1 }`}>                Mr. Rakesh Sarkar
-             </div>
-             <br/>
-             <div className={` ${styles.Research-Group-details-2}`}>Department of Physics</div>
-             <div className={` ${styles.Research-Group-details-3}`}>
-                 
-                 
- 
-                 
-           
-                 
-            
-                </div>
- 
-                 <div className={` ${styles.Research-Group-details-3}`}> PhD student</div>
-                 <div className={` ${styles.Research-Group-details-3}`}>
-                     Research interest:Terahertz metamaterial,polarization rotation devices,
-                     Electromagnetically induced transparency and toroidal metamaterial.
-                 </div>
-                 <div className={` ${styles.Research-Group-details-3}`}>
-                     Google Scholar: Rakesh_GS
- 
-                 </div>
-                 <div className={` ${styles.Research-Group-details-3}`}>
-                     Email: rakeshphys163@gmail.com
- 
- 
-                 </div>  <div className={` ${styles.Research-Group-details-3}`}>
-                     Phone: +91 9382011054 (M) 
- 
-                 </div>
-        </div>
-     
-    
-     </div>
-     <div className={`flex items-center justify-center ${styles.Members-cards} `}>
-        <div className={` ${styles.Members-cards-img} flex justify-center items-center w-1/3`}>
- <img scr={Pic} alt=""/>
-        </div>
-        <div className={`${styles.Members-cards-content}  flex  flex-col `}>
-        
-             <div className={` ${styles.Research-Group-details-1 }`}>                Mr. Rakesh Sarkar
-             </div>
-             <br/>
-             <div className={` ${styles.Research-Group-details-2}`}>Department of Physics</div>
-             <div className={` ${styles.Research-Group-details-3}`}>
-                 
-                 
- 
-                 
-           
-                 
-            
-                </div>
- 
-                 <div className={` ${styles.Research-Group-details-3}`}> PhD student</div>
-                 <div className={` ${styles.Research-Group-details-3}`}>
-                     Research interest:Terahertz metamaterial,polarization rotation devices,
-                     Electromagnetically induced transparency and toroidal metamaterial.
-                 </div>
-                 <div className={` ${styles.Research-Group-details-3}`}>
-                     Google Scholar: Rakesh_GS
- 
-                 </div>
-                 <div className={` ${styles.Research-Group-details-3}`}>
-                     Email: rakeshphys163@gmail.com
- 
- 
-                 </div>  <div className={` ${styles.Research-Group-details-3}`}>
-                     Phone: +91 9382011054 (M) 
- 
-                 </div>
-        </div>
-     
-    
-     </div>
-     <div className={`flex items-center justify-center ${styles.Members-cards} `}>
-        <div className={` ${styles.Members-cards-img} flex justify-center items-center w-1/3`}>
- <img scr={Pic} alt=""/>
-        </div>
-        <div className={`${styles.Members-cards-content}  flex  flex-col `}>
-        
-             <div className={` ${styles.Research-Group-details-1 }`}>                Mr. Rakesh Sarkar
-             </div>
-             <br/>
-             <div className={` ${styles.Research-Group-details-2}`}>Department of Physics</div>
-             <div className={` ${styles.Research-Group-details-3}`}>
-                 
-                 
- 
-                 
-           
-                 
-            
-                </div>
- 
-                 <div className={` ${styles.Research-Group-details-3}`}> PhD student</div>
-                 <div className={` ${styles.Research-Group-details-3}`}>
-                     Research interest:Terahertz metamaterial,polarization rotation devices,
-                     Electromagnetically induced transparency and toroidal metamaterial.
-                 </div>
-                 <div className={` ${styles.Research-Group-details-3}`}>
-                     Google Scholar: Rakesh_GS
- 
-                 </div>
-                 <div className={` ${styles.Research-Group-details-3}`}>
-                     Email: rakeshphys163@gmail.com
- 
- 
-                 </div>  <div className={` ${styles.Research-Group-details-3}`}>
-                     Phone: +91 9382011054 (M) 
- 
-                 </div>
-        </div>
-     
-    
-     </div>
-     <div className={`flex items-center justify-center ${styles.Members-cards} `}>
-        <div className={` ${styles.Members-cards-img} flex justify-center items-center w-1/3`}>
- <img scr={Pic} alt=""/>
-        </div>
-        <div className={`${styles.Members-cards-content}  flex  flex-col `}>
-        
-             <div className={` ${styles.Research-Group-details-1 }`}>                Mr. Rakesh Sarkar
-             </div>
-             <br/>
-             <div className={` ${styles.Research-Group-details-2}`}>Department of Physics</div>
-             <div className={` ${styles.Research-Group-details-3}`}>
-                 
-                 
- 
-                 
-           
-                 
-            
-                </div>
- 
-                 <div className={` ${styles.Research-Group-details-3}`}> PhD student</div>
-                 <div className={` ${styles.Research-Group-details-3}`}>
-                     Research interest:Terahertz metamaterial,polarization rotation devices,
-                     Electromagnetically induced transparency and toroidal metamaterial.
-                 </div>
-                 <div className={` ${styles.Research-Group-details-3}`}>
-                     Google Scholar: Rakesh_GS
- 
-                 </div>
-                 <div className={` ${styles.Research-Group-details-3}`}>
-                     Email: rakeshphys163@gmail.com
- 
- 
-                 </div>  <div className={` ${styles.Research-Group-details-3}`}>
-                     Phone: +91 9382011054 (M) 
- 
-                 </div>
-        </div>
-     
-    
-     </div>
+     <Group_member_cards/>
+
 </div>
 </div>
 <div className={` ${styles.Alumni}`}>
@@ -419,207 +179,21 @@ const Members = () =>  {
     
    
     </div>
-    <div className={`flex items-center justify-center ${styles.Alumni-cards}`}>
-        <div className={` ${styles.Members-cards-img} flex justify-center items-center w-1/3`}>
- <img scr={Pic} alt=""/>
-        </div>
-        <div className={`${styles.Members-cards-content}  flex  flex-col `}>
-        
-             <div className={` ${styles.Research-Group-details-1 }`}>        Mr. Maidul Islam
-                 
 
-
-
-
-
-             </div>
-             <br/>
-             <div className={` ${styles.Research-Group-details-2}`}>Assistant professor</div>
-             <div className={` ${styles.Research-Group-details-3}`}>
-                 
-                 
- 
-                 
-           
-                 
-            
-                </div>
- 
-                 <div className={` ${styles.Research-Group-details-3}`}> Year of completion: 2018</div>
-                 <div className={` ${styles.Research-Group-details-3}`}>
-                     The Assam Royal Global University
-                 </div>
-                 <div className={` ${styles.Research-Group-details-3}`}>
-                     Email: maidul.iitg@gmail.com
-
- 
-                 </div>
-                 <div className={` ${styles.Research-Group-details-3}`}>
-                     Phone: +91 (M)
- 
-                 </div> 
-        </div>
-     
-    
-     </div>
-     <div className={`flex items-center justify-center ${styles.Alumni-cards}`}>
-        <div className={` ${styles.Members-cards-img} flex justify-center items-center w-1/3`}>
- <img scr={Pic} alt=""/>
-        </div>
-        <div className={`${styles.Members-cards-content}  flex  flex-col `}>
-        
-             <div className={` ${styles.Research-Group-details-1 }`}>        Mr. Maidul Islam
-                 
-
-
-
-
-
-             </div>
-             <br/>
-             <div className={` ${styles.Research-Group-details-2}`}>Assistant professor</div>
-             <div className={` ${styles.Research-Group-details-3}`}>
-                 
-                 
- 
-                 
-           
-                 
-            
-                </div>
- 
-                 <div className={` ${styles.Research-Group-details-3}`}> Year of completion: 2018</div>
-                 <div className={` ${styles.Research-Group-details-3}`}>
-                     The Assam Royal Global University
-                 </div>
-                 <div className={` ${styles.Research-Group-details-3}`}>
-                     Email: maidul.iitg@gmail.com
-
- 
-                 </div>
-                 <div className={` ${styles.Research-Group-details-3}`}>
-                     Phone: +91 (M)
- 
-                 </div> 
-        </div>
-     
-    
-     </div>
-     <div className={`flex items-center justify-center ${styles.Alumni-cards}`}>
-        <div className={` ${styles.Members-cards-img} flex justify-center items-center w-1/3`}>
- <img scr={Pic} alt=""/>
-        </div>
-        <div className={`${styles.Members-cards-content}  flex  flex-col `}>
-        
-             <div className={` ${styles.Research-Group-details-1 }`}>        Mr. Maidul Islam
-                 
-
-
-
-
-
-             </div>
-             <br/>
-             <div className={` ${styles.Research-Group-details-2}`}>Assistant professor</div>
-             <div className={` ${styles.Research-Group-details-3}`}>
-                 
-                 
- 
-                 
-           
-                 
-            
-                </div>
- 
-                 <div className={` ${styles.Research-Group-details-3}`}> Year of completion: 2018</div>
-                 <div className={` ${styles.Research-Group-details-3}`}>
-                     The Assam Royal Global University
-                 </div>
-                 <div className={` ${styles.Research-Group-details-3}`}>
-                     Email: maidul.iitg@gmail.com
-
- 
-                 </div>
-                 <div className={` ${styles.Research-Group-details-3}`}>
-                     Phone: +91 (M)
- 
-                 </div> 
-        </div>
-     
-    
-     </div>
-     <div className={`flex items-center justify-center ${styles.Alumni-cards}`}>
-        <div className={` ${styles.Members-cards-img} flex justify-center items-center w-1/3`}>
- <img scr={Pic} alt=""/>
-        </div>
-        <div className={`${styles.Members-cards-content}  flex  flex-col `}>
-        
-             <div className={` ${styles.Research-Group-details-1 }`}>        Mr. Maidul Islam
-                 
-
-
-
-
-
-             </div>
-             <br/>
-             <div className={` ${styles.Research-Group-details-2}`}>Assistant professor</div>
-             <div className={` ${styles.Research-Group-details-3}`}>
-                 
-                 
- 
-                 
-           
-                 
-            
-                </div>
- 
-                 <div className={` ${styles.Research-Group-details-3}`}> Year of completion: 2018</div>
-                 <div className={` ${styles.Research-Group-details-3}`}>
-                     The Assam Royal Global University
-                 </div>
-                 <div className={` ${styles.Research-Group-details-3}`}>
-                     Email: maidul.iitg@gmail.com
-
- 
-                 </div>
-                 <div className={` ${styles.Research-Group-details-3}`}>
-                     Phone: +91 (M)
- 
-                 </div> 
-        </div>
-     
-    
-     </div>
+  <Alumni_cards/>
 </div>
 
 </div>
-<div className={`${styles.Past-Members}`}>
+<div className={`${styles.Past_Members}`}>
     <div className={`${styles.Research-Group-heading}  flex items-center `}>
         Past members
     </div>
     <br/>
     <br/>
           <div className={`flex flex-col ${styles.cards}`}>
-    <div className={`flex items-center  ${styles.Past-Members-cards}`}>
- 
-  
-       <b> Shivam Rajguru</b> (B.tech project student, 2020-2021)
-   
-    </div>
-    <div className={`flex items-center  ${styles.Past-Members-cards}`}>
- 
-  
-        <b> Shivam Rajguru</b> (B.tech project student, 2020-2021)
-    
-     </div>
-     <div className={`flex items-center  ${styles.Past-Members-cards}`}>
- 
-  
-        <b> Shivam Rajguru</b> (B.tech project student, 2020-2021)
-    
-     </div>
-     <div className={`flex items-center  ${styles.Past-Members-cards}`}>
+
+    <Past_Members/>
+     <div className={`flex items-center  ${styles.Past_Members-cards}`}>
  
   
         <b> Shivam Rajguru</b> (B.tech project student, 2020-2021)
@@ -649,27 +223,7 @@ const Members = () =>  {
            <div>(Associate Professor, Mahindra Ecole Centrale, Hyderabad)</div> 
 
         </div>
-        <div className={`flex flex-col justify-center ${styles.Collaberators-cards}`}>
-
-            <div><b>   Dr. Dibakar Roy Chowdhury </b></div>  
-             
-             <div>(Associate Professor, Mahindra Ecole Centrale, Hyderabad)</div> 
-
-          </div>
-          <div className={`flex flex-col justify-center ${styles.Collaberators-cards}`}>
-
-            <div><b>   Dr. Dibakar Roy Chowdhury </b></div>  
-             
-             <div>(Associate Professor, Mahindra Ecole Centrale, Hyderabad)</div> 
-
-          </div>
-          <div className={`flex flex-col justify-center ${styles.Collaberators-cards}`}>
-
-            <div><b>   Dr. Dibakar Roy Chowdhury </b></div>  
-             
-             <div>(Associate Professor, Mahindra Ecole Centrale, Hyderabad)</div> 
-
-          </div>
+          <Collaberators_cards/>
     </div>
 <br/>
     <div className={`flex items-center justify-center ${styles.load-BUtton}`}>
