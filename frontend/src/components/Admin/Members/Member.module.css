@@ -230,7 +230,26 @@ color: #1C1C1C;
         width: 15vw;
         /* height: 80px; */
     }
-
+    .Research-Group-Content{
+        height: 800px;
+        flex-direction: column;
+      padding-right: 2vw;
+        }
+        .height-1{
+            height: 400px;
+            width: 90vw;
+            
+        }
+        .Research-Group{
+            height: 950px;
+            justify-content: space-evenly;
+        }
+        .height-3{
+            height: 400px;
+            width: 85vw;
+          justify-content:center ;
+         
+        }
 }
 @media screen and (max-width: 780px) {
     .cards{
@@ -246,10 +265,18 @@ color: #1C1C1C;
     flex-direction: row;
  
     }
-  
+    .height-3{
+        height: 400px;
+        width: 90vw;
+      justify-content:center ;
+     
+    } 
     .Load-button{
         width: 22vw;
         /* height: 80px; */
+    }
+    .Research-Group{
+        margin-bottom: 20px;
     }
 }
 @media screen and (max-width: 900px) {
@@ -269,7 +296,17 @@ color: #1C1C1C;
    
         }
 }
-
+@media screen and (max-width: 550px) {
+    .height-3{
+        height: 600px;
+        width: 90vw;
+      justify-content:center ;
+     
+    } 
+    .Research-Group{
+        margin-bottom: 70px;
+    }
+}
 
 
 
