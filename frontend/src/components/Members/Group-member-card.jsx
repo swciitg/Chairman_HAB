@@ -1,5 +1,5 @@
-import styles from "./Member.modules.css";
-import Pic from'./pic.png';
+import styles from "./Members.modules.css";
+import Pic from './pic.png';
 const Group_member_cards = () =>  {
     
     return (

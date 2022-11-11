@@ -1,4 +1,4 @@
-import styles from "./Member.modules.css";
+import styles from "./Members.modules.css";
 import Pic from'./pic.png';
 const Collaberators_cards = () =>  {
     
