@@ -1,0 +1,313 @@
+body{
+    /* background: linear-gradient(180deg, rgba(165, 190, 226, 0.4) -5.54%, rgba(227, 234, 245, 0) 100%); */
+    background-repeat: no-repeat;
+ 
+}
+.main-body{
+    padding-left: 4vw;
+    padding-right: 4vw;
+
+ 
+  
+}
+.Research-Group-Content{
+    height: 400px;
+  padding-right: 2vw;
+    }
+.img-height-1{
+        height: 330px !important; 
+        width:330px !important ;
+    }
+.Research-Group-heading{
+        height: 100px;
+        font-family: 'Raleway';
+font-style: normal;
+font-weight: 600;
+font-size: 34px;
+line-height: 44px;
+width: 90vw;
+        }
+.Research-Group-details-1{
+
+letter-spacing: 3.22%;
+font-family: 'Raleway';
+font-style: normal;
+font-weight: 600;
+font-size: 25px;
+overflow-wrap: break-word;
+line-height: 30px;
+}
+.Research-Group-details-2{
+
+    letter-spacing: 3.22%;
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 30px;
+    overflow-wrap: break-word;
+    }
+    .Research-Group-details-3{
+
+        letter-spacing: 3.22%;
+        font-family: 'Raleway';
+        font-style: normal;
+        font-weight: 300;
+        font-size: 25px;
+        line-height: 30px;
+        overflow-wrap: break-word;
+        }
+
+.Research-Group-details-3 a{
+    text-decoration-style: none;
+    color: #0033ffcc;
+}
+.Research-Group-ids{
+    color:#0095ffcc;
+    overflow-wrap: break-word;
+}
+.Research-Group{
+    height: 550px;
+    justify-content: space-evenly;
+}
+.height-2{
+    height: 400px;
+   
+}
+.Members-cards{
+height: 480px;
+width: 550px;
+margin: 10px 15px;
+
+/* width: 550px;  */
+width: 43vw;
+margin: 10px 0px;
+border-radius: 10px;
+border: 1px solid rgba(215, 221, 225, 1);
+}
+.Members-cards-img img{
+    height: 135px;
+    width: 135px;
+    border-radius: 75px;
+}
+.height-1{
+    height: 400px;
+    width: 25vw;
+    
+}
+.height-3{
+    height: 400px;
+    width: 55vw;
+  justify-content:center ;
+ 
+}
+.height-4{
+    height: 400px;
+    /* width: 50vw; */
+    padding-right: 2vw;
+    padding-left: 2vw;
+}
+.cards{
+    display: flex;
+  justify-content: space-between;
+    width: 90vw;
+    flex-wrap: wrap;
+}
+.Members-cards-img{
+    margin-left: 1vw;
+    margin-right: 1vw;
+    width: 170px;
+    box-sizing: border-box;
+}
+.Members-cards-content{
+    width: 320px;
+    box-sizing: border-box;
+
+}
+.Alumni-cards{
+    height: 290px;
+    /* width: 550px;  */
+    width: 43vw;
+    margin: 15px 0px;
+
+border: 1px solid rgba(215, 221, 225, 1);
+border-radius: 10px;
+}
+.Past-Members-cards{
+    margin: 8px;
+    border: 1px solid rgba(215, 221, 225, 1);
+    border-radius: 10px; 
+    width: 90vw;
+    height: 60px;
+    padding-left: 5vw;
+    
+font-family: 'Raleway';
+font-style: normal;
+
+font-size: 25px;
+line-height: 30px;
+letter-spacing: 0.0322em;
+color: #1C1C1C;
+
+}
+.Collaberators-cards{
+    margin: 8px;
+    border: 1px solid rgba(215, 221, 225, 1);
+    border-radius: 10px; 
+    width: 90vw;
+    height: 100px;
+    padding-left: 5vw;
+    
+font-family: 'Raleway';
+font-style: normal;
+
+font-size: 25px;
+line-height: 30px;
+letter-spacing: 0.0322em;
+color: #1C1C1C;
+
+}
+.Load-button{
+ 
+    border: 1px solid rgba(215, 221, 225, 1);
+    border-radius: 10px; 
+    width: 10vw;
+    height: 55px;
+   
+    
+
+    font-family: 'Red Hat Display';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 19px;
+ 
+    
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    
+    color: rgba(28, 28, 28, 0.8);
+}
+.drop-arrow{
+    font-size: 15px;
+    font-weight: 600;
+    padding-bottom: 6%;
+    padding-left: 5%;
+}
+.Research-Group , .Group-Members , .Past-Members , .Alumni , .Collaberators{
+    margin-bottom: 70px;
+}
+@media screen and (max-width: 1170px) {
+    .Alumni-cards{
+        min-width: 350px;
+        width: 38vw;
+        height: 430px; 
+      
+    flex-direction: column;
+  
+    }
+    .Members-cards{
+      
+        min-width: 380px;
+        width: 40vw;
+        height: 620px;
+        margin: 15px 0px;
+        
+        flex-direction: column;
+   
+        }
+    .Members-cards-img img{
+        height: 140px;
+        width: 140px;
+        border-radius: 70px;
+    }
+    .Members-cards-img{
+        width: 100%;
+        height: 170px;
+        box-sizing: border-box;
+    }
+    .Load-button{
+        width: 15vw;
+        /* height: 80px; */
+    }
+    .Research-Group-Content{
+        height: 800px;
+        flex-direction: column;
+      padding-right: 2vw;
+        }
+        .height-1{
+            height: 400px;
+            width: 90vw;
+            
+        }
+        .Research-Group{
+            height: 950px;
+            justify-content: space-evenly;
+        }
+        .height-3{
+            height: 400px;
+            width: 85vw;
+          justify-content:center ;
+         
+        }
+}
+@media screen and (max-width: 780px) {
+    .cards{
+
+      justify-content: center;
+        
+    }
+    .Alumni-cards{
+        min-width: 450px;
+        width: 70vw;
+        height: 430px; 
+      
+    flex-direction: row;
+ 
+    }
+    .height-3{
+        height: 400px;
+        width: 90vw;
+      justify-content:center ;
+     
+    } 
+    .Load-button{
+        width: 22vw;
+        /* height: 80px; */
+    }
+    .Research-Group{
+        margin-bottom: 20px;
+    }
+}
+@media screen and (max-width: 900px) {
+    .wild-cards{
+
+        justify-content: center;
+          
+      }
+    .Members-cards{
+      
+        min-width: 450px;
+        width: 70vw;
+        height:450px;
+        margin: 15px 0px;
+        
+        flex-direction: row;
+   
+        }
+}
+@media screen and (max-width: 550px) {
+    .height-3{
+        height: 600px;
+        width: 90vw;
+      justify-content:center ;
+     
+    } 
+    .Research-Group{
+        margin-bottom: 70px;
+    }
+}
+
+
+
+
