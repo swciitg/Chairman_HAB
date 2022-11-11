@@ -1,10 +1,10 @@
 import styles from "./Members.modules.css";
 import Pic from'./pic.png';
-const Collaberators_cards = () =>  {
+const Collaberatorscards = () =>  {
     
     return (
 
-        <div className={`flex flex-col justify-center ${styles.Collaberators_cards}`}>
+        <div className={`flex flex-col justify-center ${styles.Collaberatorscards}`}>
 
         <div><b>   Dr. Dibakar Roy Chowdhury </b></div>  
          
@@ -14,4 +14,4 @@ const Collaberators_cards = () =>  {
 
         );
     }
-export default Collaberators_cards;
+export default Collaberatorscards;

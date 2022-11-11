@@ -1,7 +1,7 @@
 .bottombar{
     background-color:  #1E2532;
     width: 100vw;
-   position: relative;
+   position: fixed;
    bottom: 0%;
     color: #FFFFFF;
 }

@@ -1,9 +1,9 @@
 import styles from "./Members.modules.css";
 import Pic from'./pic.png';
-const Past_Members = () =>  {
+const PastMembers = () =>  {
     
     return (
-      <div className={`flex items-center  ${styles.Past_Members_cards}`}>
+      <div className={`flex items-center  ${styles.PastMemberscards}`}>
  
   
       <b> Shivam Rajguru</b> (B.tech project student, 2020-2021)
@@ -11,4 +11,4 @@ const Past_Members = () =>  {
    </div>
    );
 }
-export default Past_Members;
+export default PastMembers;
