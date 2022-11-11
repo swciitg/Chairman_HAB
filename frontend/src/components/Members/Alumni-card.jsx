@@ -1,4 +1,4 @@
-import styles from "./Members.module.css"
+import styles from "./Members.modules.css";
 import Pic from'./pic.png';
 const Alumni_cards = () =>  {
     
