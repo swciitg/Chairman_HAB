@@ -24,7 +24,7 @@ function App() {
 
       <BrowserRouter basename={BASEURL}>
         <Header />
-        <Footer />
+        
         <Routes>
           <Route path="/admin/*" exact element={<AdminScreen />} />
           <Route path="/*" exact element={<HomeScreen />} />
@@ -33,6 +33,7 @@ function App() {
           <Route path="/publications/*" exact element={<PublicationsScreen />} />
           <Route path="/members/*" exact element={<MembersScreen />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
       <Toaster />
     </>
