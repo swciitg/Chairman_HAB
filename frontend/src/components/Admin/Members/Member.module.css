@@ -79,6 +79,9 @@ height: 480px;
 width: 550px;
 margin: 10px 15px;
 
+/* width: 550px;  */
+width: 43vw;
+margin: 10px 0px;
 border-radius: 10px;
 border: 1px solid rgba(215, 221, 225, 1);
 }
@@ -106,7 +109,7 @@ border: 1px solid rgba(215, 221, 225, 1);
 }
 .cards{
     display: flex;
-  
+  justify-content: space-between;
     width: 90vw;
     flex-wrap: wrap;
 }
@@ -123,13 +126,14 @@ border: 1px solid rgba(215, 221, 225, 1);
 }
 .Alumni-cards{
     height: 290px;
-    width: 550px; 
-    margin: 10px 15px;
+    /* width: 550px;  */
+    width: 43vw;
+    margin: 15px 0px;
 
 border: 1px solid rgba(215, 221, 225, 1);
 border-radius: 10px;
 }
-.Past_Members-cards{
+.Past-Members-cards{
     margin: 8px;
     border: 1px solid rgba(215, 221, 225, 1);
     border-radius: 10px; 
@@ -190,6 +194,83 @@ color: #1C1C1C;
     padding-bottom: 6%;
     padding-left: 5%;
 }
-.Research-Group , .Group_Members , .Past_Members , .Alumni , .Collaberators{
+.Research-Group , .Group-Members , .Past-Members , .Alumni , .Collaberators{
     margin-bottom: 70px;
 }
+@media screen and (max-width: 1170px) {
+    .Alumni-cards{
+        min-width: 350px;
+        width: 38vw;
+        height: 430px; 
+      
+    flex-direction: column;
+  
+    }
+    .Members-cards{
+      
+        min-width: 380px;
+        width: 40vw;
+        height: 620px;
+        margin: 15px 0px;
+        
+        flex-direction: column;
+   
+        }
+    .Members-cards-img img{
+        height: 140px;
+        width: 140px;
+        border-radius: 70px;
+    }
+    .Members-cards-img{
+        width: 100%;
+        height: 170px;
+        box-sizing: border-box;
+    }
+    .Load-button{
+        width: 15vw;
+        /* height: 80px; */
+    }
+
+}
+@media screen and (max-width: 780px) {
+    .cards{
+
+      justify-content: center;
+        
+    }
+    .Alumni-cards{
+        min-width: 450px;
+        width: 70vw;
+        height: 430px; 
+      
+    flex-direction: row;
+ 
+    }
+  
+    .Load-button{
+        width: 22vw;
+        /* height: 80px; */
+    }
+}
+@media screen and (max-width: 900px) {
+    .wild-cards{
+
+        justify-content: center;
+          
+      }
+    .Members-cards{
+      
+        min-width: 450px;
+        width: 70vw;
+        height:450px;
+        margin: 15px 0px;
+        
+        flex-direction: row;
+   
+        }
+}
+
+
+
+
+

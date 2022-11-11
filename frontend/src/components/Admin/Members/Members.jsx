@@ -82,7 +82,7 @@ const Members = () =>  {
     <br/>
 
     <br/>
-          <div className={`flex  ${styles.cards} `}>
+          <div className={`flex  ${styles.cards} ${styles.wild-cards} `}>
     <div className={`flex items-center justify-center  ${styles.Members-cards} `}>
        <div className={` ${styles.Members-cards-img}  flex justify-center items-center w-1/3`}>
 <img scr={Pic} alt=""/>
