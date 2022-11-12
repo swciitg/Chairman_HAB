@@ -1,7 +1,7 @@
 import Alumnicards from "./Alumni-card";
 import Collaberatorscards from "./Collaberators-card";
 import Groupmembercards from "./Group-member-card";
-import styles from "./Member.module.css"
+import styles from "./Members.module.css"
 import PastMembers from "./Past-Members-card";
 import Pic from'./pic.png';
 const Members = () =>  {
@@ -13,7 +13,7 @@ const Members = () =>  {
 <div className={`${styles.research_group} flex flex-col  `}>
     <div className={` ${styles.research_groupheading} flex items-center `}>  Research Group</div>
     <div className={`flex items-center justify-evenly ${styles.research_groupcontent}  `}>
-        <div className={` flex items-center justify-center height-1`}>
+        <div className={` flex items-center justify-center ${styles.height1}`}>
             <img className={` ${styles.imgheight1}`} src={Pic} alt=""/>
         </div>
         <div className={` flex justify-center items-center  ${styles.height3}`}>

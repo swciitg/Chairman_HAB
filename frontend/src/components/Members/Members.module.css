@@ -200,7 +200,7 @@ color: #1C1C1C;
     margin-bottom: 70px;
 }
 @media screen and (max-width: 1170px) {
-    .alumnicards{
+    .alumni_cards{
         min-width: 350px;
         width: 38vw;
         height: 430px; 
@@ -232,7 +232,7 @@ color: #1C1C1C;
         width: 15vw;
         /* height: 80px; */
     }
-    .research_groupContent{
+    .research_groupcontent{
         height: 800px;
         flex-direction: column;
       padding-right: 2vw;
@@ -291,7 +291,7 @@ color: #1C1C1C;
       
         min-width: 450px;
         width: 70vw;
-        height:450px;
+        height:500px;
         margin: 15px 0px;
         
         flex-direction: row;
