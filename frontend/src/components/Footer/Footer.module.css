@@ -1,7 +1,8 @@
 .bottombar{
     background-color:  #1E2532;
     width: 100vw;
-   position: sticky;
+ 
+
    bottom: 0%;
     color: #FFFFFF;
 }

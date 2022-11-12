@@ -5,7 +5,7 @@ const Alumnicards = () =>  {
     return (
         <div className={`flex items-center justify-center   ${styles.alumni_cards}`}>
         <div className={` ${styles.members_cardsimg} flex justify-center items-center w-1/3`}>
-        <img scr={Pic} alt=""/>
+          <img scr={Pic} alt=""/>
         </div>
         <div className={`${styles.members_cardscontent}  flex  flex-col `}>
         

@@ -138,8 +138,6 @@ const Members = () =>  {
         </button>
     </div>
 </div>
-
-
 </div>
         );
     }

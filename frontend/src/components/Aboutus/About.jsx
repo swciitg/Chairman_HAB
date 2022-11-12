@@ -15,7 +15,7 @@ const Aboutus = () =>  {
         
             </div>
             <br/>
-            <div className={`${styles.load_geet} flex items-center justify-center`}>
+            <div className={`${styles.loadgeet} flex items-center justify-center`}>
                 <button>
                     <a href="" className={`${styles.Load_button} flex items-center justify-center`}> LOAD MORE<span className={`${styles.drop_arrow} `}>&#8964; </span>  </a>
                 </button>
@@ -37,7 +37,7 @@ const Aboutus = () =>  {
         
             </div>
             <br/>
-            <div className={`${styles.load_geet} flex items-center justify-center`}>
+            <div className={`${styles.loadgeet} flex items-center justify-center`}>
                 <button>
                     <a href="" className={`${styles.Load_button} flex items-center justify-center`}> LOAD MORE<span className={`${styles.drop_arrow} `}>&#8964; </span>  </a>
                 </button>
