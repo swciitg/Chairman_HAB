@@ -5,7 +5,7 @@ const Alumnicards = () =>  {
     return (
         <div className={`flex items-center justify-center   ${styles.Alumnicards}`}>
         <div className={` ${styles.Memberscardsimg} flex justify-center items-center w-1/3`}>
- <img scr={Pic} alt=""/>
+        <img scr={Pic} alt=""/>
         </div>
         <div className={`${styles.Memberscardscontent}  flex  flex-col `}>
         

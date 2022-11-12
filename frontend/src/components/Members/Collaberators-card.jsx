@@ -1,5 +1,5 @@
 import styles from "./Members.modules.css";
-import Pic from'./pic.png';
+
 const Collaberatorscards = () =>  {
     
     return (
