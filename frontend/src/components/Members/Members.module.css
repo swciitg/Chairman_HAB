@@ -10,7 +10,7 @@ body{
  height: 400vh;
   
 }
-.ResearchGroupContent{
+.research_groupcontent{
     height: 400px;
   padding-right: 2vw;
     }
@@ -18,7 +18,7 @@ body{
         height: 330px !important; 
         width:330px !important ;
     }
-.ResearchGroupheading{
+.research_groupheading{
         height: 100px;
         font-family: 'Raleway';
 font-style: normal;
@@ -27,7 +27,7 @@ font-size: 34px;
 line-height: 44px;
 width: 90vw;
         }
-.ResearchGroupdetails1{
+.research_groupdetails1{
 
 letter-spacing: 3.22%;
 font-family: 'Raleway';
@@ -37,7 +37,7 @@ font-size: 25px;
 overflow-wrap: break-word;
 line-height: 30px;
 }
-.ResearchGroupdetails2{
+.research_groupdetails2{
 
     letter-spacing: 3.22%;
     font-family: 'Raleway';
@@ -47,7 +47,7 @@ line-height: 30px;
     line-height: 30px;
     overflow-wrap: break-word;
     }
-    .ResearchGroupdetails3{
+    .research_groupdetails3{
 
         letter-spacing: 3.22%;
         font-family: 'Raleway';
@@ -58,15 +58,15 @@ line-height: 30px;
         overflow-wrap: break-word;
         }
 
-.ResearchGroupdetails3 a{
+.research_groupdetails3 a{
     text-decoration-style: none;
     color: #0033ffcc;
 }
-.ResearchGroupids{
+.research_groupids{
     color:#0095ffcc;
     overflow-wrap: break-word;
 }
-.ResearchGroup{
+.research_group{
     height: 550px;
     justify-content: space-evenly;
 }
@@ -74,7 +74,8 @@ line-height: 30px;
     height: 400px;
    
 }
-.Memberscards{
+
+.members_cards{
 height: 480px;
 width: 550px;
 margin: 10px 15px;
@@ -85,7 +86,7 @@ margin: 10px 0px;
 border-radius: 10px;
 border: 1px solid rgba(215, 221, 225, 1);
 }
-.Memberscardsimg img{
+.members_cardsimg img{
     height: 135px;
     width: 135px;
     border-radius: 75px;
@@ -113,18 +114,19 @@ border: 1px solid rgba(215, 221, 225, 1);
     width: 90vw;
     flex-wrap: wrap;
 }
-.Memberscardsimg{
+/* k */
+.members_cardsimg{
     margin-left: 1vw;
     margin-right: 1vw;
     width: 170px;
     box-sizing: border-box;
 }
-.Memberscardscontent{
+.members_cardscontent{
     width: 320px;
     box-sizing: border-box;
 
 }
-.Alumnicards{
+.alumni_cards{
     height: 290px;
     /* width: 550px;  */
     width: 43vw;
@@ -133,7 +135,7 @@ border: 1px solid rgba(215, 221, 225, 1);
 border: 1px solid rgba(215, 221, 225, 1);
 border-radius: 10px;
 }
-.PastMemberscards{
+.pastmembers_cards{
     margin: 8px;
     border: 1px solid rgba(215, 221, 225, 1);
     border-radius: 10px; 
@@ -150,7 +152,7 @@ letter-spacing: 0.0322em;
 color: #1C1C1C;
 
 }
-.Collaberatorscards{
+.collaberators_cards{
     margin: 8px;
     border: 1px solid rgba(215, 221, 225, 1);
     border-radius: 10px; 
@@ -167,7 +169,7 @@ letter-spacing: 0.0322em;
 color: #1C1C1C;
 
 }
-.Loadbutton{
+.load_button{
  
     border: 1px solid rgba(215, 221, 225, 1);
     border-radius: 10px; 
@@ -188,17 +190,17 @@ color: #1C1C1C;
     
     color: rgba(28, 28, 28, 0.8);
 }
-.droparrow{
+.drop_arrow{
     font-size: 15px;
     font-weight: 600;
     padding-bottom: 6%;
     padding-left: 5%;
 }
-.ResearchGroup , .GroupMembers , .PastMembers , .Alumni , .Collaberators{
+.research_group , .group_members , .past_members , .alumni , .collaberators{
     margin-bottom: 70px;
 }
 @media screen and (max-width: 1170px) {
-    .Alumnicards{
+    .alumnicards{
         min-width: 350px;
         width: 38vw;
         height: 430px; 
@@ -206,7 +208,7 @@ color: #1C1C1C;
     flex-direction: column;
   
     }
-    .Memberscards{
+    .members_cards{
       
         min-width: 380px;
         width: 40vw;
@@ -216,21 +218,21 @@ color: #1C1C1C;
         flex-direction: column;
    
         }
-    .Memberscardsimg img{
+    .members_cardsimg img{
         height: 140px;
         width: 140px;
         border-radius: 70px;
     }
-    .Memberscardsimg{
+    .members_cardsimg{
         width: 100%;
         height: 170px;
         box-sizing: border-box;
     }
-    .Loadbutton{
+    .load_button{
         width: 15vw;
         /* height: 80px; */
     }
-    .ResearchGroupContent{
+    .research_groupContent{
         height: 800px;
         flex-direction: column;
       padding-right: 2vw;
@@ -240,7 +242,7 @@ color: #1C1C1C;
             width: 90vw;
             
         }
-        .ResearchGroup{
+        .research_group{
             height: 950px;
             justify-content: space-evenly;
         }
@@ -257,7 +259,7 @@ color: #1C1C1C;
       justify-content: center;
         
     }
-    .Alumnicards{
+    .alumni_cards{
         min-width: 450px;
         width: 70vw;
         height: 430px; 
@@ -271,21 +273,21 @@ color: #1C1C1C;
       justify-content:center ;
      
     } 
-    .Loadbutton{
+    .load_button{
         width: 22vw;
         /* height: 80px; */
     }
-    .ResearchGroup{
+    .research_group{
         margin-bottom: 20px;
     }
 }
 @media screen and (max-width: 900px) {
-    .wildcards{
+    .wild_cards{
 
         justify-content: center;
           
       }
-    .Memberscards{
+    .members_cards{
       
         min-width: 450px;
         width: 70vw;
@@ -303,7 +305,7 @@ color: #1C1C1C;
       justify-content:center ;
      
     } 
-    .ResearchGroup{
+    .research_group{
         margin-bottom: 70px;
     }
 }
