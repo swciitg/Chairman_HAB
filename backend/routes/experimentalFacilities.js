@@ -15,14 +15,14 @@ const storage = multer.diskStorage({
 
 const ExperimentalFacilities = require('../controller/experimentalFacilities');
 const upload = multer({ storage: storage });
-router.post('/:experimentalFacilities', upload.single("image"), ExperimentalFacilities.postExperimentalFacility);
+router.post('/', upload.single("image"), ExperimentalFacilities.postExperimentalFacility);
 
-router.get('/:experimentalFacilities/:id', ExperimentalFacilities.getExperimentalFacilityImage);
+router.get('/:id', ExperimentalFacilities.getExperimentalFacilityImage);
 
-router.get('/:experimentalFacilities', ExperimentalFacilities.getExperimentalFacilities);
+router.get('/', ExperimentalFacilities.getExperimentalFacilities);
 
-router.put('/:experimentalFacilities/:id', upload.single("image"), ExperimentalFacilities.editExperimentalFacility);
+router.put('/:id', upload.single("image"), ExperimentalFacilities.editExperimentalFacility);
 
-router.delete('/:experimentalFacilities/:id', ExperimentalFacilities.deleteExperimentalFacility);
+router.delete('/:id', ExperimentalFacilities.deleteExperimentalFacility);
 
 module.exports = router;

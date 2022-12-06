@@ -2,16 +2,16 @@ const express = require('express');
 
 const router = express.Router();
 
-const UpdatesController = require('../controllers/updates');
+const UpdatesController = require('../controller/updates');
 
-router.get('/updates', UpdatesController.getUpdates);
+router.get('/', UpdatesController.getUpdates);
 
-router.propfind('/updates/:id', UpdatesController.findUpdates);
+router.propfind('/:id', UpdatesController.findUpdates);
 
-router.post('/updates', UpdatesController.postUpdates);
+router.post('/', UpdatesController.postUpdates);
 
-router.put('/updates/:id', UpdatesController.putUpdates);
+router.put('/:id', UpdatesController.editUpdates);
 
-router.delete('/updates/:id', UpdatesController.deleteUpdates);
+router.delete('/:id', UpdatesController.deleteUpdates);
 
 module.exports = router;

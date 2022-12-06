@@ -1,6 +1,6 @@
 const Books = require("../models/books");
 
-const factory = require("../handlerFactory");
+const factory = require("./handlerFactory");
 
 exports.getBook = async (req, res) => {
   try {

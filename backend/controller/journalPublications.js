@@ -1,6 +1,6 @@
 const JournalPublications = require("../models/journalPublications");
 
-const factory = require("../handlerFactory");
+const factory = require("./handlerFactory");
 
 exports.getJournalPublications = async (req, res) => {
   try {
