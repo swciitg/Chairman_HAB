@@ -42,9 +42,9 @@ exports.findJournalPublications = async (req, res) => {
 exports.postJournalPublications = async (req, res, next) => {
   try {
     var {
-      JournalPublicationtitle,
-      JournalPublicationname,
-      JournalPublicationBody,
+      journaltitle,
+      journalname,
+      journalBody,
     } = req.body;
 
     const doc = await new JournalPublications({
@@ -68,3 +68,4 @@ exports.postJournalPublications = async (req, res, next) => {
 exports.editJournalPublications = factory.updateOne(JournalPublications);
 
 exports.deleteJournalPublications = factory.deleteOne(JournalPublications);
+
