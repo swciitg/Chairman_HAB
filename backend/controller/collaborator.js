@@ -26,7 +26,7 @@ exports.getCollaborators = async (req, res) => {
 exports.findCollaborators = async (req, res) => {
   try {
 
-    const Collaborator = await Collaborators.find({}).sort("-creation");
+    const Collaborator = await Collaborators.findById(req.id).sort("-creation");
 
 
     res.status(200).json({

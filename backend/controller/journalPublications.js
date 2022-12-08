@@ -43,7 +43,7 @@ exports.findJournalPublications = async (req, res) => {
 
 exports.postJournalPublications = async (req, res, next) => {
   try {
-    var { JournalPublicationtitle, JournalPublicationname,JournalPublicationBody,} = req.body;
+    var { journaltitle, journalname,journalBody,} = req.body;
    
 
     const doc = await new JournalPublications({
