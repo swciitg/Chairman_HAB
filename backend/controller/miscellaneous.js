@@ -6,13 +6,10 @@ exports.getMiscellaneous = async (req, res) => {
   try {
     const Misc = await Miscellaneous.find({}).sort("-creation");
 
-
-
     res.status(200).json({
       status: "success",
       data: {
         Misc,
-     
       },
     });
   } catch (error) {
@@ -25,15 +22,12 @@ exports.getMiscellaneous = async (req, res) => {
 
 exports.findMiscellaneous = async (req, res) => {
   try {
-
     const Misc = await Miscellaneous.find({}).sort("-creation");
-
 
     res.status(200).json({
       status: "success",
       data: {
         Misc,
-       
       },
     });
   } catch (error) {
@@ -43,14 +37,14 @@ exports.findMiscellaneous = async (req, res) => {
 
 exports.postMiscellaneous = async (req, res, next) => {
   try {
-    var { Misctitle, Miscname,MiscBody,} = req.body;
-   
+    var { Misctitle, Miscname, MiscBody } = req.body;
 
     const doc = await new Miscellaneous({
-        Misctitle, Miscname,MiscBody,
+      Misctitle,
+      Miscname,
+      MiscBody,
     }).save();
 
-    
     res.status(201).json({
       status: "success",
       data: doc,
@@ -62,8 +56,6 @@ exports.postMiscellaneous = async (req, res, next) => {
       .json({ status: "Failed", message: "Request failed" });
   }
 };
-
-
 
 exports.editMiscellaneous = factory.updateOne(Miscellaneous);
 

@@ -1,6 +1,5 @@
 const About = require("../models/about");
 
-
 exports.getAbout = async (req, res) => {
     try{
         const AboutData = await About.findOne({});

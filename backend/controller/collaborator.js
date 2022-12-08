@@ -6,13 +6,10 @@ exports.getCollaborators = async (req, res) => {
   try {
     const Collaborator = await Collaborators.find({}).sort("-creation");
 
-
-
     res.status(200).json({
       status: "success",
       data: {
         Collaborator,
-     
       },
     });
   } catch (error) {
@@ -25,15 +22,12 @@ exports.getCollaborators = async (req, res) => {
 
 exports.findCollaborators = async (req, res) => {
   try {
-
     const Collaborator = await Collaborators.find({}).sort("-creation");
-
 
     res.status(200).json({
       status: "success",
       data: {
         Collaborator,
-       
       },
     });
   } catch (error) {
@@ -43,17 +37,16 @@ exports.findCollaborators = async (req, res) => {
 
 exports.postCollaborators = async (req, res, next) => {
   try {
-    var { collaboratorName,designation,universityName,countryName } = req.body;
-   
+    var { collaboratorName, designation, universityName, countryName } =
+      req.body;
 
     const doc = await new Collaborators({
-        collaboratorName,
-        designation,
-        universityName,
-        countryName,
+      collaboratorName,
+      designation,
+      universityName,
+      countryName,
     }).save();
 
-    
     res.status(201).json({
       status: "success",
       data: doc,
@@ -65,8 +58,6 @@ exports.postCollaborators = async (req, res, next) => {
       .json({ status: "Failed", message: "Request failed" });
   }
 };
-
-
 
 exports.editCollaborators = factory.updateOne(Collaborators);
 

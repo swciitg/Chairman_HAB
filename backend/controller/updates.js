@@ -6,13 +6,10 @@ exports.getUpdates = async (req, res) => {
   try {
     const Update = await Updates.find({}).sort("-creation");
 
-
-
     res.status(200).json({
       status: "success",
       data: {
         Update,
-     
       },
     });
   } catch (error) {
@@ -25,15 +22,12 @@ exports.getUpdates = async (req, res) => {
 
 exports.findUpdates = async (req, res) => {
   try {
-
     const Update = await Updates.find({}).sort("-creation");
-
 
     res.status(200).json({
       status: "success",
       data: {
         Update,
-       
       },
     });
   } catch (error) {
@@ -43,14 +37,13 @@ exports.findUpdates = async (req, res) => {
 
 exports.postUpdates = async (req, res, next) => {
   try {
-    var { title,description} = req.body;
-   
+    var { title, description } = req.body;
 
     const doc = await new Updates({
-        title,description
+      title,
+      description,
     }).save();
 
-    
     res.status(201).json({
       status: "success",
       data: doc,
@@ -62,8 +55,6 @@ exports.postUpdates = async (req, res, next) => {
       .json({ status: "Failed", message: "Request failed" });
   }
 };
-
-
 
 exports.editUpdates = factory.updateOne(Updates);
 

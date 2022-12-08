@@ -6,13 +6,10 @@ exports.getBook = async (req, res) => {
   try {
     const Book = await Books.find({}).sort("-creation");
 
-
-
     res.status(200).json({
       status: "success",
       data: {
         Book,
-     
       },
     });
   } catch (error) {
@@ -25,15 +22,12 @@ exports.getBook = async (req, res) => {
 
 exports.findBook = async (req, res) => {
   try {
-
     const Book = await Thesis.find({}).sort("-creation");
-
 
     res.status(200).json({
       status: "success",
       data: {
         Book,
-       
       },
     });
   } catch (error) {
@@ -43,14 +37,14 @@ exports.findBook = async (req, res) => {
 
 exports.postBook = async (req, res, next) => {
   try {
-    var { booktitle, bookname,bookBody,} = req.body;
-   
+    var { booktitle, bookname, bookBody } = req.body;
 
     const doc = await new Thesis({
-      booktitle, bookname, bookBody,
+      booktitle,
+      bookname,
+      bookBody,
     }).save();
 
-    
     res.status(201).json({
       status: "success",
       data: doc,
@@ -62,8 +56,6 @@ exports.postBook = async (req, res, next) => {
       .json({ status: "Failed", message: "Request failed" });
   }
 };
-
-
 
 exports.editBook = factory.updateOne(Books);
 
