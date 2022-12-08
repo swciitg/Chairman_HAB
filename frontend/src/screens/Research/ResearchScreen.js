@@ -2,13 +2,20 @@ import React, { useState } from "react";
 import Cards from "./VisCards";
 import HiddenCards from "./HiddenCards";
 import Swiper from "./Swiperr";
+import axios from "axios";
 
 const ResearchScreen = () => {
   const [state, setState] = useState(0);
   const [string, setString] = useState("SEE ALL");
 
+  const url = "http://localhost:5000/api/projects";
+  const promise = axios.get(url);
+  promise.then((res) => {
+    console.log(res.data.data.Project);
+  });
+
   const togglebtn = () => {
-    if (state == 0) {
+    if (state === 0) {
       setState(1);
       setString("SEE LESS");
     } else {

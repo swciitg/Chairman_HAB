@@ -68,7 +68,7 @@ app.use(
 app.use("/api/groupMembers", require("./routes/groupMembers"));
 app.use("/api/invitedTalks", require("./routes/invitedTalks"));
 app.use("/api/journalPublications", require("./routes/journalPublications"));
-app.use("/api/keyResearchAreas", require("./routes/keyReasearchArea"));
+app.use("/api/keyResearchArea", require("./routes/keyReasearchArea"));
 app.use("/api/miscellaneous", require("./routes/miscellaneous"));
 app.use("/api/pastMembers", require("./routes/pastMember"));
 app.use("/api/projects", require("./routes/projects"));
