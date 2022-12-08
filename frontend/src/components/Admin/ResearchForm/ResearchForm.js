@@ -1,28 +1,23 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const ProjectsForm = ({ type, formData }) => {
+const ResearchForm = ({ type, formData }) => {
   const [title, setTitle] = useState(
     formData && formData.title ? formData.title : ""
   );
 
-  const [fundingAgency, setFundingAgency] = useState(
-    formData && formData.funding_agency ? formData.funding_agency : ""
+  const [description, setdescription] = useState(
+    formData && formData.description ? formData.description : ""
   );
 
-  const [duration, setDuration] = useState(
-    formData && formData.duration ? formData.duration : ""
+  const [picture, setpicture] = useState(
+    formData && formData.picture ? formData.picture : ""
   );
 
-  const [investigator, setInvestigator] = useState(
-    formData && formData.investigator ? formData.investigator : ""
-  );
-
-  const link_id = formData && formData.id;
   let navigate = useNavigate();
   return (
     <>
-      <h1 className="text-3xl text-black pb-6">{type} Project</h1>
+      <h1 className="text-3xl text-black pb-6">{type} Key Research Areas</h1>
       <div className="flex flex-wrap justify-center">
         <div className="w-full lg:w-1/2 my-6 pr-0 lg:pr-2">
           <p className="text-xl pb-6 flex items-center">
@@ -49,46 +44,31 @@ const ProjectsForm = ({ type, formData }) => {
               </div>
 
               <div className="mt-2">
-                <label className="block text-sm text-gray-600" htmlFor="Funding Agency">
-                  Funding Agency
+                <label className="block text-sm text-gray-600" htmlFor="description">
+                  Description
                 </label>
                 <input
                   className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
                   id="funding_agency"
                   name="funding_agency"
                   type="text"
-                  onChange={(e) => setFundingAgency(e.target.value)}
-                  value={fundingAgency}
+                  onChange={(e) => setdescription(e.target.value)}
+                  value={description}
                   required
                 />
               </div>
 
               <div className="mt-2">
-                <label className="block text-sm text-gray-600" htmlFor="Duration">
-                  Duration
+                <label className="block text-sm text-gray-600" htmlFor="picture">
+                  Picture
                 </label>
                 <input
                   className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
-                  id="duration"
-                  name="duration"
-                  type="text"
-                  onChange={(e) => setDuration(e.target.value)}
-                  value={duration}
-                  required
-                />
-              </div>
-
-              <div className="mt-2">
-                <label className="block text-sm text-gray-600" htmlFor="Investigator">
-                  Investigator
-                </label>
-                <input
-                  className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
-                  id="investigator"
-                  name="investigator"
-                  type="text"
-                  onChange={(e) => setInvestigator(e.target.value)}
-                  value={investigator}
+                  id="picture"
+                  name="picture"
+                  type="file"
+                  onChange={(e) => setpicture(e.target.value)}
+                  value={picture}
                   required
                 />
               </div>
@@ -109,4 +89,4 @@ const ProjectsForm = ({ type, formData }) => {
   );
 };
 
-export default ProjectsForm;
+export default ResearchForm;
