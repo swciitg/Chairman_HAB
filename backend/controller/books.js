@@ -22,7 +22,7 @@ exports.getBook = async (req, res) => {
 
 exports.findBook = async (req, res) => {
   try {
-    const Book = await Thesis.find({}).sort("-creation");
+    const Book = await Books.find({}).sort("-creation");
 
     res.status(200).json({
       status: "success",
@@ -39,7 +39,7 @@ exports.postBook = async (req, res, next) => {
   try {
     var { booktitle, bookname, bookBody } = req.body;
 
-    const doc = await new Thesis({
+    const doc = await new Books({
       booktitle,
       bookname,
       bookBody,
@@ -60,3 +60,4 @@ exports.postBook = async (req, res, next) => {
 exports.editBook = factory.updateOne(Books);
 
 exports.deleteBook = factory.deleteOne(Books);
+

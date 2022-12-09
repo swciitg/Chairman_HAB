@@ -51,7 +51,7 @@ exports.postJournalPublications = async (req, res, next) => {
 
     res.status(201).json({
       status: "success",
-      data: doc,  
+      data: doc,
     });
   } catch (err) {
     console.log(err);
@@ -64,3 +64,4 @@ exports.postJournalPublications = async (req, res, next) => {
 exports.editJournalPublications = factory.updateOne(JournalPublications);
 
 exports.deleteJournalPublications = factory.deleteOne(JournalPublications);
+

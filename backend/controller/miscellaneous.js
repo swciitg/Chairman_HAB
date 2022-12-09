@@ -37,12 +37,12 @@ exports.findMiscellaneous = async (req, res) => {
 
 exports.postMiscellaneous = async (req, res, next) => {
   try {
-    var { Misctitle, Miscname, MiscBody } = req.body;
+    var { miscellaneousPostertitle, miscelaneousPostername, miscellaneousPoterBody } = req.body;
 
     const doc = await new Miscellaneous({
-      Misctitle,
-      Miscname,
-      MiscBody,
+      miscellaneousPostertitle,
+      miscelaneousPostername,
+      miscellaneousPoterBody,
     }).save();
 
     res.status(201).json({
@@ -60,3 +60,4 @@ exports.postMiscellaneous = async (req, res, next) => {
 exports.editMiscellaneous = factory.updateOne(Miscellaneous);
 
 exports.deleteMiscellaneous = factory.deleteOne(Miscellaneous);
+

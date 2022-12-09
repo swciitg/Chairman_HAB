@@ -11,7 +11,7 @@ app.set("view engine", "ejs");
 
 //connecting to db
 mongoose.connect(
-  "mongodb+srv://m001-student:m001-student-basics@sandbox.mfza7u2.mongodb.net/?retryWrites=true&w=majority'",
+  "mongodb+srv://m001-student:m001-student-basics@sandbox.mfza7u2.mongodb.net/?retryWrites=true&w=majority",
   {
     useUnifiedTopology: true,
     useNewUrlParser: true,
@@ -96,3 +96,4 @@ const port = process.env.PORT;
 app.listen(port || 5000, () => {
   console.log(`The server is listening at 5000`);
 });
+
