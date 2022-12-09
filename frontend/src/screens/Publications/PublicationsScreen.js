@@ -8,7 +8,7 @@ const PublicationsScreen = () => {
   const [string, setString] = useState("LOAD ALL v");
 
   const togglebtn = () => {
-    if (state == 0) {
+    if (state === 0) {
       setState(1);
       setString("LOAD LESS ^");
     } else {
@@ -17,8 +17,6 @@ const PublicationsScreen = () => {
         return "LOAD ALL v";
       });
     }
-    // state == 0 && setState(1) && setString("SEE LESS");
-    // state == 1 && setState(0) && setString("SEE MORE");
   };
 
   return (

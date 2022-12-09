@@ -1,21 +1,25 @@
 import React from "react";
 import Card from "./Card";
+import axios from "axios";
 
-export default () => {
+let data = 0;
+const url = "http://localhost:5000/api/journalPublications";
+const promise = axios.get(url);
+promise.then((res) => {
+  data = res.data.data.JournalPublication;
+  console.log(data);
+});
+
+const VisCards = () => {
   return (
     <>
-      <Card
-        head="Angana Bhattacharya, Rakesh Sarkar and Gagan Kumar, “Excitation of near field coupled dual toroidal resonances in a bilayer terahertz metamaterial configuration.”"
-        bold="Journal of Physics D: Applied Physics 54,285102(2021)."
-      />
-      <Card
-        head="Angana Bhattacharya, Rakesh Sarkar and Gagan Kumar, “Excitation of near field coupled dual toroidal resonances in a bilayer terahertz metamaterial configuration.”"
-        bold="Journal of Physics D: Applied Physics 54,285102(2021)."
-      />
-      <Card
-        head="Angana Bhattacharya, Rakesh Sarkar and Gagan Kumar, “Excitation of near field coupled dual toroidal resonances in a bilayer terahertz metamaterial configuration.”"
-        bold="Journal of Physics D: Applied Physics 54,285102(2021)."
-      />
+      {data.slice(0, 3).map((item, index) => {
+        return (
+          <Card key={index} head={item.journaltitle} bold={item.journalname} />
+        );
+      })}
     </>
   );
 };
+
+export default VisCards;
