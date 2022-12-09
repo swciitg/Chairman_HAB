@@ -32,7 +32,7 @@ const [alumniPhone, setalumniPhone] = useState(
   let navigate = useNavigate();
   return (
     <>
-      <h1 className="text-3xl text-black pb-6">{type}Our Alumni</h1>
+      <h1 className="text-3xl text-black pb-6">{type} Alumni</h1>
       <div className="flex flex-wrap justify-center">
         <div className="w-full lg:w-1/2 my-6 pr-0 lg:pr-2">
           <p className="text-xl pb-6 flex items-center">
@@ -81,7 +81,7 @@ const [alumniPhone, setalumniPhone] = useState(
                   className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
                   id="alumniimage"
                   name="alumniimage"
-                  type="text"
+                  type="file"
                   onChange={(e) => setalumniImage(e.target.value)}
                   value={alumniImage}
                   required
