@@ -1,17 +1,17 @@
 import React, { useEffect } from 'react'
 import { Link } from "react-router-dom";
 
-const GroupMembersScreen = () => {
-    const groupMembers = [{"name" : "Sample name", "designation" : "Sample Designation", "imagePath" : "Sample path", "researchInterest" : "Sample research interests", "googleScholar" : "Sample link", "email" : "Sample E-Mail", "phone" : "Sample phone number", "priorityNumber" : "Sample priority number"}]
+const PastMembersScreen = () => {
+    const pastmembers = [{"name" : "Name will be here", "qualification" : "Qualification will be here", "year" : "Year of project completion"}]
     return (
         <>
-          <h1 className="text-3xl text-black pb-6">Group Members</h1>
+          <h1 className="text-3xl text-black pb-6">Past Members</h1>
           <div className="mt-6">
             <Link
               className="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded"
-              to={`/admin/GroupMembers/add`}
+              to={`/admin/pastmembers/add`}
             >
-              Add Group Members
+              Add Past Members
             </Link>
           </div>
           <div className="w-full mt-6 overflow-auto">
@@ -23,25 +23,10 @@ const GroupMembersScreen = () => {
                       Name
                     </th>
                     <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
-                      Designation
+                      Qualification of Student
                     </th>
                     <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
-                      Image Path
-                    </th>
-                    <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
-                      Research Interest
-                    </th>
-                    <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
-                      Google Scholar
-                    </th>
-                    <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
-                      E-Mail
-                    </th>
-                    <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
-                      Phone
-                    </th>
-                    <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
-                      Priority Number
+                      Year of Project Compeletion
                     </th>
                     <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                       Edit
@@ -52,36 +37,21 @@ const GroupMembersScreen = () => {
                   </tr>
                 </thead>
                 <tbody className="text-gray-700">
-                  {groupMembers.length !== 0 &&
-                    groupMembers.map((data, idx) => {
+                  {pastmembers.length !== 0 &&
+                    pastmembers.map((data, idx) => {
                       return (
                         <tr key={idx}>
                           <td className="text-left py-3 px-4">{data?.name}</td>
                           <td className="text-left py-3 px-4">
-                          {data?.designation}
+                          {data?.qualification}
                           </td>
                           <td className="image-left py-3 px-4">
-                          {data?.imagePath}
-                          </td>
-                          <td className="image-left py-3 px-4">
-                          {data?.researchInterest}
-                          </td>
-                          <td className="image-left py-3 px-4">
-                          {data?.googleScholar}
-                          </td>
-                          <td className="image-left py-3 px-4">
-                          {data?.email}
-                          </td>
-                          <td className="image-left py-3 px-4">
-                          {data?.phone}
-                          </td>
-                          <td className="image-left py-3 px-4">
-                          {data?.priorityNumber}
+                          {data?.year}
                           </td>
                           <td className="text-left py-3 px-4">
                             <Link
                               to={{
-                                pathname: `/admin/GroupMembers/${data?.id}`,
+                                pathname: `/admin/pastmembers/${data?.id}`,
                               }}
                               state={data}
                             >
@@ -109,4 +79,4 @@ const GroupMembersScreen = () => {
       );
     };
     
-    export default GroupMembersScreen;
+    export default PastMembersScreen;
