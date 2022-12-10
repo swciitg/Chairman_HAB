@@ -11,17 +11,17 @@ app.set("view engine", "ejs");
 
 //connecting to db
 mongoose.connect(
-  "mongodb+srv://m001-student:m001-student-basics@sandbox.mfza7u2.mongodb.net/?retryWrites=true&w=majority",
-  {
-    useUnifiedTopology: true,
-    useNewUrlParser: true,
-  },
-  (err) => {
-    if (err) console.log(err);
-    else console.log("DB connection established");
-  }
-);
-
+    "mongodb+srv://m001-student:m001-student-basics@sandbox.mfza7u2.mongodb.net/?retryWrites=true", {
+        useUnifiedTopology: true,
+        useNewUrlParser: true,
+       
+    },
+    (err) => {
+        if (err) console.log(err);
+        else console.log("DB connection established");
+    });
+    
+    
 // cors
 var corsOptions = {
   origin: true,

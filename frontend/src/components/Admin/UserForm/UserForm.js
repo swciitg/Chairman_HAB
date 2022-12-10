@@ -1,27 +1,31 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const CollaboratorsForm = ({ type, formData }) => {
-  const [name, setname] = useState(
-    formData && formData.name ? formData.name : ""
+const UserForm = ({ type, formData }) => {
+  const [outlookID, setoutlookID] = useState(
+    formData && formData.outlookID ? formData.outlookID : ""
   );
 
-  const [designation, setdesignation] = useState(
-    formData && formData.designation ? formData.designation : ""
+const [name, setname] = useState(
+  formData && formData.name ? formData.name : ""
   );
 
-  const [universityName, setuniversityName] = useState(
-    formData && formData.universityName ? formData.universityName : ""
+const [email, setemail] = useState(
+  formData && formData.email ? formData.email : ""
   );
 
-  const [countryName, setcountryName] = useState(
-    formData && formData.countryName ? formData.countryName : ""
+const [accesstoken, setaccesstoken] = useState(
+  formData && formData.accesstoken ? formData.accesstoken : ""
+  );
+
+const [isadmin, setisadmin] = useState(
+  formData && formData.isadmin ? formData.isadmin : ""
   );
 
   let navigate = useNavigate();
   return (
     <>
-      <h1 className="text-3xl text-black pb-6">{type} Collaborators</h1>
+      <h1 className="text-3xl text-black pb-6">{type} User</h1>
       <div className="flex flex-wrap justify-center">
         <div className="w-full lg:w-1/2 my-6 pr-0 lg:pr-2">
           <p className="text-xl pb-6 flex items-center">
@@ -32,6 +36,21 @@ const CollaboratorsForm = ({ type, formData }) => {
               className="p-10 bg-white rounded shadow-xl"
               // onSubmit={(e) => formSubmitHandler(e)}
             >
+              <div className="mt-2">
+                <label className="block text-sm text-gray-600" htmlFor="outlookID">
+                  Outlook ID
+                </label>
+                <input
+                  className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
+                  id="outlookID"
+                  name="outlookID"
+                  type="text"
+                  onChange={(e) => setoutlookID(e.target.value)}
+                  value={outlookID}
+                  required
+                />
+              </div>
+
               <div className="mt-2">
                 <label className="block text-sm text-gray-600" htmlFor="name">
                   Name
@@ -48,50 +67,50 @@ const CollaboratorsForm = ({ type, formData }) => {
               </div>
 
               <div className="mt-2">
-                <label className="block text-sm text-gray-600" htmlFor="designation">
-                  Designation
+                <label className="block text-sm text-gray-600" htmlFor="email">
+                  E-Mail
                 </label>
                 <input
                   className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
-                  id="designation"
-                  name="designation"
+                  id="email"
+                  name="email"
                   type="text"
-                  onChange={(e) => setdesignation(e.target.value)}
-                  value={designation}
+                  onChange={(e) => setemail(e.target.value)}
+                  value={email}
                   required
                 />
               </div>
 
               <div className="mt-2">
-                <label className="block text-sm text-gray-600" htmlFor="universityName">
-                  University Name
+                <label className="block text-sm text-gray-600" htmlFor="accesstoken">
+                  Access Token
                 </label>
                 <input
                   className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
-                  id="universityName"
-                  name="universityName"
+                  id="accesstoken"
+                  name="accesstoken"
                   type="text"
-                  onChange={(e) => setuniversityName(e.target.value)}
-                  value={universityName}
+                  onChange={(e) => setaccesstoken(e.target.value)}
+                  value={accesstoken}
                   required
                 />
               </div>
 
               <div className="mt-2">
-                <label className="block text-sm text-gray-600" htmlFor="countryName">
-                  Country Name
+                <label className="block text-sm text-gray-600" htmlFor="isadmin">
+                  Admin or Not
                 </label>
                 <input
                   className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
-                  id="countryName"
-                  name="countryName"
-                  type="text"
-                  onChange={(e) => setcountryName(e.target.value)}
-                  value={countryName}
+                  id="isadmin"
+                  name="isadmin"
+                  type="bool"
+                  onChange={(e) => setisadmin(e.target.value)}
+                  value={isadmin}
                   required
                 />
               </div>
-              
+                
               <div className="mt-6">
                 <button
                   className="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded"
@@ -108,4 +127,4 @@ const CollaboratorsForm = ({ type, formData }) => {
   );
 };
 
-export default CollaboratorsForm;
+export default UserForm;

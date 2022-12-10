@@ -9,7 +9,7 @@ const HomePageImageForm = ({ type, formData }) => {
   let navigate = useNavigate();
   return (
     <>
-      <h1 className="text-3xl text-black pb-6">{type} About Us</h1>
+      <h1 className="text-3xl text-black pb-6">{type} Home Page Image</h1>
       <div className="flex flex-wrap justify-center">
         <div className="w-full lg:w-1/2 my-6 pr-0 lg:pr-2">
           <p className="text-xl pb-6 flex items-center">
@@ -22,13 +22,13 @@ const HomePageImageForm = ({ type, formData }) => {
             >
               <div className="mt-2">
                 <label className="block text-sm text-gray-600" htmlFor="image">
-                  Image
+                  Home Page Image
                 </label>
                 <input
                   className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
                   id="image"
                   name="image"
-                  type="text"
+                  type="file"
                   onChange={(e) => setimage(e.target.value)}
                   value={image}
                   required
