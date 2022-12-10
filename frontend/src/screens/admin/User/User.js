@@ -1,17 +1,17 @@
 import React, { useEffect } from 'react'
 import { Link } from "react-router-dom";
 
-const GroupMembersScreen = () => {
-    const groupMembers = [{"name" : "Sample name", "designation" : "Sample Designation", "imagePath" : "Sample path", "researchInterest" : "Sample research interests", "googleScholar" : "Sample link", "email" : "Sample E-Mail", "phone" : "Sample phone number", "priorityNumber" : "Sample priority number"}]
+const UserScreen = () => {
+    const user = [{"outlookID" : "username@iitg.ac.in", "name" : "Sample Name", "email" : "Sample E-Mail", "accesstoken" : "Enter Access Token", "isadmin" : "Yes if user is admin, no otherwise"}]
     return (
         <>
-          <h1 className="text-3xl text-black pb-6">Group Members</h1>
+          <h1 className="text-3xl text-black pb-6">User</h1>
           <div className="mt-6">
             <Link
               className="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded"
-              to={`/admin/GroupMembers/add`}
+              to={`/admin/user/add`}
             >
-              Add Group Members
+              Add User
             </Link>
           </div>
           <div className="w-full mt-6 overflow-auto">
@@ -20,28 +20,19 @@ const GroupMembersScreen = () => {
                 <thead className="bg-gray-800 text-white">
                   <tr>
                     <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
+                      Outlook ID
+                    </th>
+                    <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                       Name
-                    </th>
-                    <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
-                      Designation
-                    </th>
-                    <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
-                      Image Path
-                    </th>
-                    <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
-                      Research Interest
-                    </th>
-                    <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
-                      Google Scholar
                     </th>
                     <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                       E-Mail
                     </th>
                     <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
-                      Phone
+                      Access Token
                     </th>
                     <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
-                      Priority Number
+                      Admin or Not
                     </th>
                     <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                       Edit
@@ -52,36 +43,27 @@ const GroupMembersScreen = () => {
                   </tr>
                 </thead>
                 <tbody className="text-gray-700">
-                  {groupMembers.length !== 0 &&
-                    groupMembers.map((data, idx) => {
+                  {user.length !== 0 &&
+                    user.map((data, idx) => {
                       return (
                         <tr key={idx}>
-                          <td className="text-left py-3 px-4">{data?.name}</td>
+                          <td className="text-left py-3 px-4">{data?.outlookID}</td>
                           <td className="text-left py-3 px-4">
-                          {data?.designation}
+                          {data?.name}
                           </td>
-                          <td className="image-left py-3 px-4">
-                          {data?.imagePath}
-                          </td>
-                          <td className="image-left py-3 px-4">
-                          {data?.researchInterest}
-                          </td>
-                          <td className="image-left py-3 px-4">
-                          {data?.googleScholar}
-                          </td>
-                          <td className="image-left py-3 px-4">
+                          <td className="text-left py-3 px-4">
                           {data?.email}
                           </td>
-                          <td className="image-left py-3 px-4">
-                          {data?.phone}
+                          <td className="text-left py-3 px-4">
+                          {data?.accesstoken}
                           </td>
-                          <td className="image-left py-3 px-4">
-                          {data?.priorityNumber}
+                          <td className="text-left py-3 px-4">
+                          {data?.isadmin}
                           </td>
                           <td className="text-left py-3 px-4">
                             <Link
                               to={{
-                                pathname: `/admin/GroupMembers/${data?.id}`,
+                                pathname: `/admin/user/${data?.id}`,
                               }}
                               state={data}
                             >
@@ -109,4 +91,4 @@ const GroupMembersScreen = () => {
       );
     };
     
-    export default GroupMembersScreen;
+    export default UserScreen;

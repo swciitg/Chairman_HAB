@@ -1,17 +1,17 @@
 import React, { useEffect } from 'react'
 import { Link } from "react-router-dom";
 
-const HomePageImageScreen = () => {
-    const homepageimage = [{"image" : "Sample Image"}]
+const SimulationSoftwaresScreen = () => {
+    const exptfacilities = [{"simulationsoftwaresTitle" : "Title will be here", "simulationsoftwaresImage" : "Image will be here"}]
     return (
         <>
-          <h1 className="text-3xl text-black pb-6">Home Page Image</h1>
+          <h1 className="text-3xl text-black pb-6">Simulation Softwares</h1>
           <div className="mt-6">
             <Link
               className="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded"
-              to={`/admin/homepageimage/add`}
+              to={`/admin/simulationsoftwares/add`}
             >
-              Add Home Page Image
+              Add Simulation Softwares
             </Link>
           </div>
           <div className="w-full mt-6 overflow-auto">
@@ -20,7 +20,10 @@ const HomePageImageScreen = () => {
                 <thead className="bg-gray-800 text-white">
                   <tr>
                     <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
-                      Home Page Image
+                      Title
+                    </th>
+                    <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
+                      Image
                     </th>
                     <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                       Edit
@@ -28,21 +31,22 @@ const HomePageImageScreen = () => {
                     <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                       Delete
                     </th>
-                  </tr>
-                </thead>
+                  </tr>                </thead>
                 <tbody className="text-gray-700">
-                  {homepageimage.length !== 0 &&
-                    homepageimage.map((data, idx) => {
+                  {exptfacilities.length !== 0 &&
+                    exptfacilities.map((data, idx) => {
                       return (
                         <tr key={idx}>
-                          <td className="text-left py-3 px-4">{data?.image}</td>
+                          <td className="text-left py-3 px-4">{data?.simulationsoftwaresTitle}</td>
+                          <td className="text-left py-3 px-4">{data?.simulationsoftwaresImage}</td>
                           <td className="text-left py-3 px-4">
                             <Link
                               to={{
-                                pathname: `/admin/homepageimage/${data?.id}`,
+                                pathname: `/admin/simulationsoftwares/${data?.id}`,
                               }}
                               state={data}
                             >
+                          
                               <button className="hover:text-blue-500">Edit</button>
                             </Link>
                           </td>
@@ -67,4 +71,4 @@ const HomePageImageScreen = () => {
       );
     };
     
-    export default HomePageImageScreen;
+    export default SimulationSoftwaresScreen;

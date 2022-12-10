@@ -1,27 +1,23 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const CollaboratorsForm = ({ type, formData }) => {
+const PastMembersForm = ({ type, formData }) => {
   const [name, setname] = useState(
     formData && formData.name ? formData.name : ""
   );
 
-  const [designation, setdesignation] = useState(
-    formData && formData.designation ? formData.designation : ""
+  const [qualification, setqualification] = useState(
+    formData && formData.qualification ? formData.qualification : ""
   );
 
-  const [universityName, setuniversityName] = useState(
-    formData && formData.universityName ? formData.universityName : ""
-  );
-
-  const [countryName, setcountryName] = useState(
-    formData && formData.countryName ? formData.countryName : ""
+  const [year, setyear] = useState(
+    formData && formData.year ? formData.year : ""
   );
 
   let navigate = useNavigate();
   return (
     <>
-      <h1 className="text-3xl text-black pb-6">{type} Collaborators</h1>
+      <h1 className="text-3xl text-black pb-6">{type} Past Members</h1>
       <div className="flex flex-wrap justify-center">
         <div className="w-full lg:w-1/2 my-6 pr-0 lg:pr-2">
           <p className="text-xl pb-6 flex items-center">
@@ -48,46 +44,31 @@ const CollaboratorsForm = ({ type, formData }) => {
               </div>
 
               <div className="mt-2">
-                <label className="block text-sm text-gray-600" htmlFor="designation">
-                  Designation
+                <label className="block text-sm text-gray-600" htmlFor="qualification">
+                  Qualification of the Student
                 </label>
                 <input
                   className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
-                  id="designation"
-                  name="designation"
+                  id="qualification"
+                  name="qualification"
                   type="text"
-                  onChange={(e) => setdesignation(e.target.value)}
-                  value={designation}
+                  onChange={(e) => setqualification(e.target.value)}
+                  value={qualification}
                   required
                 />
               </div>
 
               <div className="mt-2">
-                <label className="block text-sm text-gray-600" htmlFor="universityName">
-                  University Name
+                <label className="block text-sm text-gray-600" htmlFor="year">
+                  Year of Project Completion
                 </label>
                 <input
                   className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
-                  id="universityName"
-                  name="universityName"
+                  id="year"
+                  name="year"
                   type="text"
-                  onChange={(e) => setuniversityName(e.target.value)}
-                  value={universityName}
-                  required
-                />
-              </div>
-
-              <div className="mt-2">
-                <label className="block text-sm text-gray-600" htmlFor="countryName">
-                  Country Name
-                </label>
-                <input
-                  className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
-                  id="countryName"
-                  name="countryName"
-                  type="text"
-                  onChange={(e) => setcountryName(e.target.value)}
-                  value={countryName}
+                  onChange={(e) => setyear(e.target.value)}
+                  value={year}
                   required
                 />
               </div>
@@ -108,4 +89,4 @@ const CollaboratorsForm = ({ type, formData }) => {
   );
 };
 
-export default CollaboratorsForm;
+export default PastMembersForm;

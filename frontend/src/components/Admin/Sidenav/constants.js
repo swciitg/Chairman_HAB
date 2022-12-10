@@ -8,5 +8,14 @@ export const SideNavList = [
     { name: "Books", url: "books"},
     { name: "Collaborators", url: "collaborators"},
     { name: "Group Members", url: "groupmembers"},
-    { name: "Home Page Image", url: "homepageimage"}
+    { name: "Home Page Image", url: "homepageimage"},
+    { name: "Invited Talks", url: "invitedtalks"},
+    { name: "Journal Publications", url: "journalpublications"},
+    { name: "Miscellaneous", url: "miscellaneous"},
+    { name: "Past Members", url: "pastmembers"},
+    { name: "Profile", url: "profile"},
+    { name: "Published Conference Papers", url: "publishedconferencepapers"},
+    { name: "Simulation Softwares", url: "simulationsoftwares"},
+    { name: "Updates", url: "updates"},
+    { name: "User", url: "user"}
   ];
