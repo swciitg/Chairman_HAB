@@ -56,7 +56,7 @@ const BooksScreen = () => {
                   </tr>
                 </thead>
                 <tbody className="text-gray-700">
-                  {console.log(books)}
+                  {/* {console.log(books)} */}
                   {books.length !== 0 &&
                     books.map((data, idx) => {
                       return (
