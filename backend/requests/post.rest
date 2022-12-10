@@ -1,0 +1,12 @@
+POST http://localhost:5000/api/books
+Content-Type: application/json
+
+{
+    "miscellaneousPostertitle": "hello father",
+    "miscelaneousPostername": "how is your dather",
+    "miscellaneousPoterBody": "its a bad sweet day"
+}
+
+###
+
+GET http://localhost:5000/api/books

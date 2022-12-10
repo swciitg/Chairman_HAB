@@ -1,25 +1,29 @@
+// books
+
 import React, { useState } from "react";
 import Card from "./Card";
 import axios from "axios";
+import { BACKEND_API } from "../../constant";
 
-const HiddenCards = () => {
+const VisCards = () => {
   const [notes, setNotes] = useState([]);
-  const url = "http://localhost:5000/api/journalPublications";
+  const url = `${BACKEND_API}/books`;
   const promise = axios.get(url);
   promise.then((res) => {
-    const data = res.data.data.JournalPublication;
+    const data = res.data.data.Book;
     setNotes(data);
     // console.log(data);
   });
+
   return (
     <>
-      {notes.slice(3, notes.length).map((item, index) => {
+      {notes.slice(0, 3).map((item, index) => {
         return (
-          <Card key={index} head={item.journaltitle} bold={item.journalname} />
+          <Card key={index} head={item.booktitle} bold={item.bookname} />
         );
       })}
     </>
   );
 };
 
-export default HiddenCards;
+export default VisCards;

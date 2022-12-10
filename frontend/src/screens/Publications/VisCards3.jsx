@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import Card from "./Card";
 import axios from "axios";
+import { BACKEND_API } from "../../constant";
 
 const VisCards = () => {
   const [notes, setNotes] = useState([]);
-  const url = "http://localhost:5000/api/journalPublications";
+  const url = `${BACKEND_API}/invitedTalks`;
   const promise = axios.get(url);
   promise.then((res) => {
-    const data = res.data.data.JournalPublication;
+    const data = res.data.data.InvitedTalk;
     setNotes(data);
     // console.log(data);
   });
@@ -16,7 +17,7 @@ const VisCards = () => {
     <>
       {notes.slice(0, 3).map((item, index) => {
         return (
-          <Card key={index} head={item.journaltitle} bold={item.journalname} />
+          <Card key={index} head={item.invitedTalktitle} bold={item.invitedTalkname} />
         );
       })}
     </>
