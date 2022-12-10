@@ -3,8 +3,7 @@ import Cards from "./VisCards";
 import HiddenCards from "./HiddenCards";
 import Swiper from "./Swiperr";
 import axios from "axios";
-import multer from "multer";
-const upload = multer({ dest: "../../../backend/uploads/" });
+
 
 const ResearchScreen = () => {
   const [state, setState] = useState(0);
