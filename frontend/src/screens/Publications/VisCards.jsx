@@ -1,19 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "./Card";
 import axios from "axios";
 
-let data = 0;
-const url = "http://localhost:5000/api/journalPublications";
-const promise = axios.get(url);
-promise.then((res) => {
-  data = res.data.data.JournalPublication;
-  console.log(data);
-});
-
 const VisCards = () => {
+  const [notes, setNotes] = useState([]);
+  const url = "http://localhost:5000/api/journalPublications";
+  const promise = axios.get(url);
+  promise.then((res) => {
+    const data = res.data.data.JournalPublication;
+    setNotes(data);
+    // console.log(data);
+  });
+
   return (
     <>
-      {data.slice(0, 3).map((item, index) => {
+      {notes.slice(0, 3).map((item, index) => {
         return (
           <Card key={index} head={item.journaltitle} bold={item.journalname} />
         );

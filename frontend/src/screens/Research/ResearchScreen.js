@@ -4,6 +4,7 @@ import HiddenCards from "./HiddenCards";
 import Swiper from "./Swiperr";
 import axios from "axios";
 
+
 const ResearchScreen = () => {
   const [state, setState] = useState(0);
   const [string, setString] = useState("SEE ALL");
