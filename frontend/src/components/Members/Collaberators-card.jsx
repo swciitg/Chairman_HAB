@@ -1,14 +1,17 @@
 import styles from "./Members.module.css";
+// import React, { useState } from "react";
 import axios from "axios";
-
 const Collaberatorscards = () =>  {
   
-
-    axios
-    .get("http://localhost:5000/chairman_hab/api")
-    .then(data => console.log(data.data))
-    .catch(error => console.log(error));
    
+//     const [notes, setNotes] = useState([]);
+//     const url = "http://localhost:5000/api/journalPublications";
+//     const promise = axios.get(url);
+//     promise.then((res) => {
+//     const data = res.data.data.JournalPublication;
+//     setNotes(data);
+//     // console.log(data);
+//   });
  
     return (
 
@@ -21,5 +24,27 @@ const Collaberatorscards = () =>  {
       </div>
 
         );
+        // return (
+        //     <>
+        //       {notes.slice(0, 3).map((item, index) => {
+        //         return (
+        //           <Card key={index} head={item.journaltitle} bold={item.journalname} />
+        //         );
+        //       })}
+        //     </>
+        //   );
     }
 export default Collaberatorscards;
+
+
+
+//   const [notes, setNotes] = useState([]);
+//   const url = "http://localhost:5000/api/journalPublications";
+//   const promise = axios.get(url);
+//   promise.then((res) => {
+//     const data = res.data.data.JournalPublication;
+//     setNotes(data);
+//     // console.log(data);
+//   });
+
+  
