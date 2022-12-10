@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require("express");
 const app = express();
 const passport = require("passport");
@@ -7,11 +8,12 @@ const mongoose = require("mongoose");
 const session = require("express-session");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+
 app.set("view engine", "ejs");
 
 //connecting to db
 mongoose.connect(
-  "mongodb+srv://m001-student:m001-student-basics@sandbox.mfza7u2.mongodb.net/?retryWrites=true&w=majority",
+  process.env.DATABASE_URL,
   {
     useUnifiedTopology: true,
     useNewUrlParser: true,
@@ -92,7 +94,7 @@ app.use(function (err, req, res, next) {
 app.get("/", (req, res) => {
   res.send("home");
 });
-const port = process.env.PORT;
+const port = process.env.APP_PORT;
 app.listen(port || 5000, () => {
   console.log(`The server is listening at 5000`);
 });
