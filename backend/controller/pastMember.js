@@ -6,13 +6,10 @@ exports.getPastMembers = async (req, res) => {
   try {
     const PastMember = await PastMembers.find({}).sort("-creation");
 
-
-
     res.status(200).json({
       status: "success",
       data: {
         PastMember,
-     
       },
     });
   } catch (error) {
@@ -25,15 +22,12 @@ exports.getPastMembers = async (req, res) => {
 
 exports.findPastMembers = async (req, res) => {
   try {
-
     const PastMember = await PastMembers.find({}).sort("-creation");
-
 
     res.status(200).json({
       status: "success",
       data: {
         PastMember,
-       
       },
     });
   } catch (error) {
@@ -43,14 +37,15 @@ exports.findPastMembers = async (req, res) => {
 
 exports.postPastMembers = async (req, res, next) => {
   try {
-    var { pastMemberName,qualificationOfStudent,yearOfProjectCompletion} = req.body;
-   
+    var { pastMemberName, qualificationOfStudent, yearOfProjectCompletion } =
+      req.body;
 
     const doc = await new PastMembers({
-        pastMemberName,qualificationOfStudent,yearOfProjectCompletion
+      pastMemberName,
+      qualificationOfStudent,
+      yearOfProjectCompletion,
     }).save();
 
-    
     res.status(201).json({
       status: "success",
       data: doc,
@@ -62,8 +57,6 @@ exports.postPastMembers = async (req, res, next) => {
       .json({ status: "Failed", message: "Request failed" });
   }
 };
-
-
 
 exports.editPastMembers = factory.updateOne(PastMembers);
 

@@ -6,13 +6,10 @@ exports.getProjects = async (req, res) => {
   try {
     const Project = await Projects.find({}).sort("-creation");
 
-
-
     res.status(200).json({
       status: "success",
       data: {
         Project,
-     
       },
     });
   } catch (error) {
@@ -25,15 +22,12 @@ exports.getProjects = async (req, res) => {
 
 exports.findProjects = async (req, res) => {
   try {
-
     const Project = await Projects.find({}).sort("-creation");
-
 
     res.status(200).json({
       status: "success",
       data: {
         Project,
-       
       },
     });
   } catch (error) {
@@ -43,18 +37,22 @@ exports.findProjects = async (req, res) => {
 
 exports.postProjects = async (req, res, next) => {
   try {
-    var { serialNumber, projectTitle, fundingAgencyName, duration, investigators } = req.body;
-   
+    var {
+      serialNumber,
+      projectTitle,
+      fundingAgencyName,
+      duration,
+      investigators,
+    } = req.body;
 
     const doc = await new Projects({
       serialNumber,
       projectTitle,
-      fundingAgencyName, 
-      duration, 
-      investigators
+      fundingAgencyName,
+      duration,
+      investigators,
     }).save();
 
-    
     res.status(201).json({
       status: "success",
       data: doc,
@@ -66,8 +64,6 @@ exports.postProjects = async (req, res, next) => {
       .json({ status: "Failed", message: "Request failed" });
   }
 };
-
-
 
 exports.editProjects = factory.updateOne(Projects);
 

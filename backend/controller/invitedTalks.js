@@ -6,13 +6,10 @@ exports.getInvitedTalks = async (req, res) => {
   try {
     const InvitedTalk = await InvitedTalks.find({}).sort("-creation");
 
-
-
     res.status(200).json({
       status: "success",
       data: {
         InvitedTalk,
-     
       },
     });
   } catch (error) {
@@ -25,15 +22,12 @@ exports.getInvitedTalks = async (req, res) => {
 
 exports.findInvitedTalks = async (req, res) => {
   try {
-
     const InvitedTalk = await InvitedTalks.find({}).sort("-creation");
-
 
     res.status(200).json({
       status: "success",
       data: {
         InvitedTalk,
-       
       },
     });
   } catch (error) {
@@ -43,14 +37,14 @@ exports.findInvitedTalks = async (req, res) => {
 
 exports.postInvitedTalks = async (req, res, next) => {
   try {
-    var { invitedTalktitle, invitedTalkname,invitedTalkBody,} = req.body;
-   
+    var { invitedTalktitle, invitedTalkname, invitedTalkBody } = req.body;
 
     const doc = await new InvitedTalks({
-        invitedTalktitle, invitedTalkname,invitedTalkBody,
+      invitedTalktitle,
+      invitedTalkname,
+      invitedTalkBody,
     }).save();
 
-    
     res.status(201).json({
       status: "success",
       data: doc,
@@ -62,8 +56,6 @@ exports.postInvitedTalks = async (req, res, next) => {
       .json({ status: "Failed", message: "Request failed" });
   }
 };
-
-
 
 exports.editInvitedTalks = factory.updateOne(InvitedTalks);
 

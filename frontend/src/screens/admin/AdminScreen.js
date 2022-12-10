@@ -6,6 +6,34 @@ import { Link } from "react-router-dom";
 import ProjectsScreen from "./Projects/Projects";
 import AddProjectsScreen from "./Projects/AddProjects";
 import EditProjectsScreen from "./Projects/EditProjects";
+import ResearchScreen from "./Research/Research";
+import AddResearchScreen from "./Research/AddResearch";
+import EditResearchScreen from "./Research/EditResearch";
+import AboutScreen from "./About/About";
+import AddAboutScreen from "./About/AddAbout";
+import EditAboutScreen from "./About/EditAbout";
+import PublicationScreen from "./Publications/Publications";
+import AddPublicationScreen from "./Publications/AddPublications";
+import EditPublicationScreen from "./Publications/EditPublications";
+import ExperimentalFacilitiesScreen from "./ExperimentalFacilities/ExperimentalFacilities";
+import AddExperimentalFacilitiesScreen from "./ExperimentalFacilities/AddExperimentalFacilities";
+import EditExperimentalFacilitiesScreen from "./ExperimentalFacilities/EditExperimentalFacilities";
+import AlumniScreen from "./Alumni/Alumni";
+import AddAlumniScreen from "./Alumni/AddAlumni";
+import EditAlumniScreen from "./Alumni/EditAlumni";
+import BooksScreen from "./Books/Books";
+import AddBooksScreen from "./Books/AddBooks";
+import EditBooksScreen from "./Books/EditBooks";
+import CollaboratorsScreen from "./Collaborators/Collaborators";
+import AddCollaboratorsScreen from "./Collaborators/AddCollaborators";
+import EditCollaboratorsScreen from "./Collaborators/EditCollaborators";
+import GroupMembersScreen from "./GroupMembers/GroupMembers";
+import AddGroupMembersScreen from "./GroupMembers/AddGroupMembers";
+import EditGroupMembersScreen from "./GroupMembers/EditGroupMembers";
+import HomePageImageScreen from "./HomePageImage/HomePageImage";
+import AddHomePageImageScreen from "./HomePageImage/AddHomePageImage";
+import EditHomePageImageScreen from "./HomePageImage/EditHomePageImage";
+
 // import useAuthCheck from "../../hooks/useAuthCheck";
 
 const AdminScreen = () => {
@@ -43,6 +71,142 @@ const AdminScreen = () => {
                   path={`/projects/:id`}
                   element={<EditProjectsScreen />}
                 /> 
+                 <Route
+                  exact
+                  path={`/research`}
+                  element={<ResearchScreen />}
+                />
+                 <Route
+                  exact
+                  path={`/research/add`}
+                  element={<AddResearchScreen />}
+                />
+                 <Route
+                  exact
+                  path={`/research/:id`}
+                  element={<EditResearchScreen />}
+                />
+                 <Route
+                  exact
+                  path={`/alumni`}
+                  element={<AlumniScreen />}
+                />
+                 <Route
+                  exact
+                  path={`/alumni/add`}
+                  element={<AddAlumniScreen />}
+                />
+                 <Route
+                  exact
+                  path={`/alumni/:id`}
+                  element={<EditAlumniScreen />}
+                />
+                 <Route
+                  exact
+                  path={`/publication`}
+                  element={<PublicationScreen />}
+                />
+                 <Route
+                  exact
+                  path={`/publication/add`}
+                  element={<AddPublicationScreen />}
+                />
+                 <Route
+                  exact
+                  path={`/publication/:id`}
+                  element={<EditPublicationScreen />}
+                />
+                 <Route
+                  exact
+                  path={`/experimentalfacilities`}
+                  element={<ExperimentalFacilitiesScreen />}
+                />
+                 <Route
+                  exact
+                  path={`/experimentalfacilities/add`}
+                  element={<AddExperimentalFacilitiesScreen />}
+                />
+                 <Route
+                  exact
+                  path={`/experimentalfacilities/:id`}
+                  element={<EditExperimentalFacilitiesScreen />}
+                />
+                <Route
+                  exact
+                  path={`/about`}
+                  element={<AboutScreen />}
+                />
+                 <Route
+                  exact
+                  path={`/about/add`}
+                  element={<AddAboutScreen />}
+                />
+                 <Route
+                  exact
+                  path={`/about/:id`}
+                  element={<EditAboutScreen />}
+                />
+                <Route
+                  exact
+                  path={`/books`}
+                  element={<BooksScreen />}
+                />
+                 <Route
+                  exact
+                  path={`/books/add`}
+                  element={<AddBooksScreen />}
+                />
+                 <Route
+                  exact
+                  path={`/books/:id`}
+                  element={<EditBooksScreen />}
+                />
+                <Route
+                  exact
+                  path={`/Collaborators`}
+                  element={<CollaboratorsScreen />}
+                />
+                 <Route
+                  exact
+                  path={`/Collaborators/add`}
+                  element={<AddCollaboratorsScreen />}
+                />
+                 <Route
+                  exact
+                  path={`/Collaborators/:id`}
+                  element={<EditCollaboratorsScreen />}
+                />
+                <Route
+                  exact
+                  path={`/GroupMembers`}
+                  element={<GroupMembersScreen />}
+                />
+                 <Route
+                  exact
+                  path={`/GroupMembers/add`}
+                  element={<AddGroupMembersScreen />}
+                />
+                 <Route
+                  exact
+                  path={`/GroupMembers/:id`}
+                  element={<EditGroupMembersScreen />}
+                />
+                <Route
+                  exact
+                  path={`/HomePageImage`}
+                  element={<HomePageImageScreen />}
+                />
+                 <Route
+                  exact
+                  path={`/HomePageImage/add`}
+                  element={<AddHomePageImageScreen />}
+                />
+                 <Route
+                  exact
+                  path={`/HomePageImage/:id`}
+                  element={<EditHomePageImageScreen />}
+                />
+
               </Routes>
             </Sidebar>
           {/* ) : (
@@ -80,6 +244,7 @@ const AdminScreen = () => {
         </div>
       )} */}
     </div>
+    
   );
 };
 

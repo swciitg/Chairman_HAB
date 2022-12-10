@@ -4,15 +4,14 @@ const factory = require("./handlerFactory");
 
 exports.getPublishedConferencePapers = async (req, res) => {
   try {
-    const PublishedConferencePaper = await PublishedConferencePapers.find({}).sort("-creation");
-
-
+    const PublishedConferencePaper = await PublishedConferencePapers.find(
+      {}
+    ).sort("-creation");
 
     res.status(200).json({
       status: "success",
       data: {
         PublishedConferencePaper,
-     
       },
     });
   } catch (error) {
@@ -25,15 +24,14 @@ exports.getPublishedConferencePapers = async (req, res) => {
 
 exports.findPublishedConferencePapers = async (req, res) => {
   try {
-
-    const PublishedConferencePaper = await PublishedConferencePapers.find({}).sort("-creation");
-
+    const PublishedConferencePaper = await PublishedConferencePapers.find(
+      {}
+    ).sort("-creation");
 
     res.status(200).json({
       status: "success",
       data: {
         PublishedConferencePaper,
-       
       },
     });
   } catch (error) {
@@ -43,14 +41,15 @@ exports.findPublishedConferencePapers = async (req, res) => {
 
 exports.postPublishedConferencePapers = async (req, res, next) => {
   try {
-    var { conferencePapertitle, conferencePapername,conferencePaperBody,} = req.body;
-   
+    var { conferencePapertitle, conferencePapername, conferencePaperBody } =
+      req.body;
 
     const doc = await new PublishedConferencePapers({
-      conferencePapertitle, conferencePapername,conferencePaperBody,
+      conferencePapertitle,
+      conferencePapername,
+      conferencePaperBody,
     }).save();
 
-    
     res.status(201).json({
       status: "success",
       data: doc,
@@ -63,8 +62,10 @@ exports.postPublishedConferencePapers = async (req, res, next) => {
   }
 };
 
+exports.editPublishedConferencePapers = factory.updateOne(
+  PublishedConferencePapers
+);
 
-
-exports.editPublishedConferencePapers = factory.updateOne(PublishedConferencePapers);
-
-exports.deletePublishedConferencePapers = factory.deleteOne(PublishedConferencePapers);
+exports.deletePublishedConferencePapers = factory.deleteOne(
+  PublishedConferencePapers
+);

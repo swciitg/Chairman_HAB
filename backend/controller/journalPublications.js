@@ -4,15 +4,14 @@ const factory = require("./handlerFactory");
 
 exports.getJournalPublications = async (req, res) => {
   try {
-    const JournalPublication = await JournalPublications.find({}).sort("-creation");
-
-
+    const JournalPublication = await JournalPublications.find({}).sort(
+      "-creation"
+    );
 
     res.status(200).json({
       status: "success",
       data: {
         JournalPublication,
-     
       },
     });
   } catch (error) {
@@ -25,15 +24,14 @@ exports.getJournalPublications = async (req, res) => {
 
 exports.findJournalPublications = async (req, res) => {
   try {
-
-    const JournalPublication = await JournalPublications.find({}).sort("-creation");
-
+    const JournalPublication = await JournalPublications.find({}).sort(
+      "-creation"
+    );
 
     res.status(200).json({
       status: "success",
       data: {
         JournalPublication,
-       
       },
     });
   } catch (error) {
@@ -43,14 +41,18 @@ exports.findJournalPublications = async (req, res) => {
 
 exports.postJournalPublications = async (req, res, next) => {
   try {
-    var { journaltitle, journalname,journalBody,} = req.body;
-   
+    var {
+      journaltitle,
+      journalname,
+      journalBody,
+    } = req.body;
 
     const doc = await new JournalPublications({
-        journaltitle, journalname,journalBody,
+      journaltitle,
+      journalname,
+      journalBody,
     }).save();
 
-    
     res.status(201).json({
       status: "success",
       data: doc,
@@ -63,8 +65,7 @@ exports.postJournalPublications = async (req, res, next) => {
   }
 };
 
-
-
 exports.editJournalPublications = factory.updateOne(JournalPublications);
 
 exports.deleteJournalPublications = factory.deleteOne(JournalPublications);
+
