@@ -1,5 +1,6 @@
 import styles from "./Table.module.css";
 import Details from "./Details";
+import Heading from "./Heading";
 
 const Table =() =>{
   return (
@@ -17,28 +18,9 @@ const Table =() =>{
       <div >
 
         <table className={`border-collapse ${styles.scroll} `}>
-          <tr  >
-            <th className={`${styles.background} w-1/6`}>Sl. No.</th>
-            <th className={`${styles.background}  w-2/6`}>Title</th>
-            <th className={`${styles.background}  w-1/6`} >Funding Agency</th>
-            <th className={`${styles.background}  w-1/6`}>Duration</th>
-            <th className={`${styles.background}  w-1/6`}>Investigation</th>
-          </tr>
+    <Heading/>
           <Details/>
-          <tr className={`w-24`} >
-            <td>1</td>
-            <td >DST Fast Track Young Scientist </td>
-            <td>SERB</td>
-            <td>2015-18</td>
-            <td>ABC</td>
-          </tr>
-          <tr className={`w-24`}>
-            <td>2</td>
-            <td >Young Scientist Research Award</td>
-            <td>BRNS</td>
-            <td>2015-18</td>
-            <td>XYZ</td>
-          </tr>
+          <Details/>
 
         </table>
       </div>
