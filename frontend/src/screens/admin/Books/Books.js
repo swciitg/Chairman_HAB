@@ -1,8 +1,27 @@
-import React, { useEffect } from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
+import { BACKEND_API } from '../../../constant';
 
 const BooksScreen = () => {
-    const books = [{"title" : "Sample title", "name" : "Sample name", "body" : "Sample body"}]
+    const [books, setBooks] = useState([]);
+
+    useEffect(() => {
+      axios
+        .get(`${BACKEND_API}/books`, {
+        })
+        .then((response) => {
+          const data = response.data;
+          if (data.status == "success") {
+            setBooks(data.data.Book);
+          } else {
+          }
+        })
+        .catch((error) => {
+          console.log(error)
+        });
+    }, []);
+
     return (
         <>
           <h1 className="text-3xl text-black pb-6">Books</h1>
@@ -37,21 +56,22 @@ const BooksScreen = () => {
                   </tr>
                 </thead>
                 <tbody className="text-gray-700">
+                  {/* {console.log(books)} */}
                   {books.length !== 0 &&
                     books.map((data, idx) => {
                       return (
                         <tr key={idx}>
-                          <td className="text-left py-3 px-4">{data?.title}</td>
+                          <td className="text-left py-3 px-4">{data?.booktitle}</td>
                           <td className="text-left py-3 px-4">
-                          {data?.name}
+                          {data?.bookname}
                           </td>
                           <td className="image-left py-3 px-4">
-                          {data?.body}
+                          {data?.bookBody}
                           </td>
                           <td className="text-left py-3 px-4">
                             <Link
                               to={{
-                                pathname: `/admin/books/${data?.id}`,
+                                pathname: `/admin/books/${data?._id}`,
                               }}
                               state={data}
                             >
