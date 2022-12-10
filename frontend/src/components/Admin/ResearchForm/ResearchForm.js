@@ -1,20 +1,58 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { BACKEND_API } from "../../../constant";
 
 const ResearchForm = ({ type, formData }) => {
   const [title, setTitle] = useState(
     formData && formData.title ? formData.title : ""
   );
 
-  const [description, setdescription] = useState(
+  const [description, setDescription] = useState(
     formData && formData.description ? formData.description : ""
   );
 
-  const [picture, setpicture] = useState(
-    formData && formData.picture ? formData.picture : ""
+  const [picture, setPicture] = useState(null
+    // formData && formData.picture ? formData.picture : null
   );
-
-  let navigate = useNavigate();
+  
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      let res;
+      if (picture) {
+        console.log(picture);
+        const formData1 = new FormData();
+        formData1.append("keyResearchAreaTitle", title);
+        formData1.append("keyResearchAreaDescription", description);
+        formData1.append("keyResearchAreaImage", picture, picture.name);
+        console.log(formData1)
+        res = await axios.post(`${BACKEND_API}/keyResearchArea`, formData1, {
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "multipart/form-data",  
+          },
+        });
+      } else {
+        res = await axios.post(
+          `${BACKEND_API}/keyResearchArea`,
+          {
+            keyResearchAreaTitle : title,
+            keyResearchAreaDescription : description,
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
+          }
+        );
+      }
+    } catch (err) {
+      console.log(err);
+    }
+    
+  }
   return (
     <>
       <h1 className="text-3xl text-black pb-6">{type} Key Research Areas</h1>
@@ -52,7 +90,7 @@ const ResearchForm = ({ type, formData }) => {
                   id="funding_agency"
                   name="funding_agency"
                   type="text"
-                  onChange={(e) => setdescription(e.target.value)}
+                  onChange={(e) => setDescription(e.target.value)}
                   value={description}
                   required
                 />
@@ -67,8 +105,10 @@ const ResearchForm = ({ type, formData }) => {
                   id="picture"
                   name="picture"
                   type="file"
-                  onChange={(e) => setpicture(e.target.value)}
-                  value={picture}
+                  onChange={(e) => 
+                    setPicture(e.target.files[0])
+                  }
+                  // value={picture}
                   required
                 />
               </div>
@@ -77,6 +117,7 @@ const ResearchForm = ({ type, formData }) => {
                 <button
                   className="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded"
                   type="submit"
+                  onClick={handleSubmit}
                 >
                   Submit
                 </button>
