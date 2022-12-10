@@ -1,5 +1,5 @@
 import styles from "./About.module.css"
-import Headings from "./Headings";
+import Headings from "./Heading";
 
 
 const Aboutus = () =>  {
