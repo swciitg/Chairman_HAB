@@ -1,4 +1,4 @@
-import styles from "./Members.module.css";
+import styles from "./Member.module.css";
 const PastMembers = () =>  {
     
     return (
