@@ -1,5 +1,5 @@
 
-import styles from "./Member.module.css";
+import styles from "./Members.module.css";
 const PastMembers = () => {
   return (
     <div className={`flex items-center  ${styles.pastmembers_cards}`}>

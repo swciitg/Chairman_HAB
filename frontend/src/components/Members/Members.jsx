@@ -1,7 +1,7 @@
 import Alumnicards from "./Alumni-card";
 import Collaberatorscards from "./Collaberators-card";
 import Groupmembercards from "./Group-member-card";
-import styles from "./Member.module.css";
+import styles from "./Members.module.css";
 import PastMembers from "./Past-Members-card";
 import Pic from "./pic.png";
 const Members = () => {

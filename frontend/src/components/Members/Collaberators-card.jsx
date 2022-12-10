@@ -1,4 +1,4 @@
-import styles from "./Member.module.css";
+import styles from "./Members.module.css";
 
 const Collaberatorscards = () => {
   return (
