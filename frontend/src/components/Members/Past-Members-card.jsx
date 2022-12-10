@@ -1,14 +1,13 @@
-import styles from "./Member.modules.css";
-import Pic from'./pic.png';
-const Past_Members = () =>  {
+import styles from "./Members.module.css";
+const PastMembers = () =>  {
     
     return (
-        <div className={`flex items-center  ${styles.Past-Members-cards}`}>
+      <div className={`flex items-center  ${styles.pastmembers_cards}`}>
  
   
-        <b> Shivam Rajguru</b> (B.tech project student, 2020-2021)
-    
-     </div>
+      <b> Shivam Rajguru</b> (B.tech project student, 2020-2021)
+  
+   </div>
    );
 }
-export default Past_Members;
+export default PastMembers;
