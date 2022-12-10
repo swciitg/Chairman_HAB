@@ -1,9 +1,9 @@
 import React from "react";
-import Alumni_cards from "../../components/Members/Alumni-card";
+import Members from "../../components/Members/Members";
 const MembersScreen = () => {
   return (
     <>
-    {/* <Alumni_cards /> */}
+    <Members/>
     </>
   );
 };
