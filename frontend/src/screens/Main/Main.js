@@ -9,7 +9,7 @@ import ResearchScreen from "../Research/ResearchScreen";
 
 const Main = () => {
   return (
-    <>
+    <div className="bg-gray-200	">
         <Header />
         <Routes>
           <Route path="/*" exact element={<HomeScreen />} />
@@ -19,7 +19,7 @@ const Main = () => {
           <Route path="/members/*" exact element={<MembersScreen/>} />
         </Routes>
         <Footer />
-    </>
+    </div>
   );
 }
 

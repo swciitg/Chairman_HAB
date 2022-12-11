@@ -2,11 +2,15 @@ POST http://localhost:5000/api/books
 Content-Type: application/json
 
 {
-    "miscellaneousPostertitle": "hello father",
-    "miscelaneousPostername": "how is your dather",
-    "miscellaneousPoterBody": "its a bad sweet day"
+    "booktitle": "hello father",
+    "bookname": "how is your dather",
+    "bookBody": "its a bad sweet day"
 }
 
 ###
 
 GET http://localhost:5000/api/books
+
+###
+
+DELETE http://localhost:5000/api/books/63961707a175023b08e3f870
