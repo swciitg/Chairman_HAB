@@ -1,5 +1,7 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { BACKEND_API, BASEURL } from "../../../constant";
 
 const BooksForm = ({ type, formData }) => {
   const [title, setTitle] = useState(
@@ -13,6 +15,43 @@ const BooksForm = ({ type, formData }) => {
   const [body, setbody] = useState(
     formData && formData.body ? formData.body : ""
   );
+
+  const addNote = () => {
+    // event.preventDefault();
+    const note = {
+      booktitle: title,
+      bookname: name,
+      bookBody: body,
+    };
+    const req = axios
+      .post(`${BACKEND_API}/books`, note)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    console.log(req);
+  };
+
+  const editNote = (id) => {
+    const newNote = {
+      booktitle: title,
+      bookname: name,
+      bookBody: body,
+    };
+    const req = axios
+      .put(`${BACKEND_API}/${id}`, newNote)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    console.log(req);
+  };
+
+  const method = type === "Add" ? addNote : editNote;
 
   let navigate = useNavigate();
   return (
@@ -37,7 +76,10 @@ const BooksForm = ({ type, formData }) => {
                   id="title"
                   name="title"
                   type="text"
-                  onChange={(e) => setTitle(e.target.value)}
+                  onChange={(e) => {
+                    console.log(title);
+                    setTitle(e.target.value);
+                  }}
                   value={title}
                   required
                 />
@@ -72,11 +114,15 @@ const BooksForm = ({ type, formData }) => {
                   required
                 />
               </div>
-              
+
               <div className="mt-6">
                 <button
                   className="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded"
                   type="submit"
+                  onClick={(event) => {
+                    event.preventDefault();
+                    method();
+                  }}
                 >
                   Submit
                 </button>
