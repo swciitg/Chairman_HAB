@@ -1,15 +1,42 @@
 import styles from "./About.module.css"
+import React, { useState } from "react";
 
+import axios from "axios";
 
 const Headings = () =>  {
-    
+    const [headings, setHeadings] = useState([]);
+    const url = "http://localhost:5000/api/Updates";
+    const promise = axios.get(url);
+    promise.then((res) => {
+      const data = res.data.data.Update;
+      setHeadings(data);
+      // console.log(data);
+    });
     return (
-
-        <div className={`${styles.headings}`}>
-        <span className={`${styles.dark}`}> Best Paper Award </span> for "Planar Plasmonic Terahertz Waveguides for Sensor Applications" in ICOLS 2018 held in Zurich on Jan. 15-16, 2018.geet
+<>
+{headings.length !== 0 &&
+                    headings.map((data, idx) => {
+                      return (
+                       <div key={idx}  className={`${styles.headings}` }>
+                        <span className={`${styles.dark}`}>
+                            
+                             {data?.title} </span>  {data?.description} 
      
          
-     </div>
+                          </div>
+                      
+                      
+                      );
+                    })}
+     
+     </>
         );
     }
 export default Headings;
+
+
+
+
+
+ 
+         

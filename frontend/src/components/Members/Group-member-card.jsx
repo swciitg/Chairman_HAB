@@ -1,18 +1,33 @@
 import styles from "./Members.module.css";
 import Pic from './pic.png';
+import React, { useState } from "react";
+
+import axios from "axios";
 const Groupmembercards = () =>  {
-    
+    const [cards, setCards] = useState([]);
+    const url = "http://localhost:5000/api/groupMembers";
+    const promise = axios.get(url);
+    promise.then((res) => {
+      const data = res.data.data;
+      setCards(data);
+      // console.log(data);
+    });
     return (
-        <div className={`flex items-center justify-center  ${styles.members_cards} `}>
+        <>
+         {cards.length !== 0 &&
+                    cards.map((data, idx) => {
+                      return (
+        <div key={idx} className={`flex items-center justify-center  ${styles.members_cards} `}>
        <div className={` ${styles.members_cardsimg}  flex justify-center items-center w-1/3`}>
 <img scr={Pic} alt=""/>
        </div>
        <div className={` ${styles.members_cardscontent}  flex  flex-col `}>
        
-            <div className={` ${styles.research_groupdetails1 }`}>                Mr. Rakesh Sarkar
+       
+            <div className={` ${styles.research_groupdetails1 }`}>           {data?.memberName}    
             </div>
             <br/>
-            <div className={` ${styles.research_groupdetails2}`}>Department of Physics</div>
+            <div className={` ${styles.research_groupdetails2}`}>Department of Physics </div>
             <div className={` ${styles.research_groupdetails3}`}>
                 
                 
@@ -23,27 +38,30 @@ const Groupmembercards = () =>  {
            
                </div>
 
-                <div className={` ${styles.research_groupdetails3}`}> PhD student</div>
+                <div className={` ${styles.research_groupdetails3}`}>   {data?.designation}</div>
                 <div className={` ${styles.research_groupdetails3}`}>
-                    Research interest:Terahertz metamaterial,polarization rotation devices,
-                    Electromagnetically induced transparency and toroidal metamaterial.
+                   
+                  {data?.researchInterest}
                 </div>
                 <div className={` ${styles.research_groupdetails3}`}>
-                    Google Scholar: Rakesh_GS
+                    Google Scholar:   {data?.googleScholar}
 
                 </div>
                 <div className={` ${styles.research_groupdetails3}`}>
-                    Email: rakeshphys163@gmail.com
+                    Email:  {data?.email}
 
 
                 </div>  <div className={` ${styles.research_groupdetails3}`}>
-                    Phone: +91 9382011054 (M) 
+                    Phone: {data?.phone}
 
                 </div>
        </div>
     
    
     </div>
+        );
+    })}
+    </>
         );
     }
 export default  Groupmembercards;
