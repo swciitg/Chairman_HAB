@@ -48,7 +48,7 @@ app.use((req, res, next) => {
 //secret
 app.use(
   session({
-    secret: "sheesssh ",
+    secret: process.env.SESSION_SECRET,
     cookie: { maxAge: 180 * 60 * 1000 },
     resave: false,
     saveUninitialized: false,
@@ -58,6 +58,11 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(bodyParser.json());
+
+app.get(`${process.env.FD_BASEURL}`, (req, res) => {
+  res.sendFile(__dirname + "/build/index.html");
+});
+app.use(`${process.env.FD_BASEURL}`, express.static(__dirname + "/build"));
 
 // set up routes
 app.use("/api/about", require("./routes/about"));
