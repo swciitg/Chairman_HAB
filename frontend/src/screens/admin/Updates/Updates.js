@@ -1,8 +1,26 @@
-import React, { useEffect } from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
+import { BACKEND_API } from '../../../constant';
 
 const UpdatesScreencreen = () => {
-    const updates = [{"title" : "xyz", "description" : "Sample description"}]
+  const [updates, setUpdates] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${BACKEND_API}/updates`, {
+      })
+      .then((response) => {
+        const data = response.data;
+        if (data.status == "success") {
+          setUpdates(data.data.Update);
+        } else {
+        }
+      })
+      .catch((error) => {
+        console.log(error)
+      });
+  }, []);
     return (
         <>
           <h1 className="text-3xl text-black pb-6">Updates</h1>
@@ -45,7 +63,7 @@ const UpdatesScreencreen = () => {
                           <td className="text-left py-3 px-4">
                             <Link
                               to={{
-                                pathname: `/admin/updates/${data?.id}`,
+                                pathname: `/admin/updates/${data?._id}`,
                               }}
                               state={data}
                             >

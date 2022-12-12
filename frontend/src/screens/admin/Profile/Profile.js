@@ -1,8 +1,26 @@
-import React, { useEffect } from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
+import { BACKEND_API } from '../../../constant';
 
 const ProfileScreen = () => {
-    const profile = [{"name" : "Sample name", "image" : "Sample image", "designation" : "Sample Designation", "department" : "Sample Department", "institutename" : "Sample Institute Name", "address" : "Sample Address", "labphone" : "Sample phone number", "officephone" : "Sample phone number", "labemail" : "Sample E-Mail", "officeemail" : "Sample E-Mail", "personalemail" : "Sample E-Mail", "orcidid" : "Sample ID", "researchid" : "Sample ID", "scopusauthorid" : "Sample ID", "googlescholarid" : "Sample ID"}]
+  const [profile, setProfile] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${BACKEND_API}/profile`, {
+      })
+      .then((response) => {
+        const data = response.data;
+        if (data.status == "success") {
+          setProfile(data.data.ProfileData);
+        } else {
+        }
+      })
+      .catch((error) => {
+        console.log(error)
+      });
+  }, []);
     return (
         <>
           <h1 className="text-3xl text-black pb-6">Profile</h1>
@@ -77,48 +95,45 @@ const ProfileScreen = () => {
                     profile.map((data, idx) => {
                       return (
                         <tr key={idx}>
-                          <td className="text-left py-3 px-4">{data?.name}</td>
+                          <td className="text-left py-3 px-4">{data?.proffessorName}</td>
                           <td className="image-left py-3 px-4">
-                          {data?.image}
+                          {data?.proffesorimage}
                           </td>
                           <td className="text-left py-3 px-4">
-                          {data?.designation}
+                          {data?.proffessorDesignation}
                           </td>
-                          <td className="image-left py-3 px-4">
-                          {data?.department}
+                          <td className="text-left py-3 px-4">
+                          {data?.proffessorDepartment}
                           </td>
-                          <td className="image-left py-3 px-4">
-                          {data?.institutename}
+                          <td className="text-left py-3 px-4">
+                          {data?.instituteName}
                           </td>
-                          <td className="image-left py-3 px-4">
+                          <td className="text-left py-3 px-4">
                           {data?.address}
                           </td>
-                          <td className="image-left py-3 px-4">
-                          {data?.labphone}
+                          <td className="text-left py-3 px-4">
+                          {data?.labPhone}
                           </td>
-                          <td className="image-left py-3 px-4">
-                          {data?.officephone}
+                          <td className="text-left py-3 px-4">
+                          {data?.officePhone}
                           </td>
-                          <td className="image-left py-3 px-4">
-                          {data?.labemail}
+                          <td className="text-left py-3 px-4">
+                          {data?.labEmail}
                           </td>
-                          <td className="image-left py-3 px-4">
-                          {data?.officeemail}
+                          <td className="text-left py-3 px-4">
+                          {data?.personalEmail}
                           </td>
-                          <td className="image-left py-3 px-4">
-                          {data?.personalemail}
+                          <td className="text-left py-3 px-4">
+                          {data?.OrcidID}
                           </td>
-                          <td className="image-left py-3 px-4">
-                          {data?.orcidid}
+                          <td className="text-left py-3 px-4">
+                          {data?.researchID}
                           </td>
-                          <td className="image-left py-3 px-4">
-                          {data?.researchid}
-                          </td>
-                          <td className="image-left py-3 px-4">
+                          <td className="text-left py-3 px-4">
                           {data?.scopusauthorid}
                           </td>
-                          <td className="image-left py-3 px-4">
-                          {data?.googlescholarid}
+                          <td className="text-left py-3 px-4">
+                          {data?.googleScholarID}
                           </td>
                           <td className="text-left py-3 px-4">
                             <Link

@@ -1,8 +1,26 @@
-import React, { useEffect } from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
+import { BACKEND_API } from '../../../constant';
 
 const AboutScreen = () => {
-    const about = [{"desc" : "Sample description"}]
+  const [about,setAbout] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${BACKEND_API}/about`, {
+      })
+      .then((response) => {
+        const data = response.data;
+        if (data.status == "success") {
+          setAbout(data.data.AboutData);
+        } else {
+        }
+      })
+      .catch((error) => {
+        console.log(error)
+      });
+  }, []);
     return (
         <>
           <h1 className="text-3xl text-black pb-6">About Us</h1>
@@ -35,11 +53,12 @@ const AboutScreen = () => {
                     about.map((data, idx) => {
                       return (
                         <tr key={idx}>
-                          <td className="text-left py-3 px-4">{data?.desc}</td>
+                       
+                          <td className="text-left py-3 px-4">{data?.description}</td>
                           <td className="text-left py-3 px-4">
                             <Link
                               to={{
-                                pathname: `/admin/about/${data?.id}`,
+                                pathname: `/admin/about/${data?._id}`,
                               }}
                               state={data}
                             >

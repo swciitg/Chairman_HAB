@@ -1,8 +1,26 @@
-import React, { useEffect } from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
+import { BACKEND_API } from '../../../constant';
 
 const CollaboratorsScreen = () => {
-    const collaborators = [{"name" : "Sample name", "designation" : "Sample Designation", "universityName" : "Sample university name", "countryName" : "Sample country name"}]
+  const [collaborators,setCollaborators] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${BACKEND_API}/collaborator`, {
+      })
+      .then((response) => {
+        const data = response.data;
+        if (data.status == "success") {
+          setCollaborators(data.data.Collaborator);
+        } else {
+        }
+      })
+      .catch((error) => {
+        console.log(error)
+      });
+  }, []);
     return (
         <>
           <h1 className="text-3xl text-black pb-6">Collaborators</h1>
@@ -44,7 +62,7 @@ const CollaboratorsScreen = () => {
                     collaborators.map((data, idx) => {
                       return (
                         <tr key={idx}>
-                          <td className="text-left py-3 px-4">{data?.name}</td>
+                          <td className="text-left py-3 px-4">{data?.collaboratorName}</td>
                           <td className="text-left py-3 px-4">
                           {data?.designation}
                           </td>

@@ -1,15 +1,34 @@
-import React, { useEffect } from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
+import { BACKEND_API } from '../../../constant';
 
 const GroupMembersScreen = () => {
-    const groupMembers = [{"name" : "Sample name", "designation" : "Sample Designation", "imagePath" : "Sample path", "researchInterest" : "Sample research interests", "googleScholar" : "Sample link", "email" : "Sample E-Mail", "phone" : "Sample phone number", "priorityNumber" : "Sample priority number"}]
+  const [groupMembers, setGroupMembers] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${BACKEND_API}/groupMembers`, {
+      })
+      .then((response) => {
+        const data = response.data;
+        if (data.status == "success") {
+          setGroupMembers(data.data.GroupMembersData);
+        } else {
+        }
+      })
+      .catch((error) => {
+        console.log(error)
+      });
+  }, []);
+
     return (
         <>
           <h1 className="text-3xl text-black pb-6">Group Members</h1>
           <div className="mt-6">
             <Link
               className="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded"
-              to={`/admin/GroupMembers/add`}
+              to={`/admin/groupMembers/add`}
             >
               Add Group Members
             </Link>
@@ -56,7 +75,7 @@ const GroupMembersScreen = () => {
                     groupMembers.map((data, idx) => {
                       return (
                         <tr key={idx}>
-                          <td className="text-left py-3 px-4">{data?.name}</td>
+                          <td className="text-left py-3 px-4">{data?.memberName}</td>
                           <td className="text-left py-3 px-4">
                           {data?.designation}
                           </td>
@@ -76,12 +95,12 @@ const GroupMembersScreen = () => {
                           {data?.phone}
                           </td>
                           <td className="image-left py-3 px-4">
-                          {data?.priorityNumber}
+                          {data?.priority_number}
                           </td>
                           <td className="text-left py-3 px-4">
                             <Link
                               to={{
-                                pathname: `/admin/GroupMembers/${data?.id}`,
+                                pathname: `/admin/groupMembers/${data?._id}`,
                               }}
                               state={data}
                             >

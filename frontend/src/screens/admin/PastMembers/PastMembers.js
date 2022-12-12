@@ -1,8 +1,26 @@
-import React, { useEffect } from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
+import { BACKEND_API } from '../../../constant';
 
 const PastMembersScreen = () => {
-    const pastmembers = [{"name" : "Name will be here", "qualification" : "Qualification will be here", "year" : "Year of project completion"}]
+  const [pastmembers,setPastMembers] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${BACKEND_API}/pastMembers`, {
+      })
+      .then((response) => {
+        const data = response.data;
+        if (data.status == "success") {
+          setPastMembers(data.data.PastMember);
+        } else {
+        }
+      })
+      .catch((error) => {
+        console.log(error)
+      });
+  }, []);
     return (
         <>
           <h1 className="text-3xl text-black pb-6">Past Members</h1>
@@ -41,12 +59,12 @@ const PastMembersScreen = () => {
                     pastmembers.map((data, idx) => {
                       return (
                         <tr key={idx}>
-                          <td className="text-left py-3 px-4">{data?.name}</td>
+                          <td className="text-left py-3 px-4">{data?.pastMemberName}</td>
                           <td className="text-left py-3 px-4">
-                          {data?.qualification}
+                          {data?.qualificationOfStudent}
                           </td>
                           <td className="image-left py-3 px-4">
-                          {data?.year}
+                          {data?.yearOfProjectCompletion}
                           </td>
                           <td className="text-left py-3 px-4">
                             <Link

@@ -1,8 +1,26 @@
-import React, { useEffect } from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
+import { BACKEND_API } from '../../../constant';
 
 const AlumniScreen = () => {
-    const alumniinfo = [{"name" : "xyz", "designation" : "Sample description", "image" : "container.png", "yoc" : "Enter year of completion", "institute" : "Enter Institute", "email" : "Enter Email", "phone" : "Enter Phone number"}]
+  const [alumniinfo,setAlumniinfo] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${BACKEND_API}/alumni`, {
+      })
+      .then((response) => {
+        const data = response.data;
+        if (data.status == "success") {
+          setAlumniinfo(data.data.AlumniProfileData);
+        } else {
+        }
+      })
+      .catch((error) => {
+        console.log(error)
+      });
+  }, []);
     return (
         <>
           <h1 className="text-3xl text-black pb-6">Alumni</h1>
@@ -53,18 +71,18 @@ const AlumniScreen = () => {
                     alumniinfo.map((data, idx) => {
                       return (
                         <tr key={idx}>
-                          <td className="text-left py-3 px-4">{data?.name}</td>
+                          <td className="text-left py-3 px-4">{data?.alumniName}</td>
                           <td className="text-left py-3 px-4">
                           {data?.designation}
                           </td>
                           <td className="text-left py-3 px-4">
-                          {data?.image}
+                          {data?.imagePath}
                           </td>
                           <td className="text-left py-3 px-4">
-                          {data?.yoc}
+                          {data?.yearOfCompletion}
                           </td>
                           <td className="text-left py-3 px-4">
-                          {data?.institute}
+                          {data?.nameOfInstitution}
                           </td>
                           <td className="text-left py-3 px-4">
                           {data?.email}

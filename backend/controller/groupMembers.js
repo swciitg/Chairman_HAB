@@ -8,7 +8,7 @@ exports.getGroupMembers = async (req, res) => {
     const GroupMembersData = await GroupMembers.find({ grp: grp }).sort(
       "priority_number"
     );
-    return res.status(200).json({ status: "Success", data: GroupMembersData });
+    return res.status(200).json({ status: "success", data: {GroupMembersData} });
   } catch (err) {
     console.log(err);
     return res
@@ -69,7 +69,7 @@ exports.postMember = async (req, res) => {
       imagePath,
     });
     const MemberData = await newGroupMembersData.save();
-    return res.status(200).json({ status: "Success", data: MemberData });
+    return res.status(200).json({ status: "success", data: {MemberData} });
   } catch (err) {
     console.log(err);
     return res
@@ -121,7 +121,7 @@ exports.editMember = async (req, res) => {
         `${__dirname}/../../uploads/grp/${GroupMembersData.imagePath}`
       );
     }
-    return res.status(200).json({ status: "Success", data: UpdatedMemberData });
+    return res.status(200).json({ status: "success", data: {UpdatedMemberData} });
   } catch (err) {
     console.log(err);
     return res
@@ -136,7 +136,7 @@ exports.deleteMember = async (req, res) => {
     const MemberData = await GroupMembers.findById(id);
     const DeletedMemberData = await GroupMembers.findByIdAndDelete(id);
     fs.unlinkSync(`${__dirname}/../../uploads/grp/${MemberData.imagePath}`);
-    return res.status(200).json({ status: "Success", data: DeletedMemberData });
+    return res.status(200).json({ status: "success", data: {DeletedMemberData} });
   } catch (err) {
     console.log(err);
     return res

@@ -1,8 +1,26 @@
-import React, { useEffect } from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
+import { BACKEND_API } from '../../../constant';
 
 const SimulationSoftwaresScreen = () => {
-    const exptfacilities = [{"simulationsoftwaresTitle" : "Title will be here", "simulationsoftwaresImage" : "Image will be here"}]
+  const [simulsoft, setSimulSofts] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${BACKEND_API}/simulationSoftwares`, {
+      })
+      .then((response) => {
+        const data = response.data;
+        if (data.status == "success") {
+          setSimulSofts(data.data.simulationSoftwaresData);
+        } else {
+        }
+      })
+      .catch((error) => {
+        console.log(error)
+      });
+  }, []);
     return (
         <>
           <h1 className="text-3xl text-black pb-6">Simulation Softwares</h1>
@@ -33,16 +51,16 @@ const SimulationSoftwaresScreen = () => {
                     </th>
                   </tr>                </thead>
                 <tbody className="text-gray-700">
-                  {exptfacilities.length !== 0 &&
-                    exptfacilities.map((data, idx) => {
+                  {simulsoft.length !== 0 &&
+                    simulsoft.map((data, idx) => {
                       return (
                         <tr key={idx}>
-                          <td className="text-left py-3 px-4">{data?.simulationsoftwaresTitle}</td>
-                          <td className="text-left py-3 px-4">{data?.simulationsoftwaresImage}</td>
+                          <td className="text-left py-3 px-4">{data?.simulationSoftwaresTitle}</td>
+                          <td className="text-left py-3 px-4">{data?.simulationSoftwaresImage}</td>
                           <td className="text-left py-3 px-4">
                             <Link
                               to={{
-                                pathname: `/admin/simulationsoftwares/${data?.id}`,
+                                pathname: `/admin/simulationsoftwares/${data?._id}`,
                               }}
                               state={data}
                             >

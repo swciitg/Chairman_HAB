@@ -10,7 +10,7 @@ exports.getsimulationSoftwares = async (req, res) => {
       .sort("priority_number");
     return res
       .status(200)
-      .json({ status: "Success", data: simulationSoftwaresData });
+      .json({ status: "success", data: {simulationSoftwaresData} });
   } catch (err) {
     console.log(err);
     return res
@@ -63,7 +63,7 @@ exports.postSimulation = async (req, res) => {
       imagePath,
     });
     const SimulationData = await newsimulationSoftwaresData.save();
-    return res.status(200).json({ status: "Success", data: SimulationData });
+    return res.status(200).json({ status: "success", data: {SimulationData} });
   } catch (err) {
     console.log(err);
     return res
@@ -109,7 +109,7 @@ exports.editSimulation = async (req, res) => {
     }
     return res
       .status(200)
-      .json({ status: "Success", data: UpdatedSimulationData });
+      .json({ status: "success", data: {UpdatedSimulationData} });
   } catch (err) {
     console.log(err);
     return res
@@ -128,7 +128,7 @@ exports.deleteSimulation = async (req, res) => {
     fs.unlinkSync(`${__dirname}/../../uploads/sim/${SimulationData.imagePath}`);
     return res
       .status(200)
-      .json({ status: "Success", data: DeletedSimulationData });
+      .json({ status: "success", data: {DeletedSimulationData} });
   } catch (err) {
     console.log(err);
     return res

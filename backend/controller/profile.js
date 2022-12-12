@@ -8,7 +8,7 @@ exports.getProfile = async (req, res) => {
     const ProfileData = await Profile.find({ grp: grp }).sort(
       "priority_number"
     );
-    return res.status(200).json({ status: "Success", data: ProfileData });
+    return res.status(200).json({ status: "success", data: {ProfileData} });
   } catch (err) {
     console.log(err);
     return res
@@ -58,7 +58,7 @@ exports.postProfile = async (req, res) => {
       imagePath,
     });
     const ProfileData = await newProfileData.save();
-    return res.status(200).json({ status: "Success", data: ProfileData });
+    return res.status(200).json({ status: "success", data: {ProfileData} });
   } catch (err) {
     console.log(err);
     return res
@@ -128,7 +128,7 @@ exports.editProfile = async (req, res) => {
     }
     return res
       .status(200)
-      .json({ status: "Success", data: UpdatedProfileData });
+      .json({ status: "success", data: {UpdatedProfileData} });
   } catch (err) {
     console.log(err);
     return res
@@ -145,7 +145,7 @@ exports.deleteProfile = async (req, res) => {
     fs.unlinkSync(`${__dirname}/../../uploads/grp/${ProfileData.imagePath}`);
     return res
       .status(200)
-      .json({ status: "Success", data: DeletedProfileData });
+      .json({ status: "success", data: {DeletedProfileData} });
   } catch (err) {
     console.log(err);
     return res

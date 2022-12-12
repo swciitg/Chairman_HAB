@@ -1,8 +1,26 @@
-import React, { useEffect } from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
+import { BACKEND_API } from '../../../constant';
 
 const PublicationScreen = () => {
-    const Publication = [{"journaltitle" : "Title will be here", "journalname" : "Name will be here", "journalBody" : "Body will be here"}]
+  const [Publication, setPublication] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${BACKEND_API}/journalPublications`, {
+      })
+      .then((response) => {
+        const data = response.data;
+        if (data.status == "success") {
+          setPublication(data.data.JournalPublication);
+        } else {
+        }
+      })
+      .catch((error) => {
+        console.log(error)
+      });
+  }, []);
     return (
         <>
           <h1 className="text-3xl text-black pb-6">Publications</h1>
@@ -51,7 +69,7 @@ const PublicationScreen = () => {
                           <td className="text-left py-3 px-4">
                             <Link
                               to={{
-                                pathname: `/admin/publications/${data?.id}`,
+                                pathname: `/admin/publications/${data?._id}`,
                               }}
                               state={data}
                             >

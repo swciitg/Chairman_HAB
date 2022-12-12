@@ -10,7 +10,7 @@ exports.getkeyReasearchArea = async (req, res) => {
       .sort("priority_number");
     return res
       .status(200)
-      .json({ status: "Success", data: keyReasearchAreaData });
+      .json({ status: "success", data: {keyReasearchAreaData} });
   } catch (err) {
     console.log(err);
     return res
@@ -65,7 +65,7 @@ exports.postReasearch = async (req, res) => {
       imagePath,
     });
     const ReasearchData = await newkeyReasearchAreaData.save();
-    return res.status(200).json({ status: "Success", data: ReasearchData });
+    return res.status(200).json({ status: "success", data: {ReasearchData} });
   } catch (err) {
     console.log(err);
     return res
@@ -113,7 +113,7 @@ exports.editReasearch = async (req, res) => {
     }
     return res
       .status(200)
-      .json({ status: "Success", data: UpdatedReasearchData });
+      .json({ status: "success", data: UpdatedReasearchData });
   } catch (err) {
     console.log(err);
     return res
@@ -130,7 +130,7 @@ exports.deleteReasearch = async (req, res) => {
     fs.unlinkSync(`${__dirname}/../../uploads/reas/${ReasearchData.imagePath}`);
     return res
       .status(200)
-      .json({ status: "Success", data: DeletedReasearchData });
+      .json({ status: "success", data: DeletedReasearchData });
   } catch (err) {
     console.log(err);
     return res

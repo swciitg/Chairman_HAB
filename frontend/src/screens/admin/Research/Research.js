@@ -1,15 +1,33 @@
-import React, { useEffect } from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
+import { BACKEND_API } from '../../../constant';
 
 const ResearchScreen = () => {
-    const keyResearchArea = [{"title" : "xyz", "description" : "Sample description", "image" : "container.png"}]
+  const [keyResearchArea, setResearch] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${BACKEND_API}/keyResearchArea`, {
+      })
+      .then((response) => {
+        const data = response.data;
+        if (data.status == "success") {
+          setResearch(data.data.keyReasearchAreaData);
+        } else {
+        }
+      })
+      .catch((error) => {
+        console.log(error)
+      });
+  }, []);
     return (
         <>
           <h1 className="text-3xl text-black pb-6">Key Reseach Areas</h1>
           <div className="mt-6">
             <Link
               className="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded"
-              to={`/admin/research/add`}
+              to={`/admin/keyResearchArea/add`}
             >
               Add Key Research Areas
             </Link>
@@ -41,17 +59,17 @@ const ResearchScreen = () => {
                     keyResearchArea.map((data, idx) => {
                       return (
                         <tr key={idx}>
-                          <td className="text-left py-3 px-4">{data?.title}</td>
+                          <td className="text-left py-3 px-4">{data?.keyResearchAreaTitle}</td>
                           <td className="text-left py-3 px-4">
-                          {data?.description}
+                          {data?.keyResearchAreaDescription}
                           </td>
                           <td className="image-left py-3 px-4">
-                          {data?.image}
+                          {data?.keyResearchAreaImage}
                           </td>
                           <td className="text-left py-3 px-4">
                             <Link
                               to={{
-                                pathname: `/admin/research/${data?.id}`,
+                                pathname: `/admin/keyResearchArea/${data?._id}`,
                               }}
                               state={data}
                             >

@@ -1,8 +1,27 @@
-import React, { useEffect } from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
+import { BACKEND_API } from '../../../constant';
 
 const ExperimentalFacilitiesScreen = () => {
-    const exptfacilities = [{"experimentalFacilitiesTitle" : "Title will be here", "experimentalFacilitiesImage" : "Image will be here"}]
+  const [exptfacilities,setExptfacilities] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${BACKEND_API}/experimentalFacilities`, {
+      })
+      .then((response) => {
+        const data = response.data;
+        if (data.status == "success") {
+          setExptfacilities(data.data.ExperimentalFacilitiesData);
+        } else {
+        }
+      })
+      .catch((error) => {
+        console.log(error)
+      });
+  }, []);
+
     return (
         <>
           <h1 className="text-3xl text-black pb-6">Experimental Facilities</h1>

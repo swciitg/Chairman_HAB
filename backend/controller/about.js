@@ -2,8 +2,8 @@ const About = require("../models/about");
 
 exports.getAbout = async (req, res) => {
     try{
-        const AboutData = await About.findOne({});
-        return res.status(200).json({status:"Success", data: AboutData});
+        const AboutData = await About.find({});
+        return res.status(200).json({status:"success", data: {AboutData}});
     }
     catch (err){
         console.log(err);
@@ -18,7 +18,7 @@ exports.postAbout = async (req, res) => {
         // const {HTMLString} = req.body;
         const newAboutData = new About(req.body);
         const AboutData = await newAboutData.save();
-        return res.status(200).json({ status: "Success", data: AboutData });
+        return res.status(200).json({ status: "success", data: {AboutData} });
     }
     catch (err){
         console.log(err);

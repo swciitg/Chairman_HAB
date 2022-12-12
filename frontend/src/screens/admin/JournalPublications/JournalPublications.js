@@ -1,8 +1,26 @@
-import React, { useEffect } from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
+import { BACKEND_API } from '../../../constant';
 
 const JournalPublicationsScreen = () => {
-    const journalpublications = [{"title" : "Sample title", "name" : "Sample name", "body" : "Sample body"}]
+  const [journalpublications,setJournalPublications] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${BACKEND_API}/journalPublications`, {
+      })
+      .then((response) => {
+        const data = response.data;
+        if (data.status == "success") {
+          setJournalPublications(data.data.JournalPublication);
+        } else {
+        }
+      })
+      .catch((error) => {
+        console.log(error)
+      });
+  }, []);
     return (
         <>
           <h1 className="text-3xl text-black pb-6">Journal Publications</h1>
@@ -41,12 +59,12 @@ const JournalPublicationsScreen = () => {
                     journalpublications.map((data, idx) => {
                       return (
                         <tr key={idx}>
-                          <td className="text-left py-3 px-4">{data?.title}</td>
+                          <td className="text-left py-3 px-4">{data?.journaltitle}</td>
                           <td className="text-left py-3 px-4">
-                          {data?.name}
+                          {data?.journalname}
                           </td>
                           <td className="image-left py-3 px-4">
-                          {data?.body}
+                          {data?.journalBody}
                           </td>
                           <td className="text-left py-3 px-4">
                             <Link

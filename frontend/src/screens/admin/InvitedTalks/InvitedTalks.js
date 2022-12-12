@@ -1,8 +1,27 @@
-import React, { useEffect } from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
+import { BACKEND_API } from '../../../constant';
 
 const InvitedTalksScreen = () => {
-    const invitedtalks = [{"title" : "Sample title", "name" : "Sample name", "body" : "Sample body"}]
+  const [invitedtalks,setInvitedtalks] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${BACKEND_API}/invitedTalks`, {
+      })
+      .then((response) => {
+        const data = response.data;
+        if (data.status == "success") {
+          setInvitedtalks(data.data.InvitedTalk);
+        } else {
+        }
+      })
+      .catch((error) => {
+        console.log(error)
+      });
+  }, []);
+
     return (
         <>
           <h1 className="text-3xl text-black pb-6">Invited Talks</h1>
@@ -41,12 +60,12 @@ const InvitedTalksScreen = () => {
                     invitedtalks.map((data, idx) => {
                       return (
                         <tr key={idx}>
-                          <td className="text-left py-3 px-4">{data?.title}</td>
+                          <td className="text-left py-3 px-4">{data?.invitedTalktitle}</td>
                           <td className="text-left py-3 px-4">
-                          {data?.name}
+                          {data?.invitedTalkname}
                           </td>
                           <td className="image-left py-3 px-4">
-                          {data?.body}
+                          {data?.invitedTalkBody}
                           </td>
                           <td className="text-left py-3 px-4">
                             <Link
