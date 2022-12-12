@@ -1,18 +1,35 @@
 import styles from "./Table.module.css";
 
+import React, { useState } from "react";
+
+import axios from "axios";
 
 
 const Details = () =>  {
-    
+    const [projects, setProjects] = useState([]);
+    const url = "http://localhost:5000/api/Projects";
+    const promise = axios.get(url);
+    promise.then((res) => {
+      const data = res.data.data.Project;
+      setProjects(data);
+      // console.log(data);
+    });
     return (
        <>
-            <tr className={`w-24`} >
-            <td>1</td>
-            <td >DST Fast Track Young Scientist </td>
-            <td>SERB</td>
-            <td>2015-18</td>
-            <td>ABC</td>
-          </tr>
+              {projects.length !== 0 &&
+                    projects.map((data, idx) => {
+                      return (
+                        <tr key={idx} className={`w-24`} >
+                        <td>{data?.serialNumber}</td>
+                        <td >{data?.projectTitle} </td>
+                        <td>{data?.fundingAgencyName}</td>
+                        <td>{data?.duration}</td>
+                        <td>{data?.investigators}</td>
+                      </tr>
+                      
+                      
+                      );
+                    })}
        </>
        
        

@@ -4,12 +4,31 @@ import Groupmembercards from "./Group-member-card";
 import styles from "./Members.module.css";
 import PastMembers from "./Past-Members-card";
 import Pic from "./pic.png";
+import React, { useState } from "react";
+
+import axios from "axios";
+
+
 const Members = () => {
+  const [cards, setCards] = useState([]);
+  const url = "http://localhost:5000/api/Profile";
+  const promise = axios.get(url);
+  promise.then((res) => {
+    const data = res.data.data;
+    setCards(data);
+    // console.log(data);
+  });
   return (
+    <>
+    
+   
     <div className={` ${styles.mainbody} flex flex-col`}>
+    {cards.length !== 0 &&
+                    cards.map((data) => {
+                      return (
       <div className={`${styles.research_group} flex flex-col  `}>
         <div className={` ${styles.research_groupheading} flex items-center `}>
-          {" "}
+        {" "}
           Research Group
         </div>
         <div
@@ -26,26 +45,25 @@ const Members = () => {
             <div className={`w-1/2 flex  flex-col  ${styles.height4}`}>
               <div className={`flex flex-col justify-center`}>
                 <div className={` ${styles.research_groupdetails1}`}>
-                  Dr. Gagan Kumar
+                {data?.proffessorName}
                 </div>
                 <br />
                 <div className={` ${styles.research_groupdetails2}`}>
-                  Associate Professor
+                       {data?.proffessorDesignation}
                 </div>
                 <div className={` ${styles.research_groupdetails3}`}>
-                  Department of Physics
+                      {data?.proffessorDepartment}
                 </div>
 
                 <div className={` ${styles.research_groupdetails3}`}>
                   {" "}
-                  Indian Institute of Technology Guwahati Guwahati-39, Assam,
-                  India
+                     {data?.instituteName}
                 </div>
                 <div className={` ${styles.research_groupdetails3}`}>
-                  Phone: 0361 2583557 (Office) 0361 2584747 (Lab)
+                  Phone:  {data?.officePhone} (Office)  {data?.labPhone} (Lab)    
                 </div>
                 <div className={` ${styles.research_groupdetails3}`}>
-                  Email: gk@iitg.ac.in , gaganphy.iitd@gmail.com
+                  Email: {data?.labEmail} ,{data?.personalEmail}
                 </div>
               </div>
             </div>
@@ -60,13 +78,13 @@ const Members = () => {
                 <div className={` ${styles.research_groupdetails3}`}>
                   OrcidID:{" "}
                   <span className={` ${styles.research_groupids}`}>
-                    0000-0001-5867-0670
+                    {data?.OrcidID}
                   </span>{" "}
                 </div>
                 <div className={` ${styles.research_groupdetails3}`}>
                   ResearcherID:{" "}
                   <span className={` ${styles.research_groupids}`}>
-                    E-3140-2013
+                  {data?.ReasearchID}
                   </span>
                 </div>
 
@@ -74,13 +92,13 @@ const Members = () => {
                   {" "}
                   Scopus Author ID:{" "}
                   <span className={` ${styles.research_groupids}`}>
-                    55553625600
+                  {data?.scopusAuthorID}
                   </span>{" "}
                 </div>
                 <div className={` ${styles.research_groupdetails3}`}>
                   Google Scholar:{" "}
                   <span className={` ${styles.research_groupids}`}>
-                    https://scholar.google.co.in/citationsuser=YqHz-B4AAAAJ&hl=en
+                  {data?.googleScholarID}
                   </span>
                 </div>
                 <div className={` ${styles.research_groupdetails3}`}>
@@ -91,6 +109,8 @@ const Members = () => {
           </div>
         </div>
       </div>
+      );
+    })}
       <div className={`${styles.group_members}`}>
         <div className={`${styles.research_groupheading}  flex items-center `}>
           Group Members
@@ -165,6 +185,8 @@ const Members = () => {
         </div>
       </div>
     </div>
-  );
+
+  </>
+);
 };
 export default Members;
