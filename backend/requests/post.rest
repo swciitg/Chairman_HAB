@@ -1,16 +1,16 @@
-POST http://localhost:5000/api/books
+POST http://localhost:5000/api/publishedConferencePapers
 Content-Type: application/json
 
 {
-    "booktitle": "hello father",
-    "bookname": "how is your dather",
-    "bookBody": "its a bad sweet day"
+    "conferencePapertitle": "helllo there",
+    "conferencePapername": "my name",
+    "conferencePaperBody": "this is some body"
 }
 
 ###
 
-GET http://localhost:5000/api/books
+GET http://localhost:5000/api/projects
 
 ###
 
-DELETE http://localhost:5000/api/books/63961707a175023b08e3f870
+DELETE http://localhost:5000/api/collaborator/6397399909931660840741c6

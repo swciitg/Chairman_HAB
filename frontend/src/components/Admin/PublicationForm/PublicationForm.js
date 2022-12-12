@@ -1,5 +1,7 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { BACKEND_API } from "../../../constant";
 
 const PublicationForm = ({ type, formData }) => {
   const [journaltitle, setjournaltitle] = useState(
@@ -11,8 +13,45 @@ const PublicationForm = ({ type, formData }) => {
   );
 
   const [journalBody, setjournalBody] = useState(
-    formData && formData.journalBody ? formData.journalBody : "",
+    formData && formData.journalBody ? formData.journalBody : ""
   );
+
+  const addNote = () => {
+    const note = {
+      conferencePapertitle: journaltitle,
+      conferencePapername: journalname,
+      conferencePaperBody: journalBody,
+    };
+    const req = axios
+      .post(`${BACKEND_API}/books`, note)
+      .then((res) => {
+        console.log(res);
+        alert("Note successfully added.");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    console.log(req);
+  };
+
+  const editNote = (id) => {
+    const note = {
+      conferencePapertitle: journaltitle,
+      conferencePapername: journalname,
+      conferencePaperBody: journalBody,
+    };
+    const req = axios
+      .put(`${BACKEND_API}/${id}`, note)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    console.log(req);
+  };
+
+  const method = type === "Add" ? addNote : editNote;
 
   let navigate = useNavigate();
   return (
@@ -26,10 +65,16 @@ const PublicationForm = ({ type, formData }) => {
           <div className="leading-loose">
             <form
               className="p-10 bg-white rounded shadow-xl"
-              // onSubmit={(e) => formSubmitHandler(e)}
+              onSubmit={(e) => {
+                e.preventDefault();
+                method();
+              }}
             >
               <div className="mt-2">
-                <label className="block text-sm text-gray-600" htmlFor="journaltitle">
+                <label
+                  className="block text-sm text-gray-600"
+                  htmlFor="journaltitle"
+                >
                   Journal Title
                 </label>
                 <input
@@ -44,7 +89,10 @@ const PublicationForm = ({ type, formData }) => {
               </div>
 
               <div className="mt-2">
-                <label className="block text-sm text-gray-600" htmlFor="journalname">
+                <label
+                  className="block text-sm text-gray-600"
+                  htmlFor="journalname"
+                >
                   Journal Name
                 </label>
                 <input
@@ -59,8 +107,11 @@ const PublicationForm = ({ type, formData }) => {
               </div>
 
               <div className="mt-2">
-                <label className="block text-sm text-gray-600" htmlFor="journalBody">
-                  Journal Title
+                <label
+                  className="block text-sm text-gray-600"
+                  htmlFor="journalBody"
+                >
+                  Journal Body
                 </label>
                 <input
                   className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
@@ -72,7 +123,7 @@ const PublicationForm = ({ type, formData }) => {
                   required
                 />
               </div>
-              
+
               <div className="mt-6">
                 <button
                   className="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded"

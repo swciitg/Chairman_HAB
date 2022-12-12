@@ -1,5 +1,7 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { BACKEND_API } from "../../../constant";
 
 const ProjectsForm = ({ type, formData }) => {
   const [title, setTitle] = useState(
@@ -18,6 +20,40 @@ const ProjectsForm = ({ type, formData }) => {
     formData && formData.investigator ? formData.investigator : ""
   );
 
+  const [serialNumber, setSerialNumber] = useState(0);
+
+  const generateSerialNumber = () => {
+    axios
+      .get(`${BACKEND_API}/projects`)
+      .then((res) => {
+        console.log(res); 
+        setSerialNumber(res.data.data.Project.length);
+      })
+      .catch((error) => console.log(error));
+  };
+
+  const addNote = () => {
+    generateSerialNumber();
+    const note = {
+      serialNumber: serialNumber,
+      projectTitle: title,
+      fundingAgencyName: fundingAgency,
+      duration: duration,
+      investigators: investigator,
+    };
+    console.log(note);
+    const req = axios
+      .post(`${BACKEND_API}/projects`, note)
+      .then((res) => {
+        console.log(res);
+        alert("Note successfully added.");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    console.log(req);
+  };
+
   const link_id = formData && formData.id;
   let navigate = useNavigate();
   return (
@@ -31,8 +67,10 @@ const ProjectsForm = ({ type, formData }) => {
           <div className="leading-loose">
             <form
               className="p-10 bg-white rounded shadow-xl"
-              // onSubmit={(e) => formSubmitHandler(e)}
-            >
+              onSubmit={(event) => {
+                    event.preventDefault();
+                    addNote();
+                  }}            >
               <div className="mt-2">
                 <label className="block text-sm text-gray-600" htmlFor="Title">
                   Title
@@ -49,7 +87,10 @@ const ProjectsForm = ({ type, formData }) => {
               </div>
 
               <div className="mt-2">
-                <label className="block text-sm text-gray-600" htmlFor="Funding Agency">
+                <label
+                  className="block text-sm text-gray-600"
+                  htmlFor="Funding Agency"
+                >
                   Funding Agency
                 </label>
                 <input
@@ -64,7 +105,10 @@ const ProjectsForm = ({ type, formData }) => {
               </div>
 
               <div className="mt-2">
-                <label className="block text-sm text-gray-600" htmlFor="Duration">
+                <label
+                  className="block text-sm text-gray-600"
+                  htmlFor="Duration"
+                >
                   Duration
                 </label>
                 <input
@@ -79,7 +123,10 @@ const ProjectsForm = ({ type, formData }) => {
               </div>
 
               <div className="mt-2">
-                <label className="block text-sm text-gray-600" htmlFor="Investigator">
+                <label
+                  className="block text-sm text-gray-600"
+                  htmlFor="Investigator"
+                >
                   Investigator
                 </label>
                 <input
@@ -92,7 +139,7 @@ const ProjectsForm = ({ type, formData }) => {
                   required
                 />
               </div>
-              
+
               <div className="mt-6">
                 <button
                   className="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded"

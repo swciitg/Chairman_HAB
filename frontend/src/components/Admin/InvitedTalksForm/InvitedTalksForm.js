@@ -1,5 +1,7 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { BACKEND_API } from "../../../constant";
 
 const InvitedTalksForm = ({ type, formData }) => {
   const [title, setTitle] = useState(
@@ -14,6 +16,43 @@ const InvitedTalksForm = ({ type, formData }) => {
     formData && formData.body ? formData.body : ""
   );
 
+  const addNote = () => {
+    const note = {
+      invitedTalktitle: title,
+      invitedTalkname: name,
+      invitedTalkBody: body,
+    };
+    const req = axios
+      .post(`${BACKEND_API}/invitedTalks`, note)
+      .then((res) => {
+        console.log(res);
+        alert("Note successfully added.");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    console.log(req);
+  };
+
+  const editNote = (id) => {
+    const newNote = {
+      booktitle: title,
+      bookname: name,
+      bookBody: body,
+    };
+    const req = axios
+      .put(`${BACKEND_API}/${id}`, newNote)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    console.log(req);
+  };
+
+  const method = type === "Add" ? addNote : editNote;
+
   let navigate = useNavigate();
   return (
     <>
@@ -26,8 +65,10 @@ const InvitedTalksForm = ({ type, formData }) => {
           <div className="leading-loose">
             <form
               className="p-10 bg-white rounded shadow-xl"
-              // onSubmit={(e) => formSubmitHandler(e)}
-            >
+              onSubmit={(event) => {
+                event.preventDefault();
+                method();
+              }}            >
               <div className="mt-2">
                 <label className="block text-sm text-gray-600" htmlFor="Title">
                   Title

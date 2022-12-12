@@ -1,26 +1,25 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { BACKEND_API } from '../../../constant';
+import { BACKEND_API } from "../../../constant";
 
 const ProjectsScreen = () => {
   const [projects, setProjects] = useState([]);
 
-    useEffect(() => {
-      axios
-        .get(`${BACKEND_API}/projects`, {
-        })
-        .then((response) => {
-          const data = response.data;
-          if (data.status ==   "success") {
-            setProjects(data.data.Project);
-          } else {
-          }
-        })
-        .catch((error) => {
-          console.log(error)
-        });
-    }, []);
+  useEffect(() => {
+    axios
+      .get(`${BACKEND_API}/projects`, {})
+      .then((response) => {
+        const data = response.data;
+        if (data.status === "success") {
+          setProjects(data.data.Project);
+        } else {
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   return (
     <>
@@ -63,15 +62,15 @@ const ProjectsScreen = () => {
                 projects.map((data, idx) => {
                   return (
                     <tr key={idx}>
-                      <td className="text-left py-3 px-4">{data?.projectTitle}</td>
                       <td className="text-left py-3 px-4">
-                      {data?.fundingAgencyName}
+                        {data?.projectTitle}
                       </td>
                       <td className="text-left py-3 px-4">
-                      {data?.duration}
+                        {data?.fundingAgencyName}
                       </td>
+                      <td className="text-left py-3 px-4">{data?.duration}</td>
                       <td className="text-left py-3 px-4">
-                      {data?.investigators}
+                        {data?.investigators}
                       </td>
                       <td className="text-left py-3 px-4">
                         <Link
@@ -86,9 +85,9 @@ const ProjectsScreen = () => {
                       <td className="text-left py-3 px-4">
                         <button
                           className="hover:text-red-500"
-                        //   onClick={() =>
-                        //     dispatch()
-                        //   }
+                          //   onClick={() =>
+                          //     dispatch()
+                          //   }
                         >
                           Delete
                         </button>

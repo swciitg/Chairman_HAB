@@ -78,7 +78,7 @@ app.use(
 );
 app.use("/api/simulationSoftwares", require("./routes/simulationSoftwares"));
 app.use("/api/updates", require("./routes/updates"));
-app.use("/api/profile", require("./routes/profile "));
+app.use("/api/profile", require("./routes/profile"));
 app.use("/api/alumni", require("./routes/alumni(PhD-Scholars)"));
 
 app.use("/auth", authRoutes);

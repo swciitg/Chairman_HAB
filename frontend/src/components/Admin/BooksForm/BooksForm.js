@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { BACKEND_API, BASEURL } from "../../../constant";
+import { BACKEND_API } from "../../../constant";
 
 const BooksForm = ({ type, formData }) => {
   const [title, setTitle] = useState(
@@ -17,7 +16,6 @@ const BooksForm = ({ type, formData }) => {
   );
 
   const addNote = () => {
-    // event.preventDefault();
     const note = {
       booktitle: title,
       bookname: name,
@@ -27,6 +25,7 @@ const BooksForm = ({ type, formData }) => {
       .post(`${BACKEND_API}/books`, note)
       .then((res) => {
         console.log(res);
+        alert("Note successfully added.");
       })
       .catch((err) => {
         console.log(err);
@@ -35,13 +34,13 @@ const BooksForm = ({ type, formData }) => {
   };
 
   const editNote = (id) => {
-    const newNote = {
+    const note = {
       booktitle: title,
       bookname: name,
       bookBody: body,
     };
     const req = axios
-      .put(`${BACKEND_API}/${id}`, newNote)
+      .put(`${BACKEND_API}/${id}`, note)
       .then((res) => {
         console.log(res);
       })
@@ -53,7 +52,6 @@ const BooksForm = ({ type, formData }) => {
 
   const method = type === "Add" ? addNote : editNote;
 
-  let navigate = useNavigate();
   return (
     <>
       <h1 className="text-3xl text-black pb-6">{type} Books</h1>
@@ -65,7 +63,10 @@ const BooksForm = ({ type, formData }) => {
           <div className="leading-loose">
             <form
               className="p-10 bg-white rounded shadow-xl"
-              // onSubmit={(e) => formSubmitHandler(e)}
+              onSubmit={(event) => {
+                event.preventDefault();
+                method();
+              }}
             >
               <div className="mt-2">
                 <label className="block text-sm text-gray-600" htmlFor="Title">
@@ -119,10 +120,6 @@ const BooksForm = ({ type, formData }) => {
                 <button
                   className="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded"
                   type="submit"
-                  onClick={(event) => {
-                    event.preventDefault();
-                    method();
-                  }}
                 >
                   Submit
                 </button>

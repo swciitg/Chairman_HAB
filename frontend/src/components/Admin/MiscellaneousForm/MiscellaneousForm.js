@@ -1,5 +1,7 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { BACKEND_API } from "../../../constant";
 
 const MiscellaneousForm = ({ type, formData }) => {
   const [title, setTitle] = useState(
@@ -14,6 +16,43 @@ const MiscellaneousForm = ({ type, formData }) => {
     formData && formData.body ? formData.body : ""
   );
 
+  const addNote = () => {
+    const note = {
+      miscellaneousPostertitle: title,
+      miscelaneousPostername: name,
+      miscellaneousPoterBody: body,
+    };
+    const req = axios
+      .post(`${BACKEND_API}/miscellaneous`, note)
+      .then((res) => {
+        console.log(res);
+        alert("Note successfully added.");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    console.log(req);
+  };
+
+  const editNote = (id) => {
+    const note = {
+      miscellaneousPostertitle: title,
+      miscelaneousPostername: name,
+      miscellaneousPoterBody: body,
+    };
+    const req = axios
+      .put(`${BACKEND_API}/${id}`, note)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    console.log(req);
+  };
+
+  const method = type === "Add" ? addNote : editNote;
+
   let navigate = useNavigate();
   return (
     <>
@@ -26,7 +65,10 @@ const MiscellaneousForm = ({ type, formData }) => {
           <div className="leading-loose">
             <form
               className="p-10 bg-white rounded shadow-xl"
-              // onSubmit={(e) => formSubmitHandler(e)}
+              onSubmit={(event) => {
+                event.preventDefault();
+                method();
+              }}
             >
               <div className="mt-2">
                 <label className="block text-sm text-gray-600" htmlFor="Title">
@@ -72,7 +114,7 @@ const MiscellaneousForm = ({ type, formData }) => {
                   required
                 />
               </div>
-              
+
               <div className="mt-6">
                 <button
                   className="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded"
