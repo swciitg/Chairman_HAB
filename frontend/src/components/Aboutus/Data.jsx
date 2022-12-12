@@ -23,7 +23,7 @@ const Data = () => {
      
 
         {aboutus.length !== 0 &&
-          aboutus.map((data) => {
+          aboutus.map((data, idx) => {
             return (
               <>
                <div  key={idx} className={`${styles.details1} flex justify-center items-center`}>

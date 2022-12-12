@@ -97,7 +97,7 @@ const AdminScreen = () => {
                 /> 
                  <Route
                   exact
-                  path={`/research`}
+                  path={`/keyResearchArea`}
                   element={<ResearchScreen />}
                 />
                  <Route
