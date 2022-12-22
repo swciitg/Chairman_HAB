@@ -57,6 +57,7 @@ exports.postReasearch = async (req, res) => {
       priority_number,
     } = req.body;
     const imagePath = req.file.filename;
+    console.log(req);
     const newkeyReasearchAreaData = new keyReasearchArea({
       keyResearchAreaTitle,
       keyResearchAreaDescription,
