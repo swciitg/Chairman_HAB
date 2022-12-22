@@ -12,7 +12,7 @@ const ResearchScreen = () => {
       })
       .then((response) => {
         const data = response.data;
-        if (data.status == "success") {
+        if (data.status === "success") {
           setResearch(data.data.keyReasearchAreaData);
         } else {
         }
@@ -20,7 +20,14 @@ const ResearchScreen = () => {
       .catch((error) => {
         console.log(error)
       });
-  }, []);
+  });
+
+  const researchDelete = (id) => {
+    axios
+      .delete(`${BACKEND_API}/research/${id}`)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  };
     return (
         <>
           <h1 className="text-3xl text-black pb-6">Key Reseach Areas</h1>
@@ -79,9 +86,10 @@ const ResearchScreen = () => {
                           <td className="text-left py-3 px-4">
                             <button
                               className="hover:text-red-500"
-                            //   onClick={() =>
-                            //     dispatch()
-                            //   }
+                              onClick={(event) =>{
+                                researchDelete(event.target.value);
+                              }}
+                              value={data?.id}
                             >
                               Delete
                             </button>

@@ -12,7 +12,7 @@ const MiscellaneousScreen = () => {
       })
       .then((response) => {
         const data = response.data;
-        if (data.status == "success") {
+        if (data.status === "success") {
           setMiscellaneous(data.data.Misc);
         } else {
         }
@@ -20,7 +20,14 @@ const MiscellaneousScreen = () => {
       .catch((error) => {
         console.log(error)
       });
-  }, []);
+  });
+
+  const miscellaneousDelete = (id) => {
+    axios
+      .delete(`${BACKEND_API}/miscellaneous/${id}`)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  };
     return (
         <>
           <h1 className="text-3xl text-black pb-6">Miscellaneous</h1>
@@ -79,9 +86,10 @@ const MiscellaneousScreen = () => {
                           <td className="text-left py-3 px-4">
                             <button
                               className="hover:text-red-500"
-                            //   onClick={() =>
-                            //     dispatch()
-                            //   }
+                              onClick={(event) =>{
+                                miscellaneousDelete(event.target.value);
+                              }}
+                              value={data?.id}
                             >
                               Delete
                             </button>

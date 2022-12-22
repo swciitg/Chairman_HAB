@@ -12,7 +12,7 @@ const JournalPublicationsScreen = () => {
       })
       .then((response) => {
         const data = response.data;
-        if (data.status == "success") {
+        if (data.status === "success") {
           setJournalPublications(data.data.JournalPublication);
         } else {
         }
@@ -20,7 +20,14 @@ const JournalPublicationsScreen = () => {
       .catch((error) => {
         console.log(error)
       });
-  }, []);
+  });
+
+  const journalPublicationsDelete = (id) => {
+    axios
+      .delete(`${BACKEND_API}/journalPublications/${id}`)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  };
     return (
         <>
           <h1 className="text-3xl text-black pb-6">Journal Publications</h1>
@@ -79,9 +86,10 @@ const JournalPublicationsScreen = () => {
                           <td className="text-left py-3 px-4">
                             <button
                               className="hover:text-red-500"
-                            //   onClick={() =>
-                            //     dispatch()
-                            //   }
+                              onClick={(event) =>{
+                                  journalPublicationsDelete(event.target.value);
+                                }}
+                                value={data?.id}
                             >
                               Delete
                             </button>

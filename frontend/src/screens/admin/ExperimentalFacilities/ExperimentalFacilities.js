@@ -20,7 +20,14 @@ const ExperimentalFacilitiesScreen = () => {
       .catch((error) => {
         console.log(error)
       });
-  }, []);
+  });
+
+  const experimentalFacilitiesDelete = (id) => {
+    axios
+      .delete(`${BACKEND_API}/experimentalFacilities/${id}`)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  };
 
     return (
         <>
@@ -72,9 +79,10 @@ const ExperimentalFacilitiesScreen = () => {
                           <td className="text-left py-3 px-4">
                             <button
                               className="hover:text-red-500"
-                            //   onClick={() =>
-                            //     dispatch()
-                            //   }
+                              onClick={(event) =>{
+                                experimentalFacilitiesDelete(event.target.value);
+                              }}
+                              value={data?.id}
                             >
                               Delete
                             </button>
