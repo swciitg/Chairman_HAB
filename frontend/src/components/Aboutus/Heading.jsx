@@ -1,12 +1,13 @@
 import styles from "./About.module.css"
 import React, { useState } from "react";
+import {BACKEND_API} from "../../constant/index";
 
 import axios from "axios";
 
 const Headings = () =>  {
     const [headings, setHeadings] = useState([]);
-    const url = "http://localhost:5000/api/Updates";
-    const promise = axios.get(url);
+    // const url = "http://localhost:5000/api/Updates";
+    const promise = axios.get(`${BACKEND_API}/Updates`, {});
     promise.then((res) => {
       const data = res.data.data.Update;
       setHeadings(data);

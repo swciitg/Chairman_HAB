@@ -2,17 +2,17 @@ import styles from "./About.module.css"
 import React, { useState } from "react";
 import axios from "axios";
 
-
+import {BACKEND_API} from "../../constant/index";
 
 
 const Data = () => {
   const [aboutus, setAboutus] = useState([]);
-  const url = "http://localhost:5000/api/about";
-  const promise = axios.get(url);
+  // const url = "http://localhost:5000/api/about";
+  const promise = axios.get(`${BACKEND_API}/about`, {});
   promise.then((res) => {
-    const data = res.data.data;
+    const data = res.data.data.AboutData;
     setAboutus(data);
-    console.log(data);
+    // console.log(data);
   });
 
 

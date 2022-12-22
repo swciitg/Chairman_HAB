@@ -1,14 +1,15 @@
 import styles from "./Table.module.css";
 
 import React, { useState } from "react";
+import {BACKEND_API} from "../../constant/index";
 
 import axios from "axios";
 
 
 const Details = () =>  {
     const [projects, setProjects] = useState([]);
-    const url = "http://localhost:5000/api/Projects";
-    const promise = axios.get(url);
+    // const url = "http://localhost:5000/api/Projects";
+    const promise = axios.get(`${BACKEND_API}/Projects`, {});
     promise.then((res) => {
       const data = res.data.data.Project;
       setProjects(data);
