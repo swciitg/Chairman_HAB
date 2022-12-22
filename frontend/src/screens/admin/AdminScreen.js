@@ -102,12 +102,12 @@ const AdminScreen = () => {
                 />
                  <Route
                   exact
-                  path={`/research/add`}
+                  path={`/keyResearchArea/add`}
                   element={<AddResearchScreen />}
                 />
                  <Route
                   exact
-                  path={`/research/:id`}
+                  path={`/keyResearchArea/:id`}
                   element={<EditResearchScreen />}
                 />
                  <Route
