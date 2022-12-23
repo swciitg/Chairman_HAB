@@ -1,5 +1,7 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { BACKEND_API } from "../../../constant";
 
 const ProfileForm = ({ type, formData }) => {
   const [name, setname] = useState(
@@ -63,6 +65,58 @@ const ProfileForm = ({ type, formData }) => {
   );
 
   let navigate = useNavigate();
+  const formSubmitHandler = async (e) => {
+    e.preventDefault();
+    try {
+      let res;
+      if (image) {
+        console.log(image);
+        const formData1 = new FormData();
+        formData1.append("proffessorName", name);
+        formData1.append("proffesorimage", image, image.name);
+        formData1.append("proffessorDesignation", designation);
+        formData1.append("proffessorDepartment", department);
+        formData1.append("instituteName", institutename);
+        formData1.append("address", address);
+        formData1.append("labPhone", labphone);
+        formData1.append("officePhone", officephone);
+        formData1.append("labEmail", labemail);
+        formData1.append("officeEmail", officeemail);
+        formData1.append("personalEmail", personalemail);
+        formData1.append("OrcidID", orcidid);
+        formData1.append("ReasearchID", researchid);
+        formData1.append("scopusAuthorID", scopusauthorid);
+        formData1.append("googleScholarID", googlescholarid);
+        console.log(formData1);
+        res = await axios
+          .post(`${BACKEND_API}/profile`, formData1, {
+            headers: {
+              "Content-Type": "multipart/form-data",
+              // Accept: "multipart/form-data",
+            },
+          })
+          .then((window.location.href = "./"));
+      } else {
+        // res = await axios.post(
+        //   `${BACKEND_API}/keyResearchArea`,
+        //   {
+        //     keyResearchAreaTitle: title,
+        //     keyResearchAreaDescription: description,
+        //   },
+        //   {
+        //     headers: {
+        //       "Content-Type": "application/json",
+        //       Accept: "application/json",
+        //     },
+        //   }
+        // );
+        alert("Please enter an image");
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <>
       <h1 className="text-3xl text-black pb-6">{type} Profile</h1>
@@ -74,7 +128,7 @@ const ProfileForm = ({ type, formData }) => {
           <div className="leading-loose">
             <form
               className="p-10 bg-white rounded shadow-xl"
-              // onSubmit={(e) => formSubmitHandler(e)}
+              onSubmit={formSubmitHandler}
             >
               <div className="mt-2">
                 <label className="block text-sm text-gray-600" htmlFor="name">
@@ -90,7 +144,7 @@ const ProfileForm = ({ type, formData }) => {
                   required
                 />
               </div>
-              
+
               <div className="mt-2">
                 <label className="block text-sm text-gray-600" htmlFor="image">
                   Image
@@ -100,14 +154,16 @@ const ProfileForm = ({ type, formData }) => {
                   id="image"
                   name="image"
                   type="file"
-                  onChange={(e) => setimage(e.target.value)}
-                  value={image}
+                  onChange={(e) => setimage(e.target.files[0])}
                   required
                 />
               </div>
 
               <div className="mt-2">
-                <label className="block text-sm text-gray-600" htmlFor="designation">
+                <label
+                  className="block text-sm text-gray-600"
+                  htmlFor="designation"
+                >
                   Designation
                 </label>
                 <input
@@ -122,7 +178,10 @@ const ProfileForm = ({ type, formData }) => {
               </div>
 
               <div className="mt-2">
-                <label className="block text-sm text-gray-600" htmlFor="department">
+                <label
+                  className="block text-sm text-gray-600"
+                  htmlFor="department"
+                >
                   Department
                 </label>
                 <input
@@ -137,7 +196,10 @@ const ProfileForm = ({ type, formData }) => {
               </div>
 
               <div className="mt-2">
-                <label className="block text-sm text-gray-600" htmlFor="institutename">
+                <label
+                  className="block text-sm text-gray-600"
+                  htmlFor="institutename"
+                >
                   Institute Name
                 </label>
                 <input
@@ -152,7 +214,10 @@ const ProfileForm = ({ type, formData }) => {
               </div>
 
               <div className="mt-2">
-                <label className="block text-sm text-gray-600" htmlFor="address">
+                <label
+                  className="block text-sm text-gray-600"
+                  htmlFor="address"
+                >
                   Address
                 </label>
                 <input
@@ -167,7 +232,10 @@ const ProfileForm = ({ type, formData }) => {
               </div>
 
               <div className="mt-2">
-                <label className="block text-sm text-gray-600" htmlFor="labphone">
+                <label
+                  className="block text-sm text-gray-600"
+                  htmlFor="labphone"
+                >
                   Lab Phone
                 </label>
                 <input
@@ -182,7 +250,10 @@ const ProfileForm = ({ type, formData }) => {
               </div>
 
               <div className="mt-2">
-                <label className="block text-sm text-gray-600" htmlFor="officephone">
+                <label
+                  className="block text-sm text-gray-600"
+                  htmlFor="officephone"
+                >
                   Office Phone
                 </label>
                 <input
@@ -197,7 +268,10 @@ const ProfileForm = ({ type, formData }) => {
               </div>
 
               <div className="mt-2">
-                <label className="block text-sm text-gray-600" htmlFor="labemail">
+                <label
+                  className="block text-sm text-gray-600"
+                  htmlFor="labemail"
+                >
                   Lab E-Mail
                 </label>
                 <input
@@ -212,7 +286,10 @@ const ProfileForm = ({ type, formData }) => {
               </div>
 
               <div className="mt-2">
-                <label className="block text-sm text-gray-600" htmlFor="officeemail">
+                <label
+                  className="block text-sm text-gray-600"
+                  htmlFor="officeemail"
+                >
                   Office E-Mail
                 </label>
                 <input
@@ -227,7 +304,10 @@ const ProfileForm = ({ type, formData }) => {
               </div>
 
               <div className="mt-2">
-                <label className="block text-sm text-gray-600" htmlFor="personalemail">
+                <label
+                  className="block text-sm text-gray-600"
+                  htmlFor="personalemail"
+                >
                   Personal E-Mail
                 </label>
                 <input
@@ -242,7 +322,10 @@ const ProfileForm = ({ type, formData }) => {
               </div>
 
               <div className="mt-2">
-                <label className="block text-sm text-gray-600" htmlFor="orcidid">
+                <label
+                  className="block text-sm text-gray-600"
+                  htmlFor="orcidid"
+                >
                   Orcid ID
                 </label>
                 <input
@@ -257,7 +340,10 @@ const ProfileForm = ({ type, formData }) => {
               </div>
 
               <div className="mt-2">
-                <label className="block text-sm text-gray-600" htmlFor="researchid">
+                <label
+                  className="block text-sm text-gray-600"
+                  htmlFor="researchid"
+                >
                   Research ID
                 </label>
                 <input
@@ -272,7 +358,10 @@ const ProfileForm = ({ type, formData }) => {
               </div>
 
               <div className="mt-2">
-                <label className="block text-sm text-gray-600" htmlFor="scopusauthorid">
+                <label
+                  className="block text-sm text-gray-600"
+                  htmlFor="scopusauthorid"
+                >
                   Scopus Author ID
                 </label>
                 <input
@@ -287,7 +376,10 @@ const ProfileForm = ({ type, formData }) => {
               </div>
 
               <div className="mt-2">
-                <label className="block text-sm text-gray-600" htmlFor="googlescholarid">
+                <label
+                  className="block text-sm text-gray-600"
+                  htmlFor="googlescholarid"
+                >
                   Google Scholar ID
                 </label>
                 <input

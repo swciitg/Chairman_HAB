@@ -15,7 +15,7 @@ const storage = multer.diskStorage({
 
 const Profile = require('../controller/profile');
 const upload = multer({ storage: storage });
-router.post('/', upload.single("image"), Profile.postProfile);
+router.post('/', upload.single("proffesorimage"), Profile.postProfile);
 
 router.get('/', Profile.getProfile);
 

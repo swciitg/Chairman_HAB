@@ -1,9 +1,8 @@
-import styles from "./About.module.css"
+import styles from "./About.module.css";
 import React, { useState } from "react";
 import axios from "axios";
 
-import {BACKEND_API} from "../../constant/index";
-
+import { BACKEND_API } from "../../constant/index";
 
 const Data = () => {
   const [aboutus, setAboutus] = useState([]);
@@ -15,29 +14,23 @@ const Data = () => {
     // console.log(data);
   });
 
-
-
-
   return (
     <>
-     
-
-        {aboutus.length !== 0 &&
-          aboutus.map((data, idx) => {
-            return (
-              <>
-               <div  key={idx} className={`${styles.details1} flex justify-center items-center`}>
+      {aboutus.length !== 0 &&
+        aboutus.map((data, idx) => {
+          return (
+            <>
+              <div
+                key={idx}
+                className={`${styles.details1} flex justify-center items-center`}
+              >
                 {data?.description}
-                </div>
-              </>
-            );
-          })}
-     
-
+              </div>
+            </>
+          );
+        })}
     </>
   );
-}
+};
 
 export default Data;
-
-

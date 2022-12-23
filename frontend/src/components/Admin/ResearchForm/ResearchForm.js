@@ -12,10 +12,11 @@ const ResearchForm = ({ type, formData }) => {
     formData && formData.description ? formData.description : ""
   );
 
-  const [picture, setPicture] = useState(null
+  const [picture, setPicture] = useState(
+    null
     // formData && formData.picture ? formData.picture : null
   );
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -26,19 +27,21 @@ const ResearchForm = ({ type, formData }) => {
         formData1.append("keyResearchAreaTitle", title);
         formData1.append("keyResearchAreaDescription", description);
         formData1.append("keyResearchAreaImage", picture, picture.name);
-        console.log(formData1)
-        res = await axios.post(`${BACKEND_API}/keyResearchArea`, formData1, {
-          headers: {
-            "Content-Type": "multipart/form-data",
-            // Accept: "multipart/form-data",  
-          },
-        }).then(window.location.href = "./" );
+        console.log(formData1);
+        res = await axios
+          .post(`${BACKEND_API}/keyResearchArea`, formData1, {
+            headers: {
+              "Content-Type": "multipart/form-data",
+              // Accept: "multipart/form-data",
+            },
+          })
+          .then((window.location.href = "./"));
       } else {
         res = await axios.post(
           `${BACKEND_API}/keyResearchArea`,
           {
-            keyResearchAreaTitle : title,
-            keyResearchAreaDescription : description,
+            keyResearchAreaTitle: title,
+            keyResearchAreaDescription: description,
           },
           {
             headers: {
@@ -51,8 +54,7 @@ const ResearchForm = ({ type, formData }) => {
     } catch (err) {
       console.log(err);
     }
-    
-  }
+  };
   return (
     <>
       <h1 className="text-3xl text-black pb-6">{type} Key Research Areas</h1>
@@ -82,7 +84,10 @@ const ResearchForm = ({ type, formData }) => {
               </div>
 
               <div className="mt-2">
-                <label className="block text-sm text-gray-600" htmlFor="description">
+                <label
+                  className="block text-sm text-gray-600"
+                  htmlFor="description"
+                >
                   Description
                 </label>
                 <input
@@ -97,7 +102,10 @@ const ResearchForm = ({ type, formData }) => {
               </div>
 
               <div className="mt-2">
-                <label className="block text-sm text-gray-600" htmlFor="picture">
+                <label
+                  className="block text-sm text-gray-600"
+                  htmlFor="picture"
+                >
                   Picture
                 </label>
                 <input
@@ -105,14 +113,12 @@ const ResearchForm = ({ type, formData }) => {
                   id="picture"
                   name="picture"
                   type="file"
-                  onChange={(e) => 
-                    setPicture(e.target.files[0])
-                  }
+                  onChange={(e) => setPicture(e.target.files[0])}
                   // value={picture}
                   required
                 />
               </div>
-              
+
               <div className="mt-6">
                 <button
                   className="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded"

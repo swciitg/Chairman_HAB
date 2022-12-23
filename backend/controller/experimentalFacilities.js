@@ -10,7 +10,7 @@ exports.getExperimentalFacilities = async (req, res) => {
     }).sort("priority_number");
     return res
       .status(200)
-      .json({ status: "success", data: {ExperimentalFacilitiesData} });
+      .json({ status: "success", data: { ExperimentalFacilitiesData } });
   } catch (err) {
     console.log(err);
     return res
@@ -52,7 +52,7 @@ exports.postExperimentalFacility = async (req, res) => {
     const { grp } = req.params;
     const { experimentalFacilitiesTitle } = req.body;
     const experimentalFacilitiesImage = req.file.filename;
-    const newExperimentalFacilitiesData = new ExperimentalFacilites({
+    const newExperimentalFacilitiesData = new ExperimentalFacilities({
       experimentalFacilitiesTitle,
       experimentalFacilitiesImage,
     });
@@ -60,7 +60,7 @@ exports.postExperimentalFacility = async (req, res) => {
       await newExperimentalFacilitiesData.save();
     return res
       .status(200)
-      .json({ status: "success", data: {ExperimentalFacilitiesData} });
+      .json({ status: "success", data: { ExperimentalFacilitiesData } });
   } catch (err) {
     console.log(err);
     return res
@@ -72,7 +72,7 @@ exports.postExperimentalFacility = async (req, res) => {
 exports.editExperimentalFacility = async (req, res) => {
   try {
     const { grp, id } = req.params;
-    const ExperimentalFacilitesData = await ExperimentalFacilities.findById(id);
+    const ExperimentalFacilitiesData = await ExperimentalFacilities.findById(id);
     const { experimentalFacilitiesTitle } = req.body;
     let experimentalFacilitiesImage;
     let data = { experimentalFacilitiesTitle, grp };
@@ -84,12 +84,12 @@ exports.editExperimentalFacility = async (req, res) => {
       await ExperimentalFacilities.findByIdAndUpdate(id, data);
     if (req.file) {
       fs.unlinkSync(
-        `${__dirname}/../../uploads/grp/${ExperimentalFacilitesData.experimentalFacilitiesImage}`
+        `${__dirname}/../../uploads/grp/${ExperimentalFacilitiesData.experimentalFacilitiesImage}`
       );
     }
     return res
       .status(200)
-      .json({ status: "success", data: {UpdatedExperimentalFacilityData} });
+      .json({ status: "success", data: { UpdatedExperimentalFacilityData } });
   } catch (err) {
     console.log(err);
     return res
@@ -109,7 +109,7 @@ exports.deleteExperimentalFacility = async (req, res) => {
     );
     return res
       .status(200)
-      .json({ status: "success", data: {DeletedExperimentalFacilityData} });
+      .json({ status: "success", data: { DeletedExperimentalFacilityData } });
   } catch (err) {
     console.log(err);
     return res

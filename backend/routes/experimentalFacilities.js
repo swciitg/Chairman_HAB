@@ -15,7 +15,7 @@ const storage = multer.diskStorage({
 
 const ExperimentalFacilities = require('../controller/experimentalFacilities');
 const upload = multer({ storage: storage });
-router.post('/', upload.single("image"), ExperimentalFacilities.postExperimentalFacility);
+router.post('/', upload.single("experimentalFacilitiesImage"), ExperimentalFacilities.postExperimentalFacility);
 
 router.get('/:id', ExperimentalFacilities.getExperimentalFacilityImage);
 
