@@ -12,7 +12,7 @@ const AlumniScreen = () => {
       })
       .then((response) => {
         const data = response.data;
-        if (data.status == "success") {
+        if (data.status === "success") {
           setAlumniinfo(data.data.AlumniProfileData);
         } else {
         }
@@ -20,7 +20,14 @@ const AlumniScreen = () => {
       .catch((error) => {
         console.log(error)
       });
-  }, []);
+  });
+
+  const deleteAlumniProfile = (id) => {
+    axios
+      .delete(`${BACKEND_API}/alumni/${id}`)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  };
     return (
         <>
           <h1 className="text-3xl text-black pb-6">Alumni</h1>
@@ -103,9 +110,10 @@ const AlumniScreen = () => {
                           <td className="text-left py-3 px-4">
                             <button
                               className="hover:text-red-500"
-                            //   onClick={() =>
-                            //     dispatch()
-                            //   }
+                              onClick={(event) =>{
+                                deleteAlumniProfile(event.target.value);
+                              }}
+                              value={data?.id}
                             >
                               Delete
                             </button>

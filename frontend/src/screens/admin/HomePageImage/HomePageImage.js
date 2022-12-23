@@ -1,8 +1,18 @@
-import React, { useEffect } from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
+import { BACKEND_API } from '../../../constant';
+
 
 const HomePageImageScreen = () => {
     const homepageimage = [{"image" : "Sample Image"}]
+
+    const homePageImageDelete = (id) => {
+      axios
+        .delete(`${BACKEND_API}/homePageImage/${id}`)
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
+    };
     return (
         <>
           <h1 className="text-3xl text-black pb-6">Home Page Image</h1>
@@ -48,10 +58,11 @@ const HomePageImageScreen = () => {
                           </td>
                           <td className="text-left py-3 px-4">
                             <button
-                              className="hover:text-red-500"
-                            //   onClick={() =>
-                            //     dispatch()
-                            //   }
+                             className="hover:text-red-500"
+                             onClick={(event) =>{
+                               homePageImageDelete(event.target.value);
+                             }}
+                             value={data?.id}
                             >
                               Delete
                             </button>

@@ -12,7 +12,7 @@ const PastMembersScreen = () => {
       })
       .then((response) => {
         const data = response.data;
-        if (data.status == "success") {
+        if (data.status === "success") {
           setPastMembers(data.data.PastMember);
         } else {
         }
@@ -20,7 +20,14 @@ const PastMembersScreen = () => {
       .catch((error) => {
         console.log(error)
       });
-  }, []);
+  });
+
+  const pastMembersDelete = (id) => {
+    axios
+      .delete(`${BACKEND_API}/pastMembers/${id}`)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  };
     return (
         <>
           <h1 className="text-3xl text-black pb-6">Past Members</h1>
@@ -79,9 +86,10 @@ const PastMembersScreen = () => {
                           <td className="text-left py-3 px-4">
                             <button
                               className="hover:text-red-500"
-                            //   onClick={() =>
-                            //     dispatch()
-                            //   }
+                              onClick={(event) =>{
+                                pastMembersDelete(event.target.value);
+                              }}
+                              value={data?.id}
                             >
                               Delete
                             </button>

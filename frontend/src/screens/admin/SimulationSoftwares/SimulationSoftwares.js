@@ -12,7 +12,7 @@ const SimulationSoftwaresScreen = () => {
       })
       .then((response) => {
         const data = response.data;
-        if (data.status == "success") {
+        if (data.status === "success") {
           setSimulSofts(data.data.simulationSoftwaresData);
         } else {
         }
@@ -20,7 +20,14 @@ const SimulationSoftwaresScreen = () => {
       .catch((error) => {
         console.log(error)
       });
-  }, []);
+  });
+
+  const simulationSoftwaresDelete = (id) => {
+    axios
+      .delete(`${BACKEND_API}/simulationSoftwares/${id}`)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  };
     return (
         <>
           <h1 className="text-3xl text-black pb-6">Simulation Softwares</h1>
@@ -71,9 +78,10 @@ const SimulationSoftwaresScreen = () => {
                           <td className="text-left py-3 px-4">
                             <button
                               className="hover:text-red-500"
-                            //   onClick={() =>
-                            //     dispatch()
-                            //   }
+                              onClick={(event) =>{
+                                simulationSoftwaresDelete(event.target.value);
+                              }}
+                              value={data?.id}
                             >
                               Delete
                             </button>

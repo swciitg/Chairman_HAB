@@ -12,7 +12,7 @@ const InvitedTalksScreen = () => {
       })
       .then((response) => {
         const data = response.data;
-        if (data.status == "success") {
+        if (data.status === "success") {
           setInvitedtalks(data.data.InvitedTalk);
         } else {
         }
@@ -20,7 +20,14 @@ const InvitedTalksScreen = () => {
       .catch((error) => {
         console.log(error)
       });
-  }, []);
+  });
+
+  const invitedTalksDelete = (id) => {
+    axios
+      .delete(`${BACKEND_API}/invitedTalks/${id}`)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  };
 
     return (
         <>
@@ -80,9 +87,10 @@ const InvitedTalksScreen = () => {
                           <td className="text-left py-3 px-4">
                             <button
                               className="hover:text-red-500"
-                            //   onClick={() =>
-                            //     dispatch()
-                            //   }
+                              onClick={(event) =>{
+                                invitedTalksDelete(event.target.value);
+                              }}
+                              value={data?.id}
                             >
                               Delete
                             </button>
