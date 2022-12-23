@@ -1,15 +1,15 @@
-POST http://localhost:5000/api/publishedConferencePapers
+POST http://localhost:5000/api/keyResearchArea
 Content-Type: application/json
 
 {
-    "conferencePapertitle": "helllo there",
-    "conferencePapername": "my name",
-    "conferencePaperBody": "this is some body"
+    "keyResearchAreaTitle": "helllo there",
+    "keyResearchAreaDescription": "my name",
+    "keyResearchAreaImage": "./img.jpg"
 }
 
 ###
 
-GET http://localhost:5000/api/projects
+GET http://localhost:5000/api/keyResearchArea
 
 ###
 
