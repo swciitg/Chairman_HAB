@@ -12,7 +12,7 @@ const UpdatesScreencreen = () => {
       })
       .then((response) => {
         const data = response.data;
-        if (data.status == "success") {
+        if (data.status === "success") {
           setUpdates(data.data.Update);
         } else {
         }
@@ -20,7 +20,14 @@ const UpdatesScreencreen = () => {
       .catch((error) => {
         console.log(error)
       });
-  }, []);
+  });
+
+  const updatesDelete = (id) => {
+    axios
+      .delete(`${BACKEND_API}/updates/${id}`)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  };
     return (
         <>
           <h1 className="text-3xl text-black pb-6">Updates</h1>
@@ -73,9 +80,10 @@ const UpdatesScreencreen = () => {
                           <td className="text-left py-3 px-4">
                             <button
                               className="hover:text-red-500"
-                            //   onClick={() =>
-                            //     dispatch()
-                            //   }
+                              onClick={(event) =>{
+                                updatesDelete(event.target.value);
+                              }}
+                              value={data?.id}
                             >
                               Delete
                             </button>

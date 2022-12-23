@@ -12,7 +12,7 @@ const ProfileScreen = () => {
       })
       .then((response) => {
         const data = response.data;
-        if (data.status == "success") {
+        if (data.status === "success") {
           setProfile(data.data.ProfileData);
         } else {
         }
@@ -20,7 +20,14 @@ const ProfileScreen = () => {
       .catch((error) => {
         console.log(error)
       });
-  }, []);
+  });
+
+  const profileDelete = (id) => {
+    axios
+      .delete(`${BACKEND_API}/profile/${id}`)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  };
     return (
         <>
           <h1 className="text-3xl text-black pb-6">Profile</h1>
@@ -148,9 +155,10 @@ const ProfileScreen = () => {
                           <td className="text-left py-3 px-4">
                             <button
                               className="hover:text-red-500"
-                            //   onClick={() =>
-                            //     dispatch()
-                            //   }
+                              onClick={(event) =>{
+                                profileDelete(event.target.value);
+                              }}
+                              value={data?.id}
                             >
                               Delete
                             </button>

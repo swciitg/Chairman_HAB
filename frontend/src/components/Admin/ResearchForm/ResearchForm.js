@@ -29,10 +29,10 @@ const ResearchForm = ({ type, formData }) => {
         console.log(formData1)
         res = await axios.post(`${BACKEND_API}/keyResearchArea`, formData1, {
           headers: {
-            "Content-Type": "application/json",
-            Accept: "multipart/form-data",  
+            "Content-Type": "multipart/form-data",
+            // Accept: "multipart/form-data",  
           },
-        });
+        }).then(window.location.href = "./" );
       } else {
         res = await axios.post(
           `${BACKEND_API}/keyResearchArea`,

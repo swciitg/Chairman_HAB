@@ -15,7 +15,7 @@ const storage = multer.diskStorage({
 
 const KeyReasearchArea = require('../controller/keyReasearchArea');
 const upload = multer({ storage: storage });
-router.post('/', upload.single("image"), KeyReasearchArea.postReasearch);
+router.post('/', upload.single("keyResearchAreaImage"), KeyReasearchArea.postReasearch);
 
 router.get('/:id', KeyReasearchArea.getOneReasearchImage);
 

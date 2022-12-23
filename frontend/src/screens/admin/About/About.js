@@ -12,7 +12,7 @@ const AboutScreen = () => {
       })
       .then((response) => {
         const data = response.data;
-        if (data.status == "success") {
+        if (data.status === "success") {
           setAbout(data.data.AboutData);
         } else {
         }
@@ -20,7 +20,15 @@ const AboutScreen = () => {
       .catch((error) => {
         console.log(error)
       });
-  }, []);
+  });
+
+  const aboutDelete = (id) => {
+    axios
+      .delete(`${BACKEND_API}/about/${id}`)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  };
+
     return (
         <>
           <h1 className="text-3xl text-black pb-6">About Us</h1>
@@ -68,9 +76,10 @@ const AboutScreen = () => {
                           <td className="text-left py-3 px-4">
                             <button
                               className="hover:text-red-500"
-                            //   onClick={() =>
-                            //     dispatch()
-                            //   }
+                              onClick={(event) => {
+                                aboutDelete(event.target.value);
+                              }}
+                              value={data?.id}
                             >
                               Delete
                             </button>
