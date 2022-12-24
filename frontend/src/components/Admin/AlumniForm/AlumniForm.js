@@ -1,35 +1,82 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { BACKEND_API } from "../../../constant";
 
 const AlumniForm = ({ type, formData }) => {
   const [alumniName, setalumniName] = useState(
     formData && formData.alumniName ? formData.alumniName : ""
   );
 
-const [alumniDesignation, setalumniDesignation] = useState(
-  formData && formData.alumniDesignation ? formData.alumniDesignation : ""
+  const [alumniDesignation, setalumniDesignation] = useState(
+    formData && formData.alumniDesignation ? formData.alumniDesignation : ""
   );
 
-const [alumniImage, setalumniImage] = useState(
-  formData && formData.alumniImage ? formData.alumniImage : ""
+  const [alumniImage, setalumniImage] = useState(
+    formData && formData.alumniImage ? formData.alumniImage : ""
   );
 
-const [alumniyoc, setalumniyoc] = useState(
-  formData && formData.alumniyoc ? formData.alumniyoc : ""
+  const [alumniyoc, setalumniyoc] = useState(
+    formData && formData.alumniyoc ? formData.alumniyoc : ""
   );
 
-const [alumniInstitute, setalumniInstitute] = useState(
-  formData && formData.alumniInstitute ? formData.alumniInstitute : ""
+  const [alumniInstitute, setalumniInstitute] = useState(
+    formData && formData.alumniInstitute ? formData.alumniInstitute : ""
   );
 
-const [alumniEmail, setalumniEmail] = useState(
-  formData && formData.alumniEmail ? formData.alumniEmail : ""
+  const [alumniEmail, setalumniEmail] = useState(
+    formData && formData.alumniEmail ? formData.alumniEmail : ""
   );
-const [alumniPhone, setalumniPhone] = useState(
-  formData && formData.alumniPhone ? formData.alumniPhone : ""
+  const [alumniPhone, setalumniPhone] = useState(
+    formData && formData.alumniPhone ? formData.alumniPhone : ""
   );
 
   let navigate = useNavigate();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      let res;
+      if (alumniImage) {
+        console.log(alumniImage);
+        const formData1 = new FormData();
+        formData1.append("alunmniName", alumniName);
+        formData1.append("designation", alumniDesignation);
+        formData1.append("yearOfCompletion", alumniyoc);
+        formData1.append("nameOfInstitution", alumniInstitute);
+        formData1.append("email", alumniEmail);
+        formData1.append("phone", alumniPhone);
+        formData1.append("profileImage", alumniImage, alumniImage.name);
+        console.log(formData1);
+        res = await axios.post(`${BACKEND_API}/alumni`, formData1, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            // Accept: "multipart/form-data",
+          },
+        });
+        // .then((window.location.href = "./"));
+      } else {
+        res = await axios.post(
+          `${BACKEND_API}/alumni`,
+          {
+            alunmniName: alumniName,
+            designation: alumniDesignation,
+            yearOfCompletion: alumniyoc,
+            nameOfInstitution: alumniInstitute,
+            email: alumniEmail,
+            phone: alumniPhone,
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
+          }
+        );
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <>
       <h1 className="text-3xl text-black pb-6">{type} Alumni</h1>
@@ -41,10 +88,13 @@ const [alumniPhone, setalumniPhone] = useState(
           <div className="leading-loose">
             <form
               className="p-10 bg-white rounded shadow-xl"
-              // onSubmit={(e) => formSubmitHandler(e)}
+              onSubmit={handleSubmit}
             >
               <div className="mt-2">
-                <label className="block text-sm text-gray-600" htmlFor="alumniname">
+                <label
+                  className="block text-sm text-gray-600"
+                  htmlFor="alumniname"
+                >
                   Name
                 </label>
                 <input
@@ -59,7 +109,10 @@ const [alumniPhone, setalumniPhone] = useState(
               </div>
 
               <div className="mt-2">
-                <label className="block text-sm text-gray-600" htmlFor="alumnidesignation">
+                <label
+                  className="block text-sm text-gray-600"
+                  htmlFor="alumnidesignation"
+                >
                   Designation
                 </label>
                 <input
@@ -74,7 +127,10 @@ const [alumniPhone, setalumniPhone] = useState(
               </div>
 
               <div className="mt-2">
-                <label className="block text-sm text-gray-600" htmlFor="alumniimage">
+                <label
+                  className="block text-sm text-gray-600"
+                  htmlFor="alumniimage"
+                >
                   Image
                 </label>
                 <input
@@ -82,14 +138,16 @@ const [alumniPhone, setalumniPhone] = useState(
                   id="alumniimage"
                   name="alumniimage"
                   type="file"
-                  onChange={(e) => setalumniImage(e.target.value)}
-                  value={alumniImage}
+                  onChange={(e) => setalumniImage(e.target.files[0])}
                   required
                 />
               </div>
 
               <div className="mt-2">
-                <label className="block text-sm text-gray-600" htmlFor="alumniyoc">
+                <label
+                  className="block text-sm text-gray-600"
+                  htmlFor="alumniyoc"
+                >
                   Year Of Completetion
                 </label>
                 <input
@@ -104,7 +162,10 @@ const [alumniPhone, setalumniPhone] = useState(
               </div>
 
               <div className="mt-2">
-                <label className="block text-sm text-gray-600" htmlFor="alumniinstitute">
+                <label
+                  className="block text-sm text-gray-600"
+                  htmlFor="alumniinstitute"
+                >
                   Institute
                 </label>
                 <input
@@ -119,7 +180,10 @@ const [alumniPhone, setalumniPhone] = useState(
               </div>
 
               <div className="mt-2">
-                <label className="block text-sm text-gray-600" htmlFor="alumniemail">
+                <label
+                  className="block text-sm text-gray-600"
+                  htmlFor="alumniemail"
+                >
                   E-Mail
                 </label>
                 <input
@@ -134,7 +198,10 @@ const [alumniPhone, setalumniPhone] = useState(
               </div>
 
               <div className="mt-2">
-                <label className="block text-sm text-gray-600" htmlFor="alumniphone">
+                <label
+                  className="block text-sm text-gray-600"
+                  htmlFor="alumniphone"
+                >
                   Phone Number
                 </label>
                 <input
@@ -147,7 +214,7 @@ const [alumniPhone, setalumniPhone] = useState(
                   required
                 />
               </div>
-              
+
               <div className="mt-6">
                 <button
                   className="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded"

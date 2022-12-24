@@ -1,5 +1,7 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { BACKEND_API } from "../../../constant";
 
 const GroupMembersForm = ({ type, formData }) => {
   const [name, setname] = useState(
@@ -35,6 +37,54 @@ const GroupMembersForm = ({ type, formData }) => {
   );
 
   let navigate = useNavigate();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      let res;
+      if (imagePath) {
+        console.log(imagePath);
+        const formData1 = new FormData();
+        formData1.append("memberName", name);
+        formData1.append("designation", designation);
+        formData1.append("researchInterest", researchInterest);
+        formData1.append("googleScholar", googleScholar);
+        formData1.append("email", email);
+        formData1.append("phone", phone);
+        formData1.append("priority_number", priorityNumber);
+        formData1.append("imagePath", imagePath, imagePath.name);
+        console.log(formData1);
+        res = await axios
+          .post(`${BACKEND_API}/groupMembers`, formData1, {
+            headers: {
+              "Content-Type": "multipart/form-data",
+              // Accept: "multipart/form-data",
+            },
+          })
+          // .then((window.location.href = "./"));
+      } else {
+        res = await axios.post(
+          `${BACKEND_API}/groupMembers`,
+          {
+            memberName: name,
+            designation: designation,
+            researchInterest: researchInterest,
+            googleScholar: googleScholar,
+            email: email,
+            phone: phone,
+            priority_number: priorityNumber,
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
+          }
+        );
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <>
       <h1 className="text-3xl text-black pb-6">{type} Group Members</h1>
@@ -46,7 +96,7 @@ const GroupMembersForm = ({ type, formData }) => {
           <div className="leading-loose">
             <form
               className="p-10 bg-white rounded shadow-xl"
-              // onSubmit={(e) => formSubmitHandler(e)}
+              onSubmit={handleSubmit}
             >
               <div className="mt-2">
                 <label className="block text-sm text-gray-600" htmlFor="name">
@@ -86,9 +136,9 @@ const GroupMembersForm = ({ type, formData }) => {
                   className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
                   id="imagePath"
                   name="imagePath"
-                  type="text"
-                  onChange={(e) => setimagePath(e.target.value)}
-                  value={imagePath}
+                  type="file"
+                  onChange={(e) => setimagePath(e.target.files[0])}
+                  // value={imagePath}
                   required
                 />
               </div>
