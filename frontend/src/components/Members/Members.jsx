@@ -121,6 +121,22 @@ const Members = () => {
         <div className={`flex  ${styles.cards} ${styles.wild_cards} `}>
           <Groupmembercards />
         </div>
+        <br />
+        <div
+          className={`flex items-center justify-center ${styles.loadButton} `}
+        >
+          <button>
+            <a
+              href=""
+              className={`${styles.load_button} flex items-center justify-center`}
+            >
+              {" "}
+              LOAD MORE<span className={`${styles.drop_arrow} `}>
+                &#8964;{" "}
+              </span>{" "}
+            </a>
+          </button>
+        </div>
       </div>
       <div className={` ${styles.alumni}`}>
         <div className={`${styles.research_groupheading}  flex items-center `}>
@@ -131,6 +147,22 @@ const Members = () => {
         <br />
         <div className={`flex ${styles.cards} `}>
           <Alumnicards />
+        </div>
+        <br />
+        <div
+          className={`flex items-center justify-center ${styles.loadButton} `}
+        >
+          <button>
+            <a
+              href=""
+              className={`${styles.load_button} flex items-center justify-center`}
+            >
+              {" "}
+              LOAD MORE<span className={`${styles.drop_arrow} `}>
+                &#8964;{" "}
+              </span>{" "}
+            </a>
+          </button>
         </div>
       </div>
       <div className={`${styles.past_members}`}>
@@ -144,7 +176,7 @@ const Members = () => {
         </div>
         <br />
         <div
-          className={`flex items-center justify-center ${styles.loadBUtton} `}
+          className={`flex items-center justify-center ${styles.loadButton} `}
         >
           <button>
             <a
