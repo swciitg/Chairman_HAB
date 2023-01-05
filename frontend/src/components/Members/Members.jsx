@@ -14,7 +14,7 @@ const Members = () => {
   const url = "http://localhost:5000/api/Profile";
   const promise = axios.get(url);
   promise.then((res) => {
-    const data = res.data.data;
+    const data = res.data.data.ProfileData;
     setCards(data);
     // console.log(data);
   });

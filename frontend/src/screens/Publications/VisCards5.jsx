@@ -1,18 +1,23 @@
 // miscellaneous
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Card from "./Card";
 import axios from "axios";
 import { BACKEND_API } from "../../constant";
 
 const VisCards = () => {
   const [notes, setNotes] = useState([]);
-  const url = `${BACKEND_API}/miscellaneous`;
+ 
+
+  useEffect(() => {
+    const url = `${BACKEND_API}/miscellaneous`;
   const promise = axios.get(url);
   promise.then((res) => {
     const data = res.data.data.Misc;
     setNotes(data);
     // console.log(data);
   });
+
+  }, []);
 
   return (
     <>
