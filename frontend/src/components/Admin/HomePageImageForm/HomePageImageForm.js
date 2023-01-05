@@ -1,10 +1,34 @@
 import React, { useState } from "react";
+import axios from "axios";
+import { BACKEND_API } from "../../../constant";
 import { useNavigate } from "react-router-dom";
 
 const HomePageImageForm = ({ type, formData }) => {
   const [image, setimage] = useState(
     formData && formData.image ? formData.image : ""
   );
+  const handleSubmit = async (e)=>{
+    e.preventDefault();
+    try {
+      let res;
+      if (image) {
+        console.log(image);
+        const formData1 = new FormData();
+        formData1.append("image", image, image.name);
+        // console.log(formData1);
+        res = await axios
+          .post(`${BACKEND_API}/homePageImage`, formData1, {
+            headers: {
+              "Content-Type": "multipart/form-data",
+              // Accept: "multipart/form-data",
+            },
+          })
+          .then((window.location.href = "./"));
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
   let navigate = useNavigate();
   return (
@@ -18,7 +42,7 @@ const HomePageImageForm = ({ type, formData }) => {
           <div className="leading-loose">
             <form
               className="p-10 bg-white rounded shadow-xl"
-              // onSubmit={(e) => formSubmitHandler(e)}
+              onSubmit={handleSubmit}
             >
               <div className="mt-2">
                 <label className="block text-sm text-gray-600" htmlFor="image">
@@ -29,8 +53,8 @@ const HomePageImageForm = ({ type, formData }) => {
                   id="image"
                   name="image"
                   type="file"
-                  onChange={(e) => setimage(e.target.value)}
-                  value={image}
+                  onChange={(e) => setimage(e.target.files[0])}
+                  // value={image}
                   required
                 />
               </div>

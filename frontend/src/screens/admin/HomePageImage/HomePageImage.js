@@ -62,7 +62,7 @@ const HomePageImageScreen = () => {
                     homepageimage.map((data, idx) => {
                       return (
                         <tr key={idx}>
-                          <td className="text-left py-3 px-4">{data?.image}</td>
+                          <td className="text-left py-3 px-4">{data?._id}</td>
                           <td className="text-left py-3 px-4">
                             <Link
                               to={{
