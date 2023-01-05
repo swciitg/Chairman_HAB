@@ -72,6 +72,7 @@ app.use("/api/keyResearchArea", require("./routes/keyReasearchArea"));
 app.use("/api/miscellaneous", require("./routes/miscellaneous"));
 app.use("/api/pastMembers", require("./routes/pastMember"));
 app.use("/api/projects", require("./routes/projects"));
+app.use("/api/homePageImage", require("./routes/homePageImage"));
 app.use(
   "/api/publishedConferencePapers",
   require("./routes/publishedConferencePaper")
