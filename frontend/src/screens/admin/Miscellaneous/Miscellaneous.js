@@ -89,7 +89,7 @@ const MiscellaneousScreen = () => {
                               onClick={(event) =>{
                                 miscellaneousDelete(event.target.value);
                               }}
-                              value={data?.id}
+                              value={data?._id}
                             >
                               Delete
                             </button>

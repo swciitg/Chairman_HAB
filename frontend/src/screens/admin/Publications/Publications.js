@@ -89,7 +89,7 @@ const PublicationScreen = () => {
                               onClick={(event) =>{
                                 publicationsDelete(event.target.value);
                               }}
-                              value={data?.id}
+                              value={data?._id}
                             >
                               Delete
                             </button>

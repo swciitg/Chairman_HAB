@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
 import { BACKEND_API } from '../../../constant';
 
-const UpdatesScreencreen = () => {
+const UpdatesScreen = () => {
   const [updates, setUpdates] = useState([]);
 
   useEffect(() => {
@@ -83,7 +83,7 @@ const UpdatesScreencreen = () => {
                               onClick={(event) =>{
                                 updatesDelete(event.target.value);
                               }}
-                              value={data?.id}
+                              value={data?._id}
                             >
                               Delete
                             </button>
@@ -99,4 +99,4 @@ const UpdatesScreencreen = () => {
       );
     };
     
-    export default UpdatesScreencreen;
+    export default UpdatesScreen;

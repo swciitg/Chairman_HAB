@@ -81,7 +81,7 @@ const SimulationSoftwaresScreen = () => {
                               onClick={(event) =>{
                                 simulationSoftwaresDelete(event.target.value);
                               }}
-                              value={data?.id}
+                              value={data?._id}
                             >
                               Delete
                             </button>

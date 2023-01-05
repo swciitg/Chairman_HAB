@@ -89,7 +89,7 @@ const ResearchScreen = () => {
                               onClick={(event) =>{
                                 researchDelete(event.target.value);
                               }}
-                              value={data?.id}
+                              value={data?._id}
                             >
                               Delete
                             </button>

@@ -158,7 +158,7 @@ const ProfileScreen = () => {
                               onClick={(event) =>{
                                 profileDelete(event.target.value);
                               }}
-                              value={data?.id}
+                              value={data?._id}
                             >
                               Delete
                             </button>
