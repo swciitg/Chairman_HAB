@@ -101,7 +101,7 @@ const InvitedTalksForm = ({ type, formData }) => {
 
               <div className="mt-2">
                 <label className="block text-sm text-gray-600" htmlFor="body">
-                  Body
+                  Link
                 </label>
                 <input
                   className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"

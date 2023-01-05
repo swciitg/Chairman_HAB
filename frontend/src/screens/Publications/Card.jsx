@@ -7,7 +7,7 @@ export default (props) => {
       <p>
         {props.head} <span className="font-bold">{props.bold}</span>
       </p>
-      <BsFillArrowRightSquareFill className="text-2xl ml-10" />
+      <BsFillArrowRightSquareFill onClick={()=>{document.location.href=props.link}} className="text-2xl ml-10" />
     </div>
   );
 };

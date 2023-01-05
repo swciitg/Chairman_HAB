@@ -24,7 +24,7 @@ const VisCards = () => {
     <>
       {notes.slice(0, 3).map((item, index) => {
         return (
-          <Card key={index} head={item.booktitle} bold={item.bookname} />
+          <Card key={index} head={item.booktitle} bold={item.bookname} link={item.bookBody}/>
         );
       })}
     </>
