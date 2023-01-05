@@ -17,7 +17,7 @@ const VisCards = () => {
     <>
       {notes.slice(0, 3).map((item, index) => {
         return (
-          <Card key={index} head={item.conferencePapertitle} bold={item.conferencePapername} />
+          <Card key={index} head={item.conferencePapertitle} bold={item.conferencePapername} link={item.conferencePaperBody}/>
         );
       })}
     </>

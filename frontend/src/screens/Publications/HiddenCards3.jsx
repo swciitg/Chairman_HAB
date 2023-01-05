@@ -16,7 +16,7 @@ const HiddenCards = () => {
     <>
       {notes.slice(3, notes.length).map((item, index) => {
         return (
-            <Card key={index} head={item.invitedTalktitle} bold={item.invitedTalkname} />
+            <Card key={index} head={item.invitedTalktitle} bold={item.invitedTalkname} link={item.invitedTalkBody}/>
         );
       })}
     </>

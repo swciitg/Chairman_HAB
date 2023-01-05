@@ -17,7 +17,7 @@ const VisCards = () => {
     <>
       {notes.slice(0, 3).map((item, index) => {
         return (
-          <Card key={index} head={item.invitedTalktitle} bold={item.invitedTalkname} />
+          <Card key={index} head={item.invitedTalktitle} bold={item.invitedTalkname} link={item.invitedTalkBody}/>
         );
       })}
     </>
