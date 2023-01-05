@@ -1,0 +1,21 @@
+export const SideNavList = [
+    { name: "About Us", url: "about" },
+    { name: "Projects", url: "projects"},
+    { name: "Research", url: "keyResearchArea" },
+    { name: "Publications", url: "publication"},
+    { name: "Experimental Facilities", url: "experimentalfacilities"},
+    { name: "Alumni", url: "alumni"},
+    { name: "Books", url: "books"},
+    { name: "Collaborators", url: "collaborators"},
+    { name: "Group Members", url: "groupMembers"},
+    { name: "Home Page Image", url: "homepageimage"},
+    { name: "Invited Talks", url: "invitedtalks"},
+    { name: "Journal Publications", url: "journalpublications"},
+    { name: "Miscellaneous", url: "miscellaneous"},
+    { name: "Past Members", url: "pastmembers"},
+    { name: "Profile", url: "profile"},
+    { name: "Published Conference Papers", url: "publishedconferencepapers"},
+    { name: "Simulation Softwares", url: "simulationSoftwares"},
+    { name: "Updates", url: "updates"},
+    { name: "User", url: "user"}
+  ];

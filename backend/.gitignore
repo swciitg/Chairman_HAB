@@ -1,0 +1,5 @@
+.env.production
+/node_modules
+.adminbro/*
+logs/*
+/requests
