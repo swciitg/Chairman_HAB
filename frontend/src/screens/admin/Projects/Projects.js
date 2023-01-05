@@ -19,7 +19,7 @@ const ProjectsScreen = () => {
       .catch((error) => {
         console.log(error);
       });
-  });
+  }, []);
 
   const projectsDelete = (id) => {
     axios

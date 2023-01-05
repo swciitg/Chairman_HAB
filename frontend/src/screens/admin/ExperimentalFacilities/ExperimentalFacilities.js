@@ -20,7 +20,7 @@ const ExperimentalFacilitiesScreen = () => {
       .catch((error) => {
         console.log(error)
       });
-  });
+  }, []);
 
   const experimentalFacilitiesDelete = (id) => {
     axios

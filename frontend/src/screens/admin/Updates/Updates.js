@@ -20,7 +20,7 @@ const UpdatesScreen = () => {
       .catch((error) => {
         console.log(error)
       });
-  });
+  }, []);
 
   const updatesDelete = (id) => {
     axios

@@ -20,7 +20,7 @@ const GroupMembersScreen = () => {
       .catch((error) => {
         console.log(error)
       });
-  });
+  }, []);
 
   const groupMembersDelete = (id) => {
     axios

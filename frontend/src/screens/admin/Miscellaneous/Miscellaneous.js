@@ -20,7 +20,7 @@ const MiscellaneousScreen = () => {
       .catch((error) => {
         console.log(error)
       });
-  });
+  }, []);
 
   const miscellaneousDelete = (id) => {
     axios

@@ -20,7 +20,7 @@ const JournalPublicationsScreen = () => {
       .catch((error) => {
         console.log(error)
       });
-  });
+  }, []);
 
   const journalPublicationsDelete = (id) => {
     axios

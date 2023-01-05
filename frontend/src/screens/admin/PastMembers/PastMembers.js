@@ -20,7 +20,7 @@ const PastMembersScreen = () => {
       .catch((error) => {
         console.log(error)
       });
-  });
+  }, []);
 
   const pastMembersDelete = (id) => {
     axios

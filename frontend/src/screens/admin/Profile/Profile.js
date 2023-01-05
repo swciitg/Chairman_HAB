@@ -20,7 +20,7 @@ const ProfileScreen = () => {
       .catch((error) => {
         console.log(error)
       });
-  });
+  }, []);
 
   const profileDelete = (id) => {
     axios

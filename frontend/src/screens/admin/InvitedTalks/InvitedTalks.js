@@ -20,7 +20,7 @@ const InvitedTalksScreen = () => {
       .catch((error) => {
         console.log(error)
       });
-  });
+  }, []);
 
   const invitedTalksDelete = (id) => {
     axios

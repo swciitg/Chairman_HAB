@@ -19,7 +19,7 @@ const UserScreen = () => {
         .catch((error) => {
           console.log(error);
         });
-    });
+    }, []);
 
     const userDelete = (id) => {
       axios

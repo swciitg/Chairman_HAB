@@ -20,7 +20,7 @@ const ResearchScreen = () => {
       .catch((error) => {
         console.log(error)
       });
-  });
+  }, []);
 
   const researchDelete = (id) => {
     axios

@@ -19,7 +19,7 @@ const BooksScreen = () => {
       .catch((error) => {
         console.log(error);
       });
-  });
+  }, []);
 
   const bookDelete = (id) => {
     axios

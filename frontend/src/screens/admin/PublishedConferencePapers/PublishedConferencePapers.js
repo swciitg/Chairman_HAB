@@ -20,7 +20,7 @@ const PublishedConferencePapersScreen = () => {
       .catch((error) => {
         console.log(error)
       });
-  });
+  }, []);
 
   const publishedConferencePapersDelete = (id) => {
     axios

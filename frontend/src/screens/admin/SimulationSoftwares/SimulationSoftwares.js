@@ -20,7 +20,7 @@ const SimulationSoftwaresScreen = () => {
       .catch((error) => {
         console.log(error)
       });
-  });
+  }, []);
 
   const simulationSoftwaresDelete = (id) => {
     axios

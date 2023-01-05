@@ -20,7 +20,7 @@ const PublicationScreen = () => {
       .catch((error) => {
         console.log(error)
       });
-  });
+  }, []);
 
   const publicationsDelete = (id) => {
     axios

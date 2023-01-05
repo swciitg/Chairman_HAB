@@ -20,7 +20,7 @@ const AlumniScreen = () => {
       .catch((error) => {
         console.log(error)
       });
-  });
+  }, []);
 
   const deleteAlumniProfile = (id) => {
     axios

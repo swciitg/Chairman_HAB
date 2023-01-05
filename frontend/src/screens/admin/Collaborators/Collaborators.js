@@ -20,7 +20,7 @@ const CollaboratorsScreen = () => {
       .catch((error) => {
         console.log(error)
       });
-  });
+  }, []);
 
   const collaboratorsDelete = (id) => {
     axios

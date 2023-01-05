@@ -20,7 +20,7 @@ const AboutScreen = () => {
       .catch((error) => {
         console.log(error)
       });
-  });
+  }, []);
 
   const aboutDelete = (id) => {
     axios

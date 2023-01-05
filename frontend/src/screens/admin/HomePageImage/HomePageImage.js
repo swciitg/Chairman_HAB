@@ -5,7 +5,24 @@ import { BACKEND_API } from '../../../constant';
 
 
 const HomePageImageScreen = () => {
-    const homepageimage = [{"image" : "Sample Image"}]
+    // const homepageimage = [{"image" : "Sample Image"}]
+    const [homepageimage,sethomepageimage] = useState([]);
+
+    useEffect(() => {
+      axios
+        .get(`${BACKEND_API}/homePageImage`, {
+        })
+        .then((response) => {
+          const data = response.data;
+          if (data.status === "success") {
+            sethomepageimage(data.data.Data);
+          } else {
+          }
+        })
+        .catch((error) => {
+          console.log(error)
+        });
+    }, []);
 
     const homePageImageDelete = (id) => {
       axios
