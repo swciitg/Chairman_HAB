@@ -21,7 +21,7 @@ exports.getHomePageImage = async (req, res) => {
 exports.getOneHomePageImage = async (req, res) => {
   try {
     const { id } = req.params;
-    const Member = await GroupMembers.findById(id);
+    const Member = await HomepageImage.findById(id);
     if (Member) {
       const ImagePath = `${__dirname}/../../uploads/grp/${Member.imagePath}`;
       fs.readFile(ImagePath, (err, data) => {
@@ -49,9 +49,12 @@ exports.postHomePageImage = async (req, res) => {
         .json({ status: "Failed", message: "No File Provided" });
     }
     const { grp } = req.params;
-
+    const {
+        image
+      } = req.body;
     const imagePath = req.file.filename;
     const newHomePageImageData = new HomepageImage({
+        image,
       imagePath,
     });
     const Data = await newHomePageImageData.save();
