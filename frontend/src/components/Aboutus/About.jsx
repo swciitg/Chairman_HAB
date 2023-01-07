@@ -10,7 +10,7 @@ const Aboutus = () => {
           <Data />
 
           <br />
-          <div
+          {/* <div
             className={`${styles.loadgeet} flex items-center justify-center`}
           >
             <button
@@ -27,7 +27,7 @@ const Aboutus = () => {
                 <span className={`${styles.drop_arrow} `}>&#8964; </span>{" "}
               </a>
             </button>
-          </div>
+          </div> */}
         </div>
         <div className={`${styles.update}  flex flex-col`}>
           <div className={`${styles.updates}`}>Update</div>
@@ -37,7 +37,7 @@ const Aboutus = () => {
             <Headings />
           </div>
           <br />
-          <div
+          {/* <div
             className={`${styles.loadgeet} flex items-center justify-center`}
           >
             <button
@@ -54,7 +54,7 @@ const Aboutus = () => {
                 <span className={`${styles.drop_arrow} `}>&#8964; </span>{" "}
               </a>
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
     </>

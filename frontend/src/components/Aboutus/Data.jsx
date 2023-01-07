@@ -3,16 +3,22 @@ import React, { useState } from "react";
 import axios from "axios";
 
 import { BACKEND_API } from "../../constant/index";
+import { useEffect } from "react";
 
 const Data = () => {
   const [aboutus, setAboutus] = useState([]);
   // const url = "http://localhost:5000/api/about";
-  const promise = axios.get(`${BACKEND_API}/about`, {});
+
+  
+  useEffect(() => {
+    const promise = axios.get(`${BACKEND_API}/about`, {});
   promise.then((res) => {
     const data = res.data.data.AboutData;
     setAboutus(data);
     // console.log(data);
   });
+  }, []);
+
 
   return (
     <>

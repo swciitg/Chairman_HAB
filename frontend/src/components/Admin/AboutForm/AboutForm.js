@@ -5,29 +5,32 @@ import { BACKEND_API } from "../../../constant";
 
 const AboutForm = ({ type, formData }) => {
   const [desc, setdesc] = useState(
-    formData && formData.desc ? formData.desc : ""
+    formData && formData.description ? formData.description : ""
   );
-
+  const navigate = useNavigate();
   const addNote = () => {
     const note = { description: desc };
     axios
       .post(`${BACKEND_API}/about`, note)
       .then((res) => {
-        console.log(res);
-        alert(`Note added successfully`);
+        // console.log(res);
+        alert(`About added successfully`);
+        navigate(-1);
       })
       .catch((err) => {
         console.log(err);
       });
   };
 
-  const editNote = (id) => {
-    const note = { desc };
+  const editNote = (id) =>   {
+    const note = {description : desc };
     axios
       .post(`${BACKEND_API}/about`, note)
       .then((res) => {
-        console.log(res);
-        alert(`Note added successfully`);
+        // console.log(res);
+        alert(`About edited successfully`);
+        navigate(-1);
+
       })
       .catch((err) => {
         console.log(err);
@@ -36,7 +39,6 @@ const AboutForm = ({ type, formData }) => {
 
   const method = type === "Add" ? addNote : editNote;
 
-  let navigate = useNavigate();
   return (
     <>
       <h1 className="text-3xl text-black pb-6">{type} About Us</h1>

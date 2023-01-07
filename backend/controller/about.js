@@ -1,4 +1,5 @@
 const About = require("../models/about");
+const factory = require("./handlerFactory");
 
 exports.getAbout = async (req, res) => {
     try{
@@ -27,3 +28,5 @@ exports.postAbout = async (req, res) => {
             .json({status:"Failed", message:"Request failed"});
     }
 }
+
+exports.editAbout = factory.updateOne(About);
