@@ -2,6 +2,7 @@ import React from "react";
 import Container from "./Container.png";
 
 const Card = (props) => {
+  
   return (
     <div className="bg-white p-4">
       {/* <img src={Container} alt="some img" className="w-full mb-4" /> */}
