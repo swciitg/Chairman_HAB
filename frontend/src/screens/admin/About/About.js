@@ -37,7 +37,7 @@ const AboutScreen = () => {
               className="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded"
               to={`/admin/about/add`}
             >
-              Add About
+              Change AboutUs
             </Link>
           </div>
           <div className="w-full mt-6 overflow-auto">
@@ -51,9 +51,9 @@ const AboutScreen = () => {
                     <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                       Edit
                     </th>
-                    <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
+                    {/* <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                       Delete
-                    </th>
+                    </th> */}
                   </tr>
                 </thead>
                 <tbody className="text-gray-700">
@@ -74,15 +74,15 @@ const AboutScreen = () => {
                             </Link>
                           </td>
                           <td className="text-left py-3 px-4">
-                            <button
+                            {/* <button
                               className="hover:text-red-500"
                               onClick={(event) => {
                                 aboutDelete(event.target.value);
                               }}
-                              value={data?.id}
+                              value={data?._id}
                             >
                               Delete
-                            </button>
+                            </button> */}
                           </td>
                         </tr>
                       );

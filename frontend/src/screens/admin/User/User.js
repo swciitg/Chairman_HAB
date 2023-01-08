@@ -11,7 +11,7 @@ const UserScreen = () => {
         .get(`${BACKEND_API}/user`, {})
         .then((response) => {
           const data = response.data;
-          if (data.status == "success") {
+          if (data.status === "success") {
             setUser(data.data.user)
           } else {
           }

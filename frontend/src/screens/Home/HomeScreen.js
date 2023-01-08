@@ -6,7 +6,6 @@ import React, { useEffect, useState } from 'react'
 import { BACKEND_API } from '../../constant';
 import axios from 'axios';
 
-
 const HomeScreen = () => {
   const [images,setImages] = useState([]);
 
@@ -18,7 +17,7 @@ const HomeScreen = () => {
         const data = response.data;
         if (data.status === "success") {
           console.log(data)
-          // setAlumniinfo(data.data.AlumniProfileData);
+          setImages(data.data.Data);
         } else {
         }
       })
@@ -30,17 +29,17 @@ const HomeScreen = () => {
 
   return (
     <>
-
-
-
-      <Splide aria-label="My Favorite Images">
-        <SplideSlide>
-          <img className="w-full" src={img1} alt="Image 1" />
-        </SplideSlide>
-        <SplideSlide>
-          <img className="w-full" src={img1} alt="Image 2" />
-        </SplideSlide>
+    <Splide aria-label="My Favorite Images">
+     {images.length !== 0 &&
+                images.map((data, idx) => {
+                  return (
+                    <SplideSlide>
+                      <img className="w-full" src={`../../../../uploads/home/${data?.imagePath}`} alt="Image 1" />
+                    </SplideSlide>
+                  );
+                })}
       </Splide>
+
          
       <Aboutus/>
     

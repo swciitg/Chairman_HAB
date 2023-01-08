@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 const memberSchema = new Schema({
   memberName: { type: String, required: true },
   designation: { type: String, required: true },
-  imagePath: { data: Buffer, contentType: String },
+  imagePath: {type: String},
   researchInterest: { type: String, required: true },
   googleScholar: { type: String, required: true },
   email: { type: String, required: true },

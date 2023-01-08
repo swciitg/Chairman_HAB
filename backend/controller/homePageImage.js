@@ -5,8 +5,8 @@ const HomepageImage = require("../models/homePageImage");
 
 exports.getHomePageImage = async (req, res) => {
   try {
-    const { grp } = req.params;
-    const Data = await HomepageImage.find({ grp: grp })
+    const { home } = req.params;
+    const Data = await HomepageImage.find({ home: home })
     return res
       .status(200)
       .json({ status: "success", data: { Data } });
@@ -23,7 +23,7 @@ exports.getOneHomePageImage = async (req, res) => {
     const { id } = req.params;
     const Member = await HomepageImage.findById(id);
     if (Member) {
-      const ImagePath = `${__dirname}/../../uploads/grp/${Member.imagePath}`;
+      const ImagePath = `${__dirname}/../../uploads/home/${Member.imagePath}`;
       fs.readFile(ImagePath, (err, data) => {
         res.contentType("image/jpeg");
         return res.send(data);
@@ -48,7 +48,7 @@ exports.postHomePageImage = async (req, res) => {
         .status(424)
         .json({ status: "Failed", message: "No File Provided" });
     }
-    const { grp } = req.params;
+    const { home } = req.params;
     const {
         image
       } = req.body;
@@ -72,7 +72,7 @@ exports.deleteHomePageImage = async (req, res) => {
     const { id } = req.params;
     const MemberData = await HomepageImage.findById(id);
     const DeletedMemberData = await HomepageImage.findByIdAndDelete(id);
-    fs.unlinkSync(`${__dirname}/../../uploads/grp/${MemberData.imagePath}`);
+    fs.unlinkSync(`${__dirname}/../../uploads/home/${MemberData.imagePath}`);
     return res
       .status(200)
       .json({ status: "success", data: { DeletedMemberData } });

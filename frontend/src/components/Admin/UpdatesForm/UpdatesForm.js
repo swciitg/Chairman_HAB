@@ -1,5 +1,7 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { BACKEND_API } from "../../../constant";
 
 const ResearchForm = ({ type, formData }) => {
   const [title, setTitle] = useState(
@@ -11,6 +13,45 @@ const ResearchForm = ({ type, formData }) => {
   );
 
   let navigate = useNavigate();
+
+  const addNote = () => {
+    const note = {
+      title: title,
+      description: description,
+    };
+    const req = axios
+      .post(`${BACKEND_API}/Updates`, note)
+      .then((res) => {
+        console.log(res);
+        alert("Update successfully added.");
+        navigate(-1);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    // console.log(req);
+  };
+
+  const editNote = () => {
+    const note = {
+      title: title,
+      description: description,
+    };
+    const req = axios
+      .post(`${BACKEND_API}/Updates`, note)
+      .then((res) => {
+        console.log(res);
+        alert("Update successfully edited.");
+        navigate(-1);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    // console.log(req);
+  };
+
+  const method = type === "Add" ? addNote : editNote;
+
   return (
     <>
       <h1 className="text-3xl text-black pb-6">{type} Updates</h1>
@@ -22,7 +63,10 @@ const ResearchForm = ({ type, formData }) => {
           <div className="leading-loose">
             <form
               className="p-10 bg-white rounded shadow-xl"
-              // onSubmit={(e) => formSubmitHandler(e)}
+              onSubmit={(e) => {
+                e.preventDefault();
+                method();
+              }}
             >
               <div className="mt-2">
                 <label className="block text-sm text-gray-600" htmlFor="Title">
