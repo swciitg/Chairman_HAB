@@ -3,17 +3,23 @@ import Pic from'./pic.png';
 import React, { useState } from "react";
 
 import axios from "axios";
+import { useEffect } from "react";
+import { BACKEND_API } from "../../constant";
 
 const Alumnicards = () => {
-
   const [cards, setCards] = useState([]);
-  const url = "http://localhost:5000/api/Alumni";
-  const promise = axios.get(url);
-  promise.then((res) => {
-    const data = res.data.data;
-    setCards(data);
-    // console.log(data);
-  });
+  useEffect(() => {
+    const promise = axios.get(`${BACKEND_API}/Alumni`, {});
+    promise.then((res) => {
+      const data = res.data.data.AlumniProfileData;
+      setCards(data);
+      // console.log(data);
+    });
+
+  }, []);
+
+  
+
   return (
     <>
     
@@ -21,7 +27,7 @@ const Alumnicards = () => {
                     cards.map((data, idx) => {
                       return (
        <div key={idx}
-        className={`flex items-center justify-center   ${styles.alumni_cards}`}
+        className={`flex items-center justify-center bg-white  ${styles.alumni_cards}`}
     >
       <div
         className={` ${styles.members_cardsimg} flex justify-center items-center w-1/3`}

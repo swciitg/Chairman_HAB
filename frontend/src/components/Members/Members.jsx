@@ -7,30 +7,37 @@ import Pic from "./pic.png";
 import React, { useState } from "react";
 
 import axios from "axios";
+import { useEffect } from "react";
+import { BACKEND_API } from "../../constant";
 
 
 const Members = () => {
   const [cards, setCards] = useState([]);
-  const url = "http://localhost:5000/api/Profile";
-  const promise = axios.get(url);
-  promise.then((res) => {
-    const data = res.data.data.ProfileData;
-    setCards(data);
-    // console.log(data);
-  });
+ 
+ 
+  useEffect(() => {
+    const promise = axios.get(`${BACKEND_API}/Profile`, {});
+    promise.then((res) => {
+      const data = res.data.data.ProfileData;
+      setCards(data);
+      // console.log(data);
+    });
+
+  }, []);
   return (
     <>
     
    
     <div className={` ${styles.mainbody} flex flex-col`}>
-    {cards.length !== 0 &&
-                    cards.map((data) => {
-                      return (
-      <div className={`${styles.research_group} flex flex-col  `}>
-        <div className={` ${styles.research_groupheading} flex items-center `}>
+    <div className={` ${styles.research_groupheading} flex items-center `}>
         {" "}
           Research Group
         </div>
+    {cards.length !== 0 &&
+                    cards.map((data) => {
+                      return (
+      <div className={`${styles.research_group} flex flex-col bg-white `}>
+       
         <div
           className={`flex items-center justify-evenly ${styles.research_groupcontent}  `}
         >
