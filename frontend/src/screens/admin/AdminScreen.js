@@ -127,11 +127,11 @@ const AdminScreen = () => {
                   path={`/alumni/:id`}
                   element={<EditAlumniScreen />}
                 />
-                 <Route
+                 {/* <Route
                   exact
                   path={`/publication`}
                   element={<PublicationScreen />}
-                />
+                /> */}
                  <Route
                   exact
                   path={`/publication/add`}
