@@ -46,7 +46,8 @@ const ProjectsForm = ({ type, formData }) => {
       .post(`${BACKEND_API}/projects`, note)
       .then((res) => {
         console.log(res);
-        alert("Note successfully added.");
+        alert("Project successfully added.");
+        window.location.href = "./" ;
       })
       .catch((err) => {
         console.log(err);

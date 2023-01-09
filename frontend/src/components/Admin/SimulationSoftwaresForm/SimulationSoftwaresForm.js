@@ -28,7 +28,7 @@ const SimulationSoftwaresForm = ({ type, formData }) => {
             "Content-Type": "multipart/form-data",
             // Accept: "multipart/form-data",
           },
-        });
+        }).then(window.location.href = "./" );
         // .then(window.location.href = "./" );
       } else {
         res = await axios.post(

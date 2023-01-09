@@ -11,7 +11,7 @@ export default () => {
   promise.then((res) => {
     const data = res.data.data.simulationSoftwaresData;
     setNotes(data);
-     console.log(data);
+    //  console.log(data);
   });
 
   }, []);
@@ -19,7 +19,7 @@ export default () => {
     <div className="hidden mb-24 md:grid md:grid-cols-3 md:gap-24">
     {notes.length > 3 && notes.slice(3).map((item, index) => {
         return (
-          <Card key={index} head={item.experimentalFacilitiesTitle} bold={item.experimentalFacilitiesImage} />
+          <Card key={index} head={item.simulationSoftwaresTitle} image={item.imagePath} type="sim"/>
         );
       })}
     </div>

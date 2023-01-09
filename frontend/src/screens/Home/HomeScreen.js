@@ -34,13 +34,11 @@ const HomeScreen = () => {
                 images.map((data, idx) => {
                   return (
                     <SplideSlide>
-                      <img className="w-full" src={`../../../../uploads/home/${data?.imagePath}`} alt="Image 1" />
+                      <img className="w-full" src={`${BACKEND_API}/uploads/home/${data?.imagePath}`} alt="Image 1" />
                     </SplideSlide>
                   );
                 })}
       </Splide>
-
-         
       <Aboutus/>
     
     </>

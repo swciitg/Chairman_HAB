@@ -12,7 +12,7 @@ export default () => {
   promise.then((res) => {
     const data = res.data.data.keyReasearchAreaData;
     setNotes(data);
-     console.log(data);
+    //  console.log(data);
   });
 
   }, []);
@@ -20,7 +20,7 @@ export default () => {
     <div className="hidden mb-24 md:grid md:grid-cols-3 md:gap-24">
      {notes.length > 3 && notes.slice(3).map((item, index) => {
         return (
-          <Card head={item.keyResearchAreaTitle} content={item.keyResearchAreaDescription} image={item.keyResearchAreaImage} />
+          <Card head={item.keyResearchAreaTitle} content={item.keyResearchAreaDescription} image={item.imagePath} type="reas" />
         );
       })}
     </div>

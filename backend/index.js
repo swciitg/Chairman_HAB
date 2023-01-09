@@ -56,6 +56,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(bodyParser.json());
+app.use('/api/uploads', express.static('../uploads'))
 
 // set up routes
 app.use("/api/about", require("./routes/about"));

@@ -11,7 +11,7 @@ const Cards = () => {
   promise.then((res) => {
     const data = res.data.data.ExperimentalFacilitiesData;
     setNotes(data);
-     console.log(data);
+    //  console.log(data);
   });
 
   }, []);
@@ -19,7 +19,7 @@ const Cards = () => {
     <div className="hidden mt-16 md:grid md:grid-cols-3 md:gap-24 md:mb-24">
       {notes.slice(0, 3).map((item, index) => {
         return (
-          <Card key={index} head={item.experimentalFacilitiesTitle} bold={item.experimentalFacilitiesImage} />
+          <Card key={index} head={item.experimentalFacilitiesTitle} image={item.experimentalFacilitiesImage} type="exp"/>
         );
       })}
     </div>

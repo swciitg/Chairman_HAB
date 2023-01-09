@@ -12,7 +12,7 @@ const Cards = () => {
   promise.then((res) => {
     const data = res.data.data.simulationSoftwaresData;
     setNotes(data);
-     console.log(data);
+    //  console.log(data);
   });
 
   }, []);
@@ -20,7 +20,7 @@ const Cards = () => {
     <div className="hidden mt-16 md:grid md:grid-cols-3 md:gap-24 md:mb-24">
       {notes.slice(0, 3).map((item, index) => {
         return (
-          <Card key={index} head={item.simulationSoftwaresTitle} bold={item.simulationSoftwaresImage} />
+          <Card key={index} head={item.simulationSoftwaresTitle} image={item.imagePath} type="sim" />
         );
       })}
     </div>
