@@ -25,7 +25,7 @@ const PublicationScreen = () => {
   const publicationsDelete = (id) => {
     axios
       .delete(`${BACKEND_API}/publications/${id}`)
-      .then((res) => console.log(res))
+      .then((res) => window.location.reload())
       .catch((err) => console.log(err));
   };
     return (
