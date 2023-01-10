@@ -46,7 +46,7 @@ const AlumniForm = ({ type, formData }) => {
         formData1.append("email", alumniEmail);
         formData1.append("phone", alumniPhone);
         formData1.append("profileImage", alumniImage, alumniImage.name);
-        console.log(formData1);
+        // console.log(formData1);
         res = await axios.post(`${BACKEND_API}/alumni`, formData1, {
           headers: {
             "Content-Type": "multipart/form-data",

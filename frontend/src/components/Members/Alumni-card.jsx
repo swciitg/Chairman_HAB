@@ -74,7 +74,7 @@ const Alumnicards = (props) => {
               <div
                 className={` ${styles.members_cardsimg} flex justify-center items-center w-1/3`}
               >
-                <img scr={Pic} alt="" />
+                <img src={`${BACKEND_API}/uploads/alum/${data?.imagePath}`} alt="" />
               </div>
               <div
                 className={`${styles.members_cardscontent}  flex  flex-col `}
