@@ -7,6 +7,7 @@
 }
 .height1 {
   /* height: 372px; */
+  display: flex;
 }
 .height2 {
   height: 78px;
@@ -51,17 +52,23 @@
 }
 .media {
   flex-direction: row;
+
 }
 @media screen and (max-width: 680px) {
   .media {
     flex-direction: column;
   }
   .height1 {
-    height: 740px;
+  
+    flex-direction: column;
   }
+.marginbottom{
+  margin-bottom: 4vh;
+}
   .marginright {
     margin-bottom: 3vh;
   }
+
 }
 .style1 {
   font-style: normal;

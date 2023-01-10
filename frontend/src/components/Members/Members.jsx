@@ -50,7 +50,7 @@ const Members = () => {
             className={` flex justify-center items-center  ${styles.height3}`}
           >
             <div className={`w-1/2 flex  flex-col  ${styles.height4}`}>
-              <div className={`flex flex-col justify-center`}>
+              <div className={`flex flex-col justify-center `}>
                 <div className={` ${styles.research_groupdetails1}`}>
                 {data?.proffessorName}
                 </div>

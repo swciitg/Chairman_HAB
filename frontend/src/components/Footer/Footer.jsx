@@ -2,9 +2,9 @@ import styles from "./Footer.module.css";
 import Path1 from "./Path 1.png";
 const Footer = () => {
   return (
-    <div className={`flex flex-col ${styles.bottombar} pt-11`}>
-      <div className={`flex justify-center ${styles.height1} w-full mb-11`}>
-          <div className={`mr-20`}>
+    <div className={`flex flex-col ${styles.bottombar} pt-11 `}>
+      <div className={`flex justify-center ${styles.height1} w-full mb-8 pl-8  `}>
+          <div className={`mr-20  ${styles.marginbottom} `}>
             <p className={`${styles.details} mb-3`}> Contact</p>
             <p className={`${styles.details2} mb-2.5`}> Dr. Gagan Kumar</p>
             <p className={`${styles.details4} mb-5`}> Associate Proffesor</p>
