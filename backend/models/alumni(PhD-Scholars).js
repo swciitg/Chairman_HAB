@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const alumniSchema = new Schema({
-  alunmniName: { type: String, required: true },
+  alumniName: { type: String, required: true },
   designation: { type: String, required: true },
   profileImage: { data: Buffer, contentType: String },
   imagePath: {type: String},

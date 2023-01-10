@@ -53,12 +53,13 @@ exports.postAlumni = async (req, res) => {
     const {
       alumniName,
       designation,
+      profileImage,
       yearOfCompletion,
       nameOfInstitution,
       email,
       phone,
     } = req.body;
-    const profileImage = req.file.filename;
+    const imagePath = req.file.filename;
     const newAlumniProfileData = new AlumniProfile({
       alumniName,
       designation,
@@ -67,6 +68,7 @@ exports.postAlumni = async (req, res) => {
       nameOfInstitution,
       email,
       phone,
+      imagePath
     });
     const AlumniData = await newAlumniProfileData.save();
     return res.status(200).json({ status: "success", data: { AlumniData } });

@@ -39,26 +39,26 @@ const AlumniForm = ({ type, formData }) => {
       if (alumniImage) {
         console.log(alumniImage);
         const formData1 = new FormData();
-        formData1.append("alunmniName", alumniName);
+        formData1.append("alumniName", alumniName);
         formData1.append("designation", alumniDesignation);
         formData1.append("yearOfCompletion", alumniyoc);
         formData1.append("nameOfInstitution", alumniInstitute);
         formData1.append("email", alumniEmail);
         formData1.append("phone", alumniPhone);
         formData1.append("profileImage", alumniImage, alumniImage.name);
-        console.log(formData1);
+        // console.log(formData1);
         res = await axios.post(`${BACKEND_API}/alumni`, formData1, {
           headers: {
             "Content-Type": "multipart/form-data",
             // Accept: "multipart/form-data",
           },
-        });
-        // .then((window.location.href = "./"));
+        })
+        .then((window.location.href = "./"));
       } else {
         res = await axios.post(
           `${BACKEND_API}/alumni`,
           {
-            alunmniName: alumniName,
+            alumniName: alumniName,
             designation: alumniDesignation,
             yearOfCompletion: alumniyoc,
             nameOfInstitution: alumniInstitute,

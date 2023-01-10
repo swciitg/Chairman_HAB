@@ -17,5 +17,5 @@ export const SideNavList = [
     { name: "Published Conference Papers", url: "publishedconferencepapers"},
     { name: "Simulation Softwares", url: "simulationSoftwares"},
     { name: "Updates", url: "updates"},
-    { name: "User", url: "user"}
+    // { name: "User", url: "user"}
   ];

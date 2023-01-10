@@ -31,7 +31,8 @@ const CollaboratorsForm = ({ type, formData }) => {
       .post(`${BACKEND_API}/collaborator`, note)
       .then((res) => {
         console.log(res);
-        alert('Note successfully added.')
+        alert('Collaborator successfully added.')
+        window.location.href = "./" ;
       })
       .catch((err) => {
         console.log(err);
