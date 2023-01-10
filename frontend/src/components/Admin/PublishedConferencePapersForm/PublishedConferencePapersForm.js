@@ -26,7 +26,9 @@ const PublishedConferencePapersForm = ({ type, formData }) => {
       .post(`${BACKEND_API}/publishedConferencePapers`, note)
       .then((res) => {
         console.log(res);
-        alert("Note successfully added.");
+        alert("Conference Paper successfully added.");
+        window.location.href = "./" ;
+
       })
       .catch((err) => {
         console.log(err);
@@ -74,12 +76,12 @@ const PublishedConferencePapersForm = ({ type, formData }) => {
             >
               <div className="mt-2">
                 <label className="block text-sm text-gray-600" htmlFor="Title">
-                  Title
+                Description
                 </label>
                 <input
                   className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
                   id="title"
-                  name="title"
+                  name="description"
                   type="text"
                   onChange={(e) => setTitle(e.target.value)}
                   value={title}
