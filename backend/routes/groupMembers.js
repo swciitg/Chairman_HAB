@@ -15,7 +15,7 @@ const storage = multer.diskStorage({
 
 const GroupMember = require("../controller/groupMembers");
 const upload = multer({ storage: storage });
-router.post("/", upload.single("image"), GroupMember.postMember);
+router.post("/", upload.single("imagePath"), GroupMember.postMember);
 
 router.get("/:id", GroupMember.getOneMemberImage);
 

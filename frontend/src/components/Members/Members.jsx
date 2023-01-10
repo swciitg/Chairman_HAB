@@ -44,7 +44,7 @@ const Members = () => {
           <div
             className={` flex items-center justify-center ${styles.height1}`}
           >
-            <img className={` ${styles.imgheight1}`} src={Pic} alt="" />
+            <img className={` ${styles.imgheight1}`} src={`${BACKEND_API}/uploads/prof/${data?.imagePath}`} alt="" />
           </div>
           <div
             className={` flex justify-center items-center  ${styles.height3}`}
@@ -109,7 +109,7 @@ const Members = () => {
                   </span>
                 </div>
                 <div className={` ${styles.research_groupdetails3}`}>
-                  <a href="">Education {">"}</a>
+                  {/* <a href="">Education </a> */}
                 </div>
               </div>
             </div>

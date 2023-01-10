@@ -25,7 +25,7 @@ const CollaboratorsScreen = () => {
   const collaboratorsDelete = (id) => {
     axios
       .delete(`${BACKEND_API}/collaborator/${id}`)
-      .then((res) => console.log(res))
+      .then((res) => window.location.reload())
       .catch((err) => console.log(err));
   };
     return (
