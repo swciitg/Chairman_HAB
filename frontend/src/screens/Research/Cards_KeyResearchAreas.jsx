@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Cards from "./VisCards1";
 import HiddenCards from "./HiddenCards1";
 import Swiper from "./Swiperr";
+import SwiperResearch from "./Swiperr";
 
 const KeyResearchAreas = () => {
   const [state, setState] = useState(0);
@@ -41,7 +42,7 @@ const KeyResearchAreas = () => {
         {state ? <HiddenCards /> : null}
       </div>
       <div className="md:hidden">
-        <Swiper />
+        <SwiperResearch />
       </div>
     </>
   );

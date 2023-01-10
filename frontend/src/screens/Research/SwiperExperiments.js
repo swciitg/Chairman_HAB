@@ -9,19 +9,19 @@ import { useEffect } from 'react';
 import axios from 'axios';
 import { useState } from 'react';
 
- const SwiperResearch = () => {
-  const [notes, setNotes] = useState([]);
-
-  useEffect(() => {
-    const url = `${BACKEND_API}/keyResearchArea`;
-  const promise = axios.get(url);
-  promise.then((res) => {
-    const data = res.data.data.keyReasearchAreaData;
-    setNotes(data);
-    //  console.log(data);
-  });
-
-  }, []);
+ const SwiperExperiments = () => {
+    const [notes, setNotes] = useState([]);
+ 
+    useEffect(() => {
+      const url = `${BACKEND_API}/experimentalFacilities`;
+    const promise = axios.get(url);
+    promise.then((res) => {
+      const data = res.data.data.ExperimentalFacilitiesData;
+      setNotes(data);
+      //  console.log(data);
+    });
+  
+    }, []);
   return (
     <Swiper
       className='mx-4'
@@ -35,7 +35,7 @@ import { useState } from 'react';
         return (
           <SwiperSlide>
 
-<Card head={item.keyResearchAreaTitle} content={item.keyResearchAreaDescription} image={item.imagePath} type="reas" />
+<Card key={index} head={item.experimentalFacilitiesTitle} image={item.experimentalFacilitiesImage} type="exp"/>
           </SwiperSlide>
         );
       })}
@@ -44,4 +44,4 @@ import { useState } from 'react';
   );
 };
 
-export default SwiperResearch;
+export default SwiperExperiments;

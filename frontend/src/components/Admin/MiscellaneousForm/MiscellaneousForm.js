@@ -26,7 +26,7 @@ const MiscellaneousForm = ({ type, formData }) => {
       .post(`${BACKEND_API}/miscellaneous`, note)
       .then((res) => {
         console.log(res);
-        alert("Note successfully added.");
+        alert("Successfully added.");
       })
       .catch((err) => {
         console.log(err);

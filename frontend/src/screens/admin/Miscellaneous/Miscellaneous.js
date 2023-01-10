@@ -25,7 +25,7 @@ const MiscellaneousScreen = () => {
   const miscellaneousDelete = (id) => {
     axios
       .delete(`${BACKEND_API}/miscellaneous/${id}`)
-      .then((res) => console.log(res))
+      .then((res) => window.location.reload())
       .catch((err) => console.log(err));
   };
     return (
@@ -36,7 +36,7 @@ const MiscellaneousScreen = () => {
               className="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded"
               to={`/admin/miscellaneous/add`}
             >
-              Add Miscellaneous
+              Add Miscellaneous Presentation/Posters
             </Link>
           </div>
           <div className="w-full mt-6 overflow-auto">

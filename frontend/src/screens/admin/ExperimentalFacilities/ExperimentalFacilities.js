@@ -25,7 +25,7 @@ const ExperimentalFacilitiesScreen = () => {
   const experimentalFacilitiesDelete = (id) => {
     axios
       .delete(`${BACKEND_API}/experimentalFacilities/${id}`)
-      .then((res) => console.log(res))
+      .then((res) => window.location.reload())
       .catch((err) => console.log(err));
   };
 

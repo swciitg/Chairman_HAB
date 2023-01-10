@@ -22,20 +22,27 @@ const Details = () =>  {
     }, []);
     return (
        <>
+      
+
+       
               {projects.length !== 0 &&
                     projects.map((data, idx) => {
                       return (
+                        // <div className="py-2">
                         <tr key={idx} className={`w-24`} >
-                        <td>{data?.serialNumber}</td>
+                        <td>{idx+1}</td>
                         <td >{data?.projectTitle} </td>
                         <td>{data?.fundingAgencyName}</td>
                         <td>{data?.duration}</td>
                         <td>{data?.investigators}</td>
                       </tr>
+                        // </div>
+                    
                       
                       
                       );
                     })}
+
        </>
        
        
