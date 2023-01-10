@@ -25,7 +25,7 @@ const ProfileScreen = () => {
   const profileDelete = (id) => {
     axios
       .delete(`${BACKEND_API}/profile/${id}`)
-      .then((res) => console.log(res))
+      .then((res) => window.location.reload())
       .catch((err) => console.log(err));
   };
     return (
