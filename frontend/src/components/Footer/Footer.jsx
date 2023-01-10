@@ -7,7 +7,7 @@ const Footer = () => {
           <div className={`mr-20  ${styles.marginbottom} `}>
             <p className={`${styles.details} mb-3`}> Contact</p>
             <p className={`${styles.details2} mb-2.5`}> Dr. Gagan Kumar</p>
-            <p className={`${styles.details4} mb-5`}> Associate Proffesor</p>
+            <p className={`${styles.details4} mb-5`}> Associate Professor</p>
             <p className={`${styles.details3}`}>
               {" "}
               Address: Department of Physics
