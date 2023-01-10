@@ -18,7 +18,7 @@ const Alumnicards = (props) => {
   }, []);
 
   return (
-    <div>
+    <>
       {cards.length !== 0 &&
         props.state === 1 &&
         cards.map((data, idx) => {
@@ -106,7 +106,7 @@ const Alumnicards = (props) => {
             </div>
           );
         })}
-    </div>
+    </>
   );
 };
 export default Alumnicards;

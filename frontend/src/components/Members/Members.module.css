@@ -73,7 +73,7 @@ body {
 }
 
 .members_cards {
-  height: 480px;
+  height: 35vh;
   width: 550px;
   margin: 10px 15px;
 
@@ -113,6 +113,7 @@ body {
   justify-content: space-between;
   width: 90vw;
   flex-wrap: wrap;
+  flex-direction: row;
 }
 /* k */
 .members_cardsimg {
@@ -211,7 +212,7 @@ body {
   .members_cards {
     min-width: 380px;
     width: 40vw;
-    height: 620px;
+    height: 55vh;
     margin: 15px 0px;
 
     flex-direction: column;
@@ -257,7 +258,7 @@ body {
   .members_cards {
     min-width: 450px;
     width: 70vw;
-    height: 500px;
+    height: 40vh;
     margin: 15px 0px;
 
     flex-direction: row;
@@ -270,13 +271,13 @@ body {
   .alumni_cards {
     min-width: 450px;
     width: 70vw;
-    height: 430px;
+    height: 35vh;
 
     flex-direction: row;
   }
   .members_cards {
     
-
+height: 50vh;
     flex-direction: column;
   }
   .height3 {
@@ -305,14 +306,14 @@ body {
   .alumni_cards {
     min-width: 350px;
     width: 70vw;
-    height: 430px;
+    height: 45vh;
 flex-direction: column;
 
   }
   .members_cards {
     min-width: 340px;
     width: 40vw;
-    height: 620px;
+    height: 50vh;
     margin: 15px 0px;
 
     flex-direction: column;
@@ -344,8 +345,12 @@ flex-direction: column;
 }
 
 @media screen and (max-width: 380px) {
-.alumni_cards{
+.alumni_cards {
   min-width: 250px;
+  width: 70vw;
+  height: 58vh;
+flex-direction: column;
+
 }
   .research_groupdetails1 {
   
