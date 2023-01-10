@@ -25,8 +25,10 @@ const PastMembersForm = ({ type, formData }) => {
     const req = axios
       .post(`${BACKEND_API}/pastMembers`, note)
       .then((res) => {
-        console.log(res);
-        alert("Note successfully added.");
+        // console.log(res);
+        alert("Past Member successfully added.");
+        window.location.href = "./" ;
+
       })
       .catch((err) => {
         console.log(err);
