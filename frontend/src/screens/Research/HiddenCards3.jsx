@@ -19,7 +19,7 @@ export default () => {
     <div className="hidden mb-24 md:grid md:grid-cols-3 md:gap-24">
     {notes.length > 3 && notes.slice(3).map((item, index) => {
         return (
-          <Card key={index} head={item.simulationSoftwaresTitle} image={item.imagePath} type="sim"/>
+          <Card key={index} head={item.simulationSoftwaresTitle} image={item.imagePath} type="sim" />
         );
       })}
     </div>

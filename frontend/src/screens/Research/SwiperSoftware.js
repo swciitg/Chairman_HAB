@@ -9,14 +9,14 @@ import { useEffect } from 'react';
 import axios from 'axios';
 import { useState } from 'react';
 
- const SwiperResearch = () => {
-  const [notes, setNotes] = useState([]);
-
+ const SwiperSoftware = () => {
+    const [notes, setNotes] = useState([]);
+ 
   useEffect(() => {
-    const url = `${BACKEND_API}/keyResearchArea`;
+    const url = `${BACKEND_API}/simulationSoftwares`;
   const promise = axios.get(url);
   promise.then((res) => {
-    const data = res.data.data.keyReasearchAreaData;
+    const data = res.data.data.simulationSoftwaresData;
     setNotes(data);
     //  console.log(data);
   });
@@ -35,7 +35,7 @@ import { useState } from 'react';
         return (
           <SwiperSlide>
 
-<Card head={item.keyResearchAreaTitle} content={item.keyResearchAreaDescription} image={item.imagePath} type="reas" />
+<Card key={index} head={item.simulationSoftwaresTitle} image={item.imagePath} type="sim" />
           </SwiperSlide>
         );
       })}
@@ -44,4 +44,4 @@ import { useState } from 'react';
   );
 };
 
-export default SwiperResearch;
+export default SwiperSoftware;

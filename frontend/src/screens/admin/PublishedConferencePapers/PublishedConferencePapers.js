@@ -24,8 +24,8 @@ const PublishedConferencePapersScreen = () => {
 
   const publishedConferencePapersDelete = (id) => {
     axios
-      .delete(`${BACKEND_API}/publishedConderencePapers/${id}`)
-      .then((res) => console.log(res))
+      .delete(`${BACKEND_API}/publishedConferencePapers/${id}`)
+      .then((res) => window.location.reload())
       .catch((err) => console.log(err));
   };
     return (
@@ -45,7 +45,7 @@ const PublishedConferencePapersScreen = () => {
                 <thead className="bg-gray-800 text-white">
                   <tr>
                     <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
-                      Title
+                    Description
                     </th>
                     <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                       Name
