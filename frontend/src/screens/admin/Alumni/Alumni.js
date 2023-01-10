@@ -26,7 +26,7 @@ const AlumniScreen = () => {
     axios
       .delete(`${BACKEND_API}/alumni/${id}`)
       .then((res) => window.location.reload())
-      .catch((err) => console.log(err));
+      .catch((err) =>window.location.reload());
   };
     return (
         <>

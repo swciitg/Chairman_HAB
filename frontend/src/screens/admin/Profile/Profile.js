@@ -134,10 +134,10 @@ const ProfileScreen = () => {
                           {data?.OrcidID}
                           </td>
                           <td className="text-left py-3 px-4">
-                          {data?.researchID}
+                          {data?.ReasearchID}
                           </td>
                           <td className="text-left py-3 px-4">
-                          {data?.scopusauthorid}
+                          {data?.scopusAuthorid}
                           </td>
                           <td className="text-left py-3 px-4">
                           {data?.googleScholarID}
