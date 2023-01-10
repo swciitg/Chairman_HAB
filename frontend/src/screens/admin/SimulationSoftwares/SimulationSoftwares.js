@@ -50,9 +50,9 @@ const SimulationSoftwaresScreen = () => {
                     <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                       Image
                     </th>
-                    <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
+                    {/* <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                       Edit
-                    </th>
+                    </th> */}
                     <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                       Delete
                     </th>
@@ -64,7 +64,7 @@ const SimulationSoftwaresScreen = () => {
                         <tr key={idx}>
                           <td className="text-left py-3 px-4">{data?.simulationSoftwaresTitle}</td>
                           <td className="text-left py-3 px-4">{data?.simulationSoftwaresImage}</td>
-                          <td className="text-left py-3 px-4">
+                          {/* <td className="text-left py-3 px-4">
                             <Link
                               to={{
                                 pathname: `/admin/simulationsoftwares/${data?._id}`,
@@ -74,7 +74,7 @@ const SimulationSoftwaresScreen = () => {
                           
                               <button className="hover:text-blue-500">Edit</button>
                             </Link>
-                          </td>
+                          </td> */}
                           <td className="text-left py-3 px-4">
                             <button
                               className="hover:text-red-500"
