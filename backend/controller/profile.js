@@ -4,11 +4,11 @@ const fs = require("fs");
 
 exports.getProfile = async (req, res) => {
   try {
-    const { grp } = req.params;
-    const ProfileData = await Profile.find({ grp: grp }).sort(
+    const { prof } = req.params;
+    const ProfileData = await Profile.find({ prof: prof }).sort(
       "priority_number"
     );
-    return res.status(200).json({ status: "Success", data: ProfileData });
+    return res.status(200).json({ status: "success", data: { ProfileData } });
   } catch (err) {
     console.log(err);
     return res
@@ -24,7 +24,7 @@ exports.postProfile = async (req, res) => {
         .status(424)
         .json({ status: "Failed", message: "No File Provided" });
     }
-    const { grp } = req.params;
+    const { prof } = req.params;
     const {
       proffessorName,
       proffessorDesignation,
@@ -35,6 +35,7 @@ exports.postProfile = async (req, res) => {
       officePhone,
       labEmail,
       personalEmail,
+      officeEmail,
       OrcidID,
       ReasearchID,
       scopusAuthorID,
@@ -50,6 +51,7 @@ exports.postProfile = async (req, res) => {
       labPhone,
       officePhone,
       labEmail,
+      officeEmail,
       personalEmail,
       OrcidID,
       ReasearchID,
@@ -58,7 +60,7 @@ exports.postProfile = async (req, res) => {
       imagePath,
     });
     const ProfileData = await newProfileData.save();
-    return res.status(200).json({ status: "Success", data: ProfileData });
+    return res.status(200).json({ status: "success", data: { ProfileData } });
   } catch (err) {
     console.log(err);
     return res
@@ -69,7 +71,7 @@ exports.postProfile = async (req, res) => {
 
 exports.editProfile = async (req, res) => {
   try {
-    const { grp, id } = req.params;
+    const { prof, id } = req.params;
     const ProfileData = await Profile.findById(id);
     const {
       proffessorName,
@@ -80,6 +82,7 @@ exports.editProfile = async (req, res) => {
       labPhone,
       officePhone,
       labEmail,
+      officeEmail,
       personalEmail,
       OrcidID,
       ReasearchID,
@@ -101,7 +104,7 @@ exports.editProfile = async (req, res) => {
       ReasearchID,
       scopusAuthorID,
       googleScholarID,
-      grp,
+      prof,
     };
     if (req.file) {
       imagePath = req.file.filename;
@@ -114,21 +117,22 @@ exports.editProfile = async (req, res) => {
         labPhone,
         officePhone,
         labEmail,
+        officeEmail,
         personalEmail,
         OrcidID,
         ReasearchID,
         scopusAuthorID,
         googleScholarID,
-        grp,
+        prof,
       };
     }
     const UpdatedProfileData = await Profile.findByIdAndUpdate(id, data);
     if (req.file) {
-      fs.unlinkSync(`${__dirname}/../../uploads/grp/${ProfileData.imagePath}`);
+      fs.unlinkSync(`${__dirname}/../../uploads/prof/${ProfileData.imagePath}`);
     }
     return res
       .status(200)
-      .json({ status: "Success", data: UpdatedProfileData });
+      .json({ status: "success", data: { UpdatedProfileData } });
   } catch (err) {
     console.log(err);
     return res
@@ -142,10 +146,10 @@ exports.deleteProfile = async (req, res) => {
     const { id } = req.params;
     const ProfileData = await Profile.findById(id);
     const DeletedProfileData = await Profile.findByIdAndDelete(id);
-    fs.unlinkSync(`${__dirname}/../../uploads/grp/${ProfileData.imagePath}`);
+    fs.unlinkSync(`${__dirname}/../../uploads/prof/${ProfileData.imagePath}`);
     return res
       .status(200)
-      .json({ status: "Success", data: DeletedProfileData });
+      .json({ status: "success", data: { DeletedProfileData } });
   } catch (err) {
     console.log(err);
     return res

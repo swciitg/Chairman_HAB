@@ -1,8 +1,33 @@
-import React, { useEffect } from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
+import { BACKEND_API } from '../../../constant';
 
 const AlumniScreen = () => {
-    const alumniinfo = [{"name" : "xyz", "designation" : "Sample description", "image" : "container.png", "yoc" : "Enter year of completion", "institute" : "Enter Institute", "email" : "Enter Email", "phone" : "Enter Phone number"}]
+  const [alumniinfo,setAlumniinfo] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${BACKEND_API}/alumni`, {
+      })
+      .then((response) => {
+        const data = response.data;
+        if (data.status === "success") {
+          setAlumniinfo(data.data.AlumniProfileData);
+        } else {
+        }
+      })
+      .catch((error) => {
+        console.log(error)
+      });
+  }, []);
+
+  const deleteAlumniProfile = (id) => {
+    axios
+      .delete(`${BACKEND_API}/alumni/${id}`)
+      .then((res) => window.location.reload())
+      .catch((err) =>window.location.reload());
+  };
     return (
         <>
           <h1 className="text-3xl text-black pb-6">Alumni</h1>
@@ -40,9 +65,9 @@ const AlumniScreen = () => {
                     <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                       Phone
                     </th>
-                    <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
+                    {/* <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                       Edit
-                    </th>
+                    </th> */}
                     <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                       Delete
                     </th>
@@ -53,18 +78,18 @@ const AlumniScreen = () => {
                     alumniinfo.map((data, idx) => {
                       return (
                         <tr key={idx}>
-                          <td className="text-left py-3 px-4">{data?.name}</td>
+                          <td className="text-left py-3 px-4">{data?.alumniName}</td>
                           <td className="text-left py-3 px-4">
                           {data?.designation}
                           </td>
                           <td className="text-left py-3 px-4">
-                          {data?.image}
+                          {data?.imagePath}
                           </td>
                           <td className="text-left py-3 px-4">
-                          {data?.yoc}
+                          {data?.yearOfCompletion}
                           </td>
                           <td className="text-left py-3 px-4">
-                          {data?.institute}
+                          {data?.nameOfInstitution}
                           </td>
                           <td className="text-left py-3 px-4">
                           {data?.email}
@@ -72,7 +97,7 @@ const AlumniScreen = () => {
                           <td className="text-left py-3 px-4">
                           {data?.phone}
                           </td>
-                          <td className="text-left py-3 px-4">
+                          {/* <td className="text-left py-3 px-4">
                             <Link
                               to={{
                                 pathname: `/admin/alumni/${data?.id}`,
@@ -81,13 +106,14 @@ const AlumniScreen = () => {
                             >
                               <button className="hover:text-blue-500">Edit</button>
                             </Link>
-                          </td>
+                          </td> */}
                           <td className="text-left py-3 px-4">
                             <button
                               className="hover:text-red-500"
-                            //   onClick={() =>
-                            //     dispatch()
-                            //   }
+                              onClick={(event) =>{
+                                deleteAlumniProfile(event.target.value);
+                              }}
+                              value={data?._id}
                             >
                               Delete
                             </button>

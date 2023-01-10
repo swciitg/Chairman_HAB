@@ -33,6 +33,32 @@ import EditGroupMembersScreen from "./GroupMembers/EditGroupMembers";
 import HomePageImageScreen from "./HomePageImage/HomePageImage";
 import AddHomePageImageScreen from "./HomePageImage/AddHomePageImage";
 import EditHomePageImageScreen from "./HomePageImage/EditHomePageImage";
+import InvitedTalksScreen from "./InvitedTalks/InvitedTalks";
+import AddInvitedTalksScreen from "./InvitedTalks/AddInvitedTalks";
+import EditInvitedTalksScreen from "./InvitedTalks/EditInvitedTalks";
+import JournalPublicationsScreen from "./JournalPublications/JournalPublications";
+import AddJournalPublicationsScreen from "./JournalPublications/AddJournalPublications";
+import EditJournalPublicationsScreen from "./JournalPublications/EditJournalPublications";
+import MiscellaneousScreen from "./Miscellaneous/Miscellaneous";
+import AddMiscellaneousScreen from "./Miscellaneous/AddMiscellaneous";
+import EditMiscellaneousScreen from "./Miscellaneous/EditMiscellaneous";
+import PastMembersScreen from "./PastMembers/PastMembers";
+import AddPastMembersScreen from "./PastMembers/AddPastMembers";
+import EditPastMembersScreen from "./PastMembers/EditPastMembers";
+import ProfileScreen from "./Profile/Profile";
+import AddProfileScreen from "./Profile/AddProfile";
+import EditProfileScreen from "./Profile/EditProfile";
+import PublishedConferencePapersScreen from "./PublishedConferencePapers/PublishedConferencePapers";
+import AddPublishedConferencePapersScreen from "./PublishedConferencePapers/AddPublishedConferencePapers";
+import EditPublishedConferencePapersScreen from "./PublishedConferencePapers/EditPublishedConferencePapers";
+import AddSimulationSoftwaresScreen from "./SimulationSoftwares/AddSimulationSoftwares";
+import EditSimulationSoftwaresScreen from "./SimulationSoftwares/EditSimulationSoftwares";
+import SimulationSoftwaresScreen from "./SimulationSoftwares/SimulationSoftwares";
+import UpdatesScreen from "./Updates/Updates";
+import AddUpdatesScreen from "./Updates/AddUpdates";
+import EditUpdatesScreen from "./Updates/EditUpdates";
+import UserScreen from "./User/User";
+import AddUserScreen from "./User/AddUser";
 
 // import useAuthCheck from "../../hooks/useAuthCheck";
 
@@ -73,17 +99,17 @@ const AdminScreen = () => {
                 /> 
                  <Route
                   exact
-                  path={`/research`}
+                  path={`/keyResearchArea`}
                   element={<ResearchScreen />}
                 />
                  <Route
                   exact
-                  path={`/research/add`}
+                  path={`/keyResearchArea/add`}
                   element={<AddResearchScreen />}
                 />
                  <Route
                   exact
-                  path={`/research/:id`}
+                  path={`/keyResearchArea/:id`}
                   element={<EditResearchScreen />}
                 />
                  <Route
@@ -101,11 +127,11 @@ const AdminScreen = () => {
                   path={`/alumni/:id`}
                   element={<EditAlumniScreen />}
                 />
-                 <Route
+                 {/* <Route
                   exact
                   path={`/publication`}
                   element={<PublicationScreen />}
-                />
+                /> */}
                  <Route
                   exact
                   path={`/publication/add`}
@@ -205,6 +231,143 @@ const AdminScreen = () => {
                   exact
                   path={`/HomePageImage/:id`}
                   element={<EditHomePageImageScreen />}
+              
+                />
+
+                <Route
+                  exact
+                  path={`/invitedtalks`}
+                  element={<InvitedTalksScreen />}
+                />
+
+<Route
+                  exact
+                  path={`/invitedtalks/add`}
+                  element={<AddInvitedTalksScreen />}
+              
+                />
+                <Route
+                  exact
+                  path={`/invitedtalks/:id`}
+                  element={<EditInvitedTalksScreen />}
+              
+                />
+
+
+<Route
+                  exact
+                  path={`/journalpublications`}
+                  element={<JournalPublicationsScreen />}
+                />
+
+<Route
+                  exact
+                  path={`/journalpublications/add`}
+                  element={<AddJournalPublicationsScreen />}
+              
+                />
+                <Route
+                  exact
+                  path={`/journalpublications/:id`}
+                  element={<EditJournalPublicationsScreen />}
+                />
+
+              <Route
+                  exact
+                  path={`/miscellaneous`}
+                  element={<MiscellaneousScreen />}
+                />
+                 <Route
+                  exact 
+                  path={`/miscellaneous/add`}
+                  element={<AddMiscellaneousScreen />}
+                />
+                 <Route
+                  exact
+                  path={`/miscellaneous/:id`}
+                  element={<EditMiscellaneousScreen />}
+              
+                />
+
+<Route
+                  exact
+                  path={`/pastmembers`}
+                  element={<PastMembersScreen />}
+                />
+                 <Route
+                  exact 
+                  path={`/pastmembers/add`}
+                  element={<AddPastMembersScreen />}
+                />
+                 <Route
+                  exact
+                  path={`/pastmembers/:id`}
+                  element={<EditPastMembersScreen />}    
+                />
+
+<Route
+                  exact
+                  path={`/profile`}
+                  element={<ProfileScreen />}
+                />
+                 <Route
+                  exact 
+                  path={`/profile/add`}
+                  element={<AddProfileScreen />}
+                />
+                 <Route
+                  exact
+                  path={`/profile/:id`}
+                  element={<EditProfileScreen />}    
+                />
+
+<Route
+                  exact
+                  path={`/publishedconferencepapers`}
+                  element={<PublishedConferencePapersScreen />}
+                />
+                 <Route
+                  exact 
+                  path={`/publishedconferencepapers/add`}
+                  element={<AddPublishedConferencePapersScreen />}
+                />
+                 <Route
+                  exact
+                  path={`/publishedconferencepapers/:id`}
+                  element={<EditPublishedConferencePapersScreen />}    
+                />
+
+
+<Route
+                  exact
+                  path={`/simulationsoftwares`}
+                  element={<SimulationSoftwaresScreen />}
+                />
+                 <Route
+                  exact 
+                  path={`/simulationsoftwares/add`}
+                  element={<AddSimulationSoftwaresScreen />}
+                />
+                 <Route
+                  exact
+                  path={`/simulationsoftwares/:id`}
+                  element={<EditSimulationSoftwaresScreen />}    
+                />
+
+              <Route
+                  exact
+                  path={`/updates`}
+                  element={<UpdatesScreen />}
+                />
+                 <Route
+                  exact 
+                  path={`/updates/add`}
+                  element={<AddUpdatesScreen />}
+                />
+                 <Route
+                  exact
+                  path={`/updates/:id`}
+                  element={<EditUpdatesScreen />}    
                 />
 
               </Routes>

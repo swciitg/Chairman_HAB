@@ -1,8 +1,33 @@
-import React, { useEffect } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { BACKEND_API } from "../../../constant";
 
 const ProjectsScreen = () => {
-  const projects = [{"id" : "1", "title" : "Fasttrack Young Scientist", "funding_agency" : "SERB", "duration" : "2015-2018", "investigator" : "ABC"}]
+  const [projects, setProjects] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${BACKEND_API}/projects`, {})
+      .then((response) => {
+        const data = response.data;
+        if (data.status === "success") {
+          setProjects(data.data.Project);
+        } else {
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
+  const projectsDelete = (id) => {
+    axios
+      .delete(`${BACKEND_API}/projects/${id}`)
+      .then((res) => window.location.reload())
+      .catch((err) => console.log(err));
+  };
+
   return (
     <>
       <h1 className="text-3xl text-black pb-6">Projects</h1>
@@ -31,9 +56,9 @@ const ProjectsScreen = () => {
                 <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                   Investigators
                 </th>
-                <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
+                {/* <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                   Edit
-                </th>
+                </th> */}
                 <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                   Delete
                 </th>
@@ -44,32 +69,33 @@ const ProjectsScreen = () => {
                 projects.map((data, idx) => {
                   return (
                     <tr key={idx}>
-                      <td className="text-left py-3 px-4">{data?.title}</td>
                       <td className="text-left py-3 px-4">
-                      {data?.funding_agency}
+                        {data?.projectTitle}
                       </td>
                       <td className="text-left py-3 px-4">
-                      {data?.duration}
+                        {data?.fundingAgencyName}
                       </td>
+                      <td className="text-left py-3 px-4">{data?.duration}</td>
                       <td className="text-left py-3 px-4">
-                      {data?.investigator}
+                        {data?.investigators}
                       </td>
-                      <td className="text-left py-3 px-4">
+                      {/* <td className="text-left py-3 px-4">
                         <Link
                           to={{
-                            pathname: `/admin/projects/${data?.id}`,
+                            pathname: `/admin/projects/${data?._id}`,
                           }}
                           state={data}
                         >
                           <button className="hover:text-blue-500">Edit</button>
                         </Link>
-                      </td>
+                      </td> */}
                       <td className="text-left py-3 px-4">
                         <button
                           className="hover:text-red-500"
-                        //   onClick={() =>
-                        //     dispatch()
-                        //   }
+                          onClick={(event) =>{
+                            projectsDelete(event.target.value);
+                          }}
+                          value={data?._id}
                         >
                           Delete
                         </button>

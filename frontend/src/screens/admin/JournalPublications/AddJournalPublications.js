@@ -1,9 +1,10 @@
 import React from "react";
 import JournalPublicationsForm from "../../../components/Admin/JournalPublicationsForm/JournalPublicationsForm";
+import PublicationForm from "../../../components/Admin/PublicationForm/PublicationForm";
 const AddJournalPublicationsScreen = () => {
   return (
     <>
-      <JournalPublicationsForm type="Add" formData={null} />
+      <PublicationForm type="Add" formData={null} />
     </>
   );
 };

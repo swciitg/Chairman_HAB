@@ -1,8 +1,33 @@
-import React, { useEffect } from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
+import { BACKEND_API } from '../../../constant';
 
 const CollaboratorsScreen = () => {
-    const collaborators = [{"name" : "Sample name", "designation" : "Sample Designation", "universityName" : "Sample university name", "countryName" : "Sample country name"}]
+  const [collaborators,setCollaborators] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${BACKEND_API}/collaborator`, {
+      })
+      .then((response) => {
+        const data = response.data;
+        if (data.status === "success") {
+          setCollaborators(data.data.Collaborator);
+        } else {
+        }
+      })
+      .catch((error) => {
+        console.log(error)
+      });
+  }, []);
+
+  const collaboratorsDelete = (id) => {
+    axios
+      .delete(`${BACKEND_API}/collaborator/${id}`)
+      .then((res) => window.location.reload())
+      .catch((err) => console.log(err));
+  };
     return (
         <>
           <h1 className="text-3xl text-black pb-6">Collaborators</h1>
@@ -31,9 +56,9 @@ const CollaboratorsScreen = () => {
                     <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                       Country Name
                     </th>
-                    <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
+                    {/* <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                       Edit
-                    </th>
+                    </th> */}
                     <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                       Delete
                     </th>
@@ -44,7 +69,7 @@ const CollaboratorsScreen = () => {
                     collaborators.map((data, idx) => {
                       return (
                         <tr key={idx}>
-                          <td className="text-left py-3 px-4">{data?.name}</td>
+                          <td className="text-left py-3 px-4">{data?.collaboratorName}</td>
                           <td className="text-left py-3 px-4">
                           {data?.designation}
                           </td>
@@ -54,7 +79,7 @@ const CollaboratorsScreen = () => {
                           <td className="image-left py-3 px-4">
                           {data?.countryName}
                           </td>
-                          <td className="text-left py-3 px-4">
+                          {/* <td className="text-left py-3 px-4">
                             <Link
                               to={{
                                 pathname: `/admin/collaborators/${data?.id}`,
@@ -63,13 +88,14 @@ const CollaboratorsScreen = () => {
                             >
                               <button className="hover:text-blue-500">Edit</button>
                             </Link>
-                          </td>
+                          </td> */}
                           <td className="text-left py-3 px-4">
                             <button
                               className="hover:text-red-500"
-                            //   onClick={() =>
-                            //     dispatch()
-                            //   }
+                              onClick={(event) =>{
+                                collaboratorsDelete(event.target.value);
+                              }}
+                              value={data?._id}
                             >
                               Delete
                             </button>

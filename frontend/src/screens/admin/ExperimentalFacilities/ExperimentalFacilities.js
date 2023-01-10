@@ -1,8 +1,34 @@
-import React, { useEffect } from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
+import { BACKEND_API } from '../../../constant';
 
 const ExperimentalFacilitiesScreen = () => {
-    const exptfacilities = [{"experimentalFacilitiesTitle" : "Title will be here", "experimentalFacilitiesImage" : "Image will be here"}]
+  const [exptfacilities,setExptfacilities] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${BACKEND_API}/experimentalFacilities`, {
+      })
+      .then((response) => {
+        const data = response.data;
+        if (data.status == "success") {
+          setExptfacilities(data.data.ExperimentalFacilitiesData);
+        } else {
+        }
+      })
+      .catch((error) => {
+        console.log(error)
+      });
+  }, []);
+
+  const experimentalFacilitiesDelete = (id) => {
+    axios
+      .delete(`${BACKEND_API}/experimentalFacilities/${id}`)
+      .then((res) => window.location.reload())
+      .catch((err) => console.log(err));
+  };
+
     return (
         <>
           <h1 className="text-3xl text-black pb-6">Experimental Facilities</h1>
@@ -25,9 +51,9 @@ const ExperimentalFacilitiesScreen = () => {
                     <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                       Image
                     </th>
-                    <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
+                    {/* <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                       Edit
-                    </th>
+                    </th> */}
                     <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                       Delete
                     </th>
@@ -39,7 +65,7 @@ const ExperimentalFacilitiesScreen = () => {
                         <tr key={idx}>
                           <td className="text-left py-3 px-4">{data?.experimentalFacilitiesTitle}</td>
                           <td className="text-left py-3 px-4">{data?.experimentalFacilitiesImage}</td>
-                          <td className="text-left py-3 px-4">
+                          {/* <td className="text-left py-3 px-4">
                             <Link
                               to={{
                                 pathname: `/admin/experimentalfacilities/${data?.id}`,
@@ -49,13 +75,14 @@ const ExperimentalFacilitiesScreen = () => {
                           
                               <button className="hover:text-blue-500">Edit</button>
                             </Link>
-                          </td>
+                          </td> */}
                           <td className="text-left py-3 px-4">
                             <button
                               className="hover:text-red-500"
-                            //   onClick={() =>
-                            //     dispatch()
-                            //   }
+                              onClick={(event) =>{
+                                experimentalFacilitiesDelete(event.target.value);
+                              }}
+                              value={data?._id}
                             >
                               Delete
                             </button>

@@ -1,0 +1,399 @@
+body {
+  background: linear-gradient(
+    180deg,
+    rgba(165, 190, 226, 0.4) -5.54%,
+    rgba(227, 234, 245, 0) 100%
+  );
+  background-repeat: no-repeat;
+}
+.mainbody {
+  padding-left: 4vw;
+  padding-right: 4vw;
+  min-height: 70vh;
+}
+.research_groupcontent {
+  height: 400px;
+  padding-right: 2vw;
+}
+.imgheight1 {
+  height: 275px !important;
+  width: 275px !important ;
+}
+.research_groupheading {
+  height: 100px;
+  
+  font-style: normal;
+  font-weight: 600;
+  font-size: 34px;
+  line-height: 44px;
+  width: 90vw;
+}
+.research_groupdetails1 {
+  letter-spacing: 3.22%;
+  
+  font-style: normal;
+  font-weight: 600;
+  font-size: 25px;
+  overflow-wrap: break-word;
+  line-height: 30px;
+}
+.research_groupdetails2 {
+  letter-spacing: 3.22%;
+  
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 30px;
+  overflow-wrap: break-word;
+}
+.research_groupdetails3 {
+  letter-spacing: 3.22%;
+  
+  font-style: normal;
+  font-weight: 300;
+  font-size: 25px;
+  line-height: 30px;
+  overflow-wrap: break-word;
+}
+
+.research_groupdetails3 a {
+  text-decoration-style: none;
+  color: #0033ffcc;
+}
+.research_groupids {
+  color: #0095ffcc;
+  overflow-wrap: break-word;
+}
+.research_group {
+  height: 50vh;
+  justify-content: space-evenly;
+}
+.height2 {
+  height: 400px;
+}
+
+.members_cards {
+  height: 35vh;
+  width: 550px;
+  margin: 10px 15px;
+
+  /* width: 550px;  */
+  width: 43vw;
+  margin: 10px 0px;
+  border-radius: 10px;
+  border: 1px solid rgba(215, 221, 225, 1);
+}
+.members_cardsimg img {
+  height: 135px;
+  width: 135px;
+  border-radius: 75px;
+}
+.height1 {
+  height: 400px;
+  width: 25vw;
+  margin-bottom: 5vh;
+}
+.height3 {
+
+  height: 35vh;
+  width: 55vw;
+  justify-content: center;
+  align-items: center;
+}
+.height4 {
+  height: 35vh;
+
+  display: flex;
+  
+  padding-right: 2vw;
+  padding-left: 2vw;
+}
+.cards {
+  display: flex;
+  justify-content: space-between;
+  width: 90vw;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+/* k */
+.members_cardsimg {
+  margin-left: 1vw;
+  margin-right: 1vw;
+  width: 170px;
+  box-sizing: border-box;
+}
+.members_cardscontent {
+  width: 320px;
+  box-sizing: border-box;
+}
+.alumni_cards {
+  height: 290px;
+  /* width: 550px;  */
+  width: 43vw;
+  margin: 15px 0px;
+
+  border: 1px solid rgba(215, 221, 225, 1);
+  border-radius: 10px;
+}
+.pastmembers_cards {
+  margin: 8px;
+  border: 1px solid rgba(215, 221, 225, 1);
+  border-radius: 10px;
+  width: 90vw;
+  height: 60px;
+  padding-left: 5vw;
+
+  
+  font-style: normal;
+
+  font-size: 25px;
+  line-height: 30px;
+  letter-spacing: 0.0322em;
+  color: #1c1c1c;
+}
+.collaberators_cards {
+  margin: 8px;
+  border: 1px solid rgba(215, 221, 225, 1);
+  border-radius: 10px;
+  width: 90vw;
+  height: 100px;
+  padding-left: 5vw;
+
+  
+  font-style: normal;
+
+  font-size: 25px;
+  line-height: 30px;
+  letter-spacing: 0.0322em;
+  color: #1c1c1c;
+}
+.load_button {
+  border: 1px solid rgba(215, 221, 225, 1);
+  border-radius: 10px;
+  width: 10vw;
+  height: 55px;
+
+  
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 19px;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  color: rgba(28, 28, 28, 0.8);
+}
+.drop_arrow {
+  font-size: 15px;
+  font-weight: 600;
+  padding-bottom: 6%;
+  padding-left: 5%;
+}
+.research_group,
+.group_members,
+.past_members,
+.alumni,
+.collaberators {
+  margin-bottom: 70px;
+}
+
+
+
+
+@media screen and (max-width: 1170px) {
+  .alumni_cards {
+    min-width: 350px;
+    width: 38vw;
+    height: 430px;
+
+    flex-direction: column;
+  }
+  .members_cards {
+    min-width: 380px;
+    width: 40vw;
+    height: 55vh;
+    margin: 15px 0px;
+
+    flex-direction: column;
+  }
+  .members_cardsimg img {
+    height: 140px;
+    width: 140px;
+    border-radius: 70px;
+  }
+  .members_cardsimg {
+    width: 100%;
+    height: 170px;
+    box-sizing: border-box;
+  }
+  .load_button {
+    width: 15vw;
+    /* height: 80px; */
+  }
+  .research_groupcontent {
+    height: 80vh;
+    flex-direction: column;
+    padding-right: 2vw;
+  }
+  .height1 {
+    height: 35vh;
+    width: 90vw;
+  }
+  .research_group {
+    height: 80vh;
+    justify-content: space-evenly;
+  }
+  .height3 {
+    height: 40vh;
+    width: 85vw;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .wild_cards {
+    justify-content: center;
+  }
+  .members_cards {
+    min-width: 450px;
+    width: 70vw;
+    height: 40vh;
+    margin: 15px 0px;
+
+    flex-direction: row;
+  }
+}
+@media screen and (max-width: 780px) {
+  .cards {
+    justify-content: center;
+  }
+  .alumni_cards {
+    min-width: 450px;
+    width: 70vw;
+    height: 35vh;
+
+    flex-direction: row;
+  }
+  .members_cards {
+    
+height: 50vh;
+    flex-direction: column;
+  }
+  .height3 {
+    height: 35vh;
+    width: 90vw;
+    justify-content: center;
+  }
+  .load_button {
+    width: 22vw;
+    /* height: 80px; */
+  }
+  .imgheight1 {
+    height: 250px !important;
+    width: 250px !important ;
+  }
+  .research_group {
+    margin-bottom: 20px;
+  }
+}
+@media screen and (max-width: 550px) {
+  .height3 {
+    height: 30vh;
+    width: 90vw;
+    justify-content: center;
+  }
+  .alumni_cards {
+    min-width: 350px;
+    width: 70vw;
+    height: 45vh;
+flex-direction: column;
+
+  }
+  .members_cards {
+    min-width: 340px;
+    width: 40vw;
+    height: 50vh;
+    margin: 15px 0px;
+
+    flex-direction: column;
+  }
+  .research_group {
+    margin-bottom: 70px;
+  }
+  .research_groupdetails1 {
+
+    font-size: 20px;
+   
+  }
+  .research_groupdetails2 {
+ 
+    font-size: 20px;
+   
+  }
+  .research_groupdetails3 {
+  
+    font-size: 20px;
+  
+  }
+  .pastmembers_cards{
+    font-size: 20px !important;
+  }
+  .collaberators_cards{
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+.alumni_cards {
+  min-width: 250px;
+  width: 70vw;
+  height: 58vh;
+flex-direction: column;
+
+}
+  .research_groupdetails1 {
+  
+    font-size: 18px;
+   
+  }
+  .research_groupdetails2 {
+ 
+    font-size: 18px;
+   
+  }
+  .research_groupdetails3 {
+  
+    font-size: 18px;
+  
+  }
+  .imgheight1{
+    height: 150px !important;
+    width: 150px !important;
+  }
+  
+  .height1{
+    height: 30vh;
+  }
+  .height3{
+    height: 55vh;
+  }
+
+  .research_group{
+    height: 90vh;
+  }
+  .members_cards {
+    min-width: 280px;
+    width: 40vw;
+    height: 500px;
+    margin: 15px 0px;
+
+    flex-direction: column;
+  }
+  .members_cardscontent{
+    width: 200px;
+  }
+  .collaberators_cards{
+    font-size: 15px;
+  }
+}

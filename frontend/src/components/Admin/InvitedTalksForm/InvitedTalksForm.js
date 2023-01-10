@@ -1,5 +1,7 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { BACKEND_API } from "../../../constant";
 
 const InvitedTalksForm = ({ type, formData }) => {
   const [title, setTitle] = useState(
@@ -14,6 +16,44 @@ const InvitedTalksForm = ({ type, formData }) => {
     formData && formData.body ? formData.body : ""
   );
 
+  const addNote = () => {
+    const note = {
+      invitedTalktitle: title,
+      invitedTalkname: name,
+      invitedTalkBody: body,
+    };
+    const req = axios
+      .post(`${BACKEND_API}/invitedTalks`, note)
+      .then((res) => {
+        alert("Talk successfully added.");
+        window.location.href = "./" ;
+
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    console.log(req);
+  };
+
+  const editNote = (id) => {
+    const newNote = {
+      booktitle: title,
+      bookname: name,
+      bookBody: body,
+    };
+    const req = axios
+      .put(`${BACKEND_API}/${id}`, newNote)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    console.log(req);
+  };
+
+  const method = type === "Add" ? addNote : editNote;
+
   let navigate = useNavigate();
   return (
     <>
@@ -26,16 +66,18 @@ const InvitedTalksForm = ({ type, formData }) => {
           <div className="leading-loose">
             <form
               className="p-10 bg-white rounded shadow-xl"
-              // onSubmit={(e) => formSubmitHandler(e)}
-            >
+              onSubmit={(event) => {
+                event.preventDefault();
+                method();
+              }}            >
               <div className="mt-2">
                 <label className="block text-sm text-gray-600" htmlFor="Title">
-                  Title
+                Description
                 </label>
                 <input
                   className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
                   id="title"
-                  name="title"
+                  name="description"
                   type="text"
                   onChange={(e) => setTitle(e.target.value)}
                   value={title}
@@ -60,7 +102,7 @@ const InvitedTalksForm = ({ type, formData }) => {
 
               <div className="mt-2">
                 <label className="block text-sm text-gray-600" htmlFor="body">
-                  Body
+                  Link
                 </label>
                 <input
                   className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"

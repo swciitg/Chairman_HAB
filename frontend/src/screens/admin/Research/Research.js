@@ -1,15 +1,40 @@
-import React, { useEffect } from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
+import { BACKEND_API } from '../../../constant';
 
 const ResearchScreen = () => {
-    const keyResearchArea = [{"title" : "xyz", "description" : "Sample description", "image" : "container.png"}]
+  const [keyResearchArea, setResearch] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${BACKEND_API}/keyResearchArea`, {
+      })
+      .then((response) => {
+        const data = response.data;
+        if (data.status === "success") {
+          setResearch(data.data.keyReasearchAreaData);
+        } else {
+        }
+      })
+      .catch((error) => {
+        console.log(error)
+      });
+  }, []);
+
+  const researchDelete = (id) => {
+    axios
+      .delete(`${BACKEND_API}/keyResearchArea/${id}`)
+      .then((res) => window.location.reload())
+      .catch((err) => console.log(err));
+  };
     return (
         <>
           <h1 className="text-3xl text-black pb-6">Key Reseach Areas</h1>
           <div className="mt-6">
             <Link
               className="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded"
-              to={`/admin/research/add`}
+              to={`/admin/keyResearchArea/add`}
             >
               Add Key Research Areas
             </Link>
@@ -28,9 +53,9 @@ const ResearchScreen = () => {
                     <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                       Image
                     </th>
-                    <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
+                    {/* <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                       Edit
-                    </th>
+                    </th> */}
                     <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                       Delete
                     </th>
@@ -41,29 +66,30 @@ const ResearchScreen = () => {
                     keyResearchArea.map((data, idx) => {
                       return (
                         <tr key={idx}>
-                          <td className="text-left py-3 px-4">{data?.title}</td>
+                          <td className="text-left py-3 px-4">{data?.keyResearchAreaTitle}</td>
                           <td className="text-left py-3 px-4">
-                          {data?.description}
+                          {data?.keyResearchAreaDescription}
                           </td>
                           <td className="image-left py-3 px-4">
-                          {data?.image}
+                          {data?.keyResearchAreaImage}
                           </td>
-                          <td className="text-left py-3 px-4">
+                          {/* <td className="text-left py-3 px-4">
                             <Link
                               to={{
-                                pathname: `/admin/research/${data?.id}`,
+                                pathname: `/admin/keyResearchArea/${data?._id}`,
                               }}
                               state={data}
                             >
                               <button className="hover:text-blue-500">Edit</button>
                             </Link>
-                          </td>
+                          </td> */}
                           <td className="text-left py-3 px-4">
                             <button
                               className="hover:text-red-500"
-                            //   onClick={() =>
-                            //     dispatch()
-                            //   }
+                              onClick={(event) =>{
+                                researchDelete(event.target.value);
+                              }}
+                              value={data?._id}
                             >
                               Delete
                             </button>

@@ -1,8 +1,33 @@
-import React, { useEffect } from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
+import { BACKEND_API } from '../../../constant';
 
 const PublicationScreen = () => {
-    const Publication = [{"journaltitle" : "Title will be here", "journalname" : "Name will be here", "journalBody" : "Body will be here"}]
+  const [Publication, setPublication] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${BACKEND_API}/journalPublications`, {
+      })
+      .then((response) => {
+        const data = response.data;
+        if (data.status === "success") {
+          setPublication(data.data.JournalPublication);
+        } else {
+        }
+      })
+      .catch((error) => {
+        console.log(error)
+      });
+  }, []);
+
+  const publicationsDelete = (id) => {
+    axios
+      .delete(`${BACKEND_API}/publications/${id}`)
+      .then((res) => window.location.reload())
+      .catch((err) => console.log(err));
+  };
     return (
         <>
           <h1 className="text-3xl text-black pb-6">Publications</h1>
@@ -20,7 +45,7 @@ const PublicationScreen = () => {
                 <thead className="bg-gray-800 text-white">
                   <tr>
                     <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
-                      Title
+                    Description
                     </th>
                     <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                       Name
@@ -51,7 +76,7 @@ const PublicationScreen = () => {
                           <td className="text-left py-3 px-4">
                             <Link
                               to={{
-                                pathname: `/admin/publications/${data?.id}`,
+                                pathname: `/admin/publications/${data?._id}`,
                               }}
                               state={data}
                             >
@@ -61,9 +86,10 @@ const PublicationScreen = () => {
                           <td className="text-left py-3 px-4">
                             <button
                               className="hover:text-red-500"
-                            //   onClick={() =>
-                            //     dispatch()
-                            //   }
+                              onClick={(event) =>{
+                                publicationsDelete(event.target.value);
+                              }}
+                              value={data?._id}
                             >
                               Delete
                             </button>

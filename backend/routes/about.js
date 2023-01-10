@@ -6,6 +6,7 @@ router.get('/', aboutController.getAbout);
 
 router.post("/", aboutController.postAbout);
 
+router.put('/:id', aboutController.editAbout);
 
 module.exports = router;
 

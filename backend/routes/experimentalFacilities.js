@@ -5,7 +5,7 @@ const router = express.Router();
 const multer = require("multer");
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-      cb(null, `${__dirname}/../../uploads/grp`);
+      cb(null, `${__dirname}/../../uploads/exp`);
     },
     filename: (req, file, cb) => {
       const fileName = file.originalname.replace(/\s/g, "");
@@ -15,7 +15,7 @@ const storage = multer.diskStorage({
 
 const ExperimentalFacilities = require('../controller/experimentalFacilities');
 const upload = multer({ storage: storage });
-router.post('/', upload.single("image"), ExperimentalFacilities.postExperimentalFacility);
+router.post('/', upload.single("experimentalFacilitiesImage"), ExperimentalFacilities.postExperimentalFacility);
 
 router.get('/:id', ExperimentalFacilities.getExperimentalFacilityImage);
 

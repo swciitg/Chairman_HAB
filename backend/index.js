@@ -58,6 +58,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(bodyParser.json());
+app.use('/api/uploads', express.static('../uploads'))
 
 app.get(`${process.env.FD_BASEURL}`, (req, res) => {
   res.sendFile(__dirname + "/build/index.html");
@@ -79,13 +80,14 @@ app.use("/api/keyResearchArea", require("./routes/keyReasearchArea"));
 app.use("/api/miscellaneous", require("./routes/miscellaneous"));
 app.use("/api/pastMembers", require("./routes/pastMember"));
 app.use("/api/projects", require("./routes/projects"));
+app.use("/api/homePageImage", require("./routes/homePageImage"));
 app.use(
   "/api/publishedConferencePapers",
   require("./routes/publishedConferencePaper")
 );
 app.use("/api/simulationSoftwares", require("./routes/simulationSoftwares"));
 app.use("/api/updates", require("./routes/updates"));
-app.use("/api/profile", require("./routes/profile "));
+app.use("/api/profile", require("./routes/profile"));
 app.use("/api/alumni", require("./routes/alumni(PhD-Scholars)"));
 
 app.use("/auth", authRoutes);

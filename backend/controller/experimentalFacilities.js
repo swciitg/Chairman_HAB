@@ -4,13 +4,13 @@ const fs = require("fs");
 
 exports.getExperimentalFacilities = async (req, res) => {
   try {
-    const { grp } = req.params;
+    const { exp } = req.params;
     const ExperimentalFacilitiesData = await ExperimentalFacilities.find({
-      grp: grp,
+      exp: exp,
     }).sort("priority_number");
     return res
       .status(200)
-      .json({ status: "Success", data: ExperimentalFacilitiesData });
+      .json({ status: "success", data: { ExperimentalFacilitiesData } });
   } catch (err) {
     console.log(err);
     return res
@@ -24,7 +24,7 @@ exports.getExperimentalFacilityImage = async (req, res) => {
     const { id } = req.params;
     const ExpeimentalFacility = await ExperimentalFacilities.findById(id);
     if (ExpeimentalFacility) {
-      const ImagePath = `${__dirname}/../../uploads/grp/${ExpeimentalFacility.experimentalFacilitiesImage}`;
+      const ImagePath = `${__dirname}/../../uploads/exp/${ExpeimentalFacility.experimentalFacilitiesImage}`;
       fs.readFile(ImagePath, (err, data) => {
         res.contentType("image/jpeg");
         return res.send(data);
@@ -49,10 +49,10 @@ exports.postExperimentalFacility = async (req, res) => {
         .status(424)
         .json({ status: "Failed", message: "No File Provided" });
     }
-    const { grp } = req.params;
+    const { exp } = req.params;
     const { experimentalFacilitiesTitle } = req.body;
     const experimentalFacilitiesImage = req.file.filename;
-    const newExperimentalFacilitiesData = new ExperimentalFacilites({
+    const newExperimentalFacilitiesData = new ExperimentalFacilities({
       experimentalFacilitiesTitle,
       experimentalFacilitiesImage,
     });
@@ -60,7 +60,7 @@ exports.postExperimentalFacility = async (req, res) => {
       await newExperimentalFacilitiesData.save();
     return res
       .status(200)
-      .json({ status: "Success", data: ExperimentalFacilitiesData });
+      .json({ status: "success", data: { ExperimentalFacilitiesData } });
   } catch (err) {
     console.log(err);
     return res
@@ -71,25 +71,25 @@ exports.postExperimentalFacility = async (req, res) => {
 
 exports.editExperimentalFacility = async (req, res) => {
   try {
-    const { grp, id } = req.params;
-    const ExperimentalFacilitesData = await ExperimentalFacilities.findById(id);
+    const { exp, id } = req.params;
+    const ExperimentalFacilitiesData = await ExperimentalFacilities.findById(id);
     const { experimentalFacilitiesTitle } = req.body;
     let experimentalFacilitiesImage;
-    let data = { experimentalFacilitiesTitle, grp };
+    let data = { experimentalFacilitiesTitle, exp };
     if (req.file) {
       experimentalFacilitiesImage = req.file.filename;
-      data = { experimentalFacilitiesTitle, grp };
+      data = { experimentalFacilitiesTitle, exp };
     }
     const UpdatedExperimentalFacilityData =
       await ExperimentalFacilities.findByIdAndUpdate(id, data);
     if (req.file) {
       fs.unlinkSync(
-        `${__dirname}/../../uploads/grp/${ExperimentalFacilitesData.experimentalFacilitiesImage}`
+        `${__dirname}/../../uploads/exp/${ExperimentalFacilitiesData.experimentalFacilitiesImage}`
       );
     }
     return res
       .status(200)
-      .json({ status: "Success", data: UpdatedExperimentalFacilityData });
+      .json({ status: "success", data: { UpdatedExperimentalFacilityData } });
   } catch (err) {
     console.log(err);
     return res
@@ -105,11 +105,11 @@ exports.deleteExperimentalFacility = async (req, res) => {
     const DeletedExperimentalFacilityData =
       await ExperimentalFacilities.findByIdAndDelete(id);
     fs.unlinkSync(
-      `${__dirname}/../../uploads/grp/${ExperimentalFacility.experimentalFacilitiesImage}`
+      `${__dirname}/../../uploads/exp/${ExperimentalFacility.experimentalFacilitiesImage}`
     );
     return res
       .status(200)
-      .json({ status: "Success", data: DeletedExperimentalFacilityData });
+      .json({ status: "success", data: { DeletedExperimentalFacilityData } });
   } catch (err) {
     console.log(err);
     return res

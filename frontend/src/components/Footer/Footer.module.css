@@ -6,7 +6,8 @@
   color: #ffffff;
 }
 .height1 {
-  height: 372px;
+  /* height: 372px; */
+  display: flex;
 }
 .height2 {
   height: 78px;
@@ -47,21 +48,27 @@
   line-height: 24px;
 }
 .marginright {
-  margin-right: 3%;
+  /* margin-right: 3%; */
 }
 .media {
   flex-direction: row;
+
 }
 @media screen and (max-width: 680px) {
   .media {
     flex-direction: column;
   }
   .height1 {
-    height: 740px;
+  
+    flex-direction: column;
   }
+.marginbottom{
+  margin-bottom: 4vh;
+}
   .marginright {
     margin-bottom: 3vh;
   }
+
 }
 .style1 {
   font-style: normal;

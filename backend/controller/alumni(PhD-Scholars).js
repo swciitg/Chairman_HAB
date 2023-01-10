@@ -4,11 +4,13 @@ const fs = require("fs");
 
 exports.getAlumniProfile = async (req, res) => {
   try {
-    const { grp } = req.params;
-    const AlumniProfileData = await AlumniProfile.find({ grp: grp }).sort(
+    const { alum } = req.params;
+    const AlumniProfileData = await AlumniProfile.find({ alum: alum }).sort(
       "priority_number"
     );
-    return res.status(200).json({ status: "Success", data: AlumniProfileData });
+    return res
+      .status(200)
+      .json({ status: "success", data: { AlumniProfileData } });
   } catch (err) {
     console.log(err);
     return res
@@ -22,7 +24,7 @@ exports.getOneAlumniImage = async (req, res) => {
     const { id } = req.params;
     const Alumni = await AlumniProfile.findById(id);
     if (Alumni) {
-      const ImagePath = `${__dirname}/../../uploads/grp/${Alumni.imagePath}`;
+      const ImagePath = `${__dirname}/../../uploads/alum/${Alumni.imagePath}`;
       fs.readFile(ImagePath, (err, data) => {
         res.contentType("image/jpeg");
         return res.send(data);
@@ -47,10 +49,11 @@ exports.postAlumni = async (req, res) => {
         .status(424)
         .json({ status: "Failed", message: "No File Provided" });
     }
-    const { grp } = req.params;
+    const { alum } = req.params;
     const {
       alumniName,
       designation,
+      profileImage,
       yearOfCompletion,
       nameOfInstitution,
       email,
@@ -60,14 +63,15 @@ exports.postAlumni = async (req, res) => {
     const newAlumniProfileData = new AlumniProfile({
       alumniName,
       designation,
+      profileImage,
       yearOfCompletion,
       nameOfInstitution,
       email,
       phone,
-      imagePath,
+      imagePath
     });
     const AlumniData = await newAlumniProfileData.save();
-    return res.status(200).json({ status: "Success", data: AlumniData });
+    return res.status(200).json({ status: "success", data: { AlumniData } });
   } catch (err) {
     console.log(err);
     return res
@@ -78,7 +82,7 @@ exports.postAlumni = async (req, res) => {
 
 exports.editAlumni = async (req, res) => {
   try {
-    const { grp, id } = req.params;
+    const { alum, id } = req.params;
     const AlumniProfileData = await AlumniProfile.findById(id);
     const {
       alumniName,
@@ -96,7 +100,7 @@ exports.editAlumni = async (req, res) => {
       nameOfInstitution,
       email,
       phone,
-      grp,
+      alum,
     };
     if (req.file) {
       imagePath = req.file.filename;
@@ -107,7 +111,7 @@ exports.editAlumni = async (req, res) => {
         nameOfInstitution,
         email,
         phone,
-        grp,
+        alum,
       };
     }
     const UpdatedAlumniProfileData = await GroupMembers.findByIdAndUpdate(
@@ -116,12 +120,12 @@ exports.editAlumni = async (req, res) => {
     );
     if (req.file) {
       fs.unlinkSync(
-        `${__dirname}/../../uploads/grp/${AlumniProfileData.imagePath}`
+        `${__dirname}/../../uploads/alum/${AlumniProfileData.imagePath}`
       );
     }
     return res
       .status(200)
-      .json({ status: "Success", data: UpdatedAlumniProfileData });
+      .json({ status: "success", data: { UpdatedAlumniProfileData } });
   } catch (err) {
     console.log(err);
     return res
@@ -135,8 +139,10 @@ exports.deleteAlumniProfile = async (req, res) => {
     const { id } = req.params;
     const AlumniData = await AlumniProfile.findById(id);
     const DeletedAlumniData = await AlumniProfile.findByIdAndDelete(id);
-    fs.unlinkSync(`${__dirname}/../../uploads/grp/${AlumniData.imagePath}`);
-    return res.status(200).json({ status: "Success", data: DeletedAlumniData });
+    fs.unlinkSync(`${__dirname}/../../uploads/alum/${AlumniData.imagePath}`);
+    return res
+      .status(200)
+      .json({ status: "success", data: { DeletedAlumniData } });
   } catch (err) {
     console.log(err);
     return res

@@ -10,7 +10,7 @@ exports.getkeyReasearchArea = async (req, res) => {
       .sort("priority_number");
     return res
       .status(200)
-      .json({ status: "Success", data: keyReasearchAreaData });
+      .json({ status: "success", data: { keyReasearchAreaData } });
   } catch (err) {
     console.log(err);
     return res
@@ -49,6 +49,7 @@ exports.postReasearch = async (req, res) => {
         .status(424)
         .json({ status: "Failed", message: "No File Provided" });
     }
+    // console.log(req.body)
     const { reas } = req.params;
     const {
       keyResearchAreaTitle,
@@ -57,6 +58,7 @@ exports.postReasearch = async (req, res) => {
       priority_number,
     } = req.body;
     const imagePath = req.file.filename;
+    // console.log(req);
     const newkeyReasearchAreaData = new keyReasearchArea({
       keyResearchAreaTitle,
       keyResearchAreaDescription,
@@ -65,7 +67,7 @@ exports.postReasearch = async (req, res) => {
       imagePath,
     });
     const ReasearchData = await newkeyReasearchAreaData.save();
-    return res.status(200).json({ status: "Success", data: ReasearchData });
+    return res.status(200).json({ status: "success", data: { ReasearchData } });
   } catch (err) {
     console.log(err);
     return res
@@ -113,7 +115,7 @@ exports.editReasearch = async (req, res) => {
     }
     return res
       .status(200)
-      .json({ status: "Success", data: UpdatedReasearchData });
+      .json({ status: "success", data: UpdatedReasearchData });
   } catch (err) {
     console.log(err);
     return res
@@ -130,7 +132,7 @@ exports.deleteReasearch = async (req, res) => {
     fs.unlinkSync(`${__dirname}/../../uploads/reas/${ReasearchData.imagePath}`);
     return res
       .status(200)
-      .json({ status: "Success", data: DeletedReasearchData });
+      .json({ status: "success", data: DeletedReasearchData });
   } catch (err) {
     console.log(err);
     return res

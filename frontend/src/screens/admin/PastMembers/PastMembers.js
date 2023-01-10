@@ -1,8 +1,33 @@
-import React, { useEffect } from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
+import { BACKEND_API } from '../../../constant';
 
 const PastMembersScreen = () => {
-    const pastmembers = [{"name" : "Name will be here", "qualification" : "Qualification will be here", "year" : "Year of project completion"}]
+  const [pastmembers,setPastMembers] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${BACKEND_API}/pastMembers`, {
+      })
+      .then((response) => {
+        const data = response.data;
+        if (data.status === "success") {
+          setPastMembers(data.data.PastMember);
+        } else {
+        }
+      })
+      .catch((error) => {
+        console.log(error)
+      });
+  }, []);
+
+  const pastMembersDelete = (id) => {
+    axios
+      .delete(`${BACKEND_API}/pastMembers/${id}`)
+      .then((res) => window.location.reload())
+      .catch((err) => console.log(err));
+  };
     return (
         <>
           <h1 className="text-3xl text-black pb-6">Past Members</h1>
@@ -28,9 +53,9 @@ const PastMembersScreen = () => {
                     <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                       Year of Project Compeletion
                     </th>
-                    <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
+                    {/* <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                       Edit
-                    </th>
+                    </th> */}
                     <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                       Delete
                     </th>
@@ -41,14 +66,14 @@ const PastMembersScreen = () => {
                     pastmembers.map((data, idx) => {
                       return (
                         <tr key={idx}>
-                          <td className="text-left py-3 px-4">{data?.name}</td>
+                          <td className="text-left py-3 px-4">{data?.pastMemberName}</td>
                           <td className="text-left py-3 px-4">
-                          {data?.qualification}
+                          {data?.qualificationOfStudent}
                           </td>
                           <td className="image-left py-3 px-4">
-                          {data?.year}
+                          {data?.yearOfProjectCompletion}
                           </td>
-                          <td className="text-left py-3 px-4">
+                          {/* <td className="text-left py-3 px-4">
                             <Link
                               to={{
                                 pathname: `/admin/pastmembers/${data?.id}`,
@@ -57,13 +82,14 @@ const PastMembersScreen = () => {
                             >
                               <button className="hover:text-blue-500">Edit</button>
                             </Link>
-                          </td>
+                          </td> */}
                           <td className="text-left py-3 px-4">
                             <button
                               className="hover:text-red-500"
-                            //   onClick={() =>
-                            //     dispatch()
-                            //   }
+                              onClick={(event) =>{
+                                pastMembersDelete(event.target.value);
+                              }}
+                              value={data?._id}
                             >
                               Delete
                             </button>

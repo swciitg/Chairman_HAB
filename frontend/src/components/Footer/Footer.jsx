@@ -2,48 +2,35 @@ import styles from "./Footer.module.css";
 import Path1 from "./Path 1.png";
 const Footer = () => {
   return (
-    <div className={`flex flex-col ${styles.bottombar} p-6`}>
-      <div className={`flex justify-center items-center ${styles.height1}`}>
-        <div className={`flex items-stretch ${styles.media}`}>
-          <div className={`${styles.marginright}`}>
-            <p className={`${styles.details}`}> Contact</p>
-            <br />
-            <p className={`${styles.details2}`}> Dr. Gagan Kumar</p>
-
-            <p className={`${styles.details4}`}> Associate Proffesor</p>
-            <br />
+    <div className={`flex flex-col ${styles.bottombar} pt-11 `}>
+      <div className={`flex justify-center ${styles.height1} w-full mb-8 pl-8  `}>
+          <div className={`mr-20  ${styles.marginbottom} `}>
+            <p className={`${styles.details} mb-3`}> Contact</p>
+            <p className={`${styles.details2} mb-2.5`}> Dr. Gagan Kumar</p>
+            <p className={`${styles.details4} mb-5`}> Associate Professor</p>
             <p className={`${styles.details3}`}>
               {" "}
               Address: Department of Physics
             </p>
             <p className={`${styles.details3}`}> IIT Guwahati, Assam</p>
-            <p className={`${styles.details3}`}> Guwahati-781039, India.</p>
-            <br />
-            <p className={`${styles.details3}`}>
+            <p className={`${styles.details3} mb-3.5`}> Guwahati-781039, India.</p>
+            <p className={`${styles.details3} mb-3.5`}>
               {" "}
               Phone: 0361 2583557 (Office)/0361 2584747 (Lab)
             </p>
-            <br />
             <p className={`${styles.details3}`}>
               {" "}
               Email: gk@iitg.ac.in/gaganphy.iitg@gmail.com
             </p>
           </div>
-          <div>
-            <p className={`${styles.details}`}> Important Links</p>
-            <br />
-
-            <p className={`${styles.details3}`}> IIT Guwahati</p>
-            <br />
-            <p className={`${styles.details3}`}> IITG Telephone Directory</p>
-            <br />
-            <p className={`${styles.details3}`}> IITG Webmail</p>
-            <br />
-            <p className={`${styles.details3}`}> Softwares</p>
-            <br />
-            <p className={`${styles.details3}`}>Campus Map</p>
+          <div className="flex flex-col">
+            <p className={`${styles.details} mb-3`}> Important Links</p>
+            <a href="https://iitg.ac.in/" className={`${styles.details3} mb-1.5`}> IIT Guwahati</a>
+            <a href="https://www.iitg.ac.in/phones/" className={`${styles.details3} mb-1.5`}> IITG Telephone Directory</a>
+            <a href="https://www.iitg.ac.in/cc/office365" className={`${styles.details3} mb-1.5`}> IITG Webmail</a>
+            <a href="http://intranet.iitg.ac.in/repo/" className={`${styles.details3} mb-1.5`}> Softwares</a>
+            <a href="https://www.iitg.ac.in/campusmap/" className={`${styles.details3} mb-1.5`}>Campus Map</a>
           </div>
-        </div>
       </div>
       <div className={`${styles.height2} flex items-center `}>
         <div className={`flex items-center ${styles.height3}`}>

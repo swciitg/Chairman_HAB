@@ -1,8 +1,32 @@
-import React, { useEffect } from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
+import { BACKEND_API } from '../../../constant';
 
 const UserScreen = () => {
-    const user = [{"outlookID" : "username@iitg.ac.in", "name" : "Sample Name", "email" : "Sample E-Mail", "accesstoken" : "Enter Access Token", "isadmin" : "Yes if user is admin, no otherwise"}]
+    const [user, setUser] = useState([]);
+
+    useEffect(() => {
+      axios
+        .get(`${BACKEND_API}/user`, {})
+        .then((response) => {
+          const data = response.data;
+          if (data.status === "success") {
+            setUser(data.data.user)
+          } else {
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }, []);
+
+    const userDelete = (id) => {
+      axios
+        .delete(`${BACKEND_API}/user/${id}`)
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
+    };
     return (
         <>
           <h1 className="text-3xl text-black pb-6">User</h1>
@@ -73,9 +97,10 @@ const UserScreen = () => {
                           <td className="text-left py-3 px-4">
                             <button
                               className="hover:text-red-500"
-                            //   onClick={() =>
-                            //     dispatch()
-                            //   }
+                              onClick={(event) =>{
+                                userDelete(event.target.value);
+                              }}
+                              value={data?._id}
                             >
                               Delete
                             </button>

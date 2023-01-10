@@ -1,0 +1,16 @@
+POST http://localhost:5000/api/keyResearchArea
+Content-Type: application/json
+
+{
+    "keyResearchAreaTitle": "helllo there",
+    "keyResearchAreaDescription": "my name",
+    "keyResearchAreaImage": "./img.jpg"
+}
+
+###
+
+GET http://localhost:5000/api/keyResearchArea
+
+###
+
+DELETE http://localhost:5000/api/collaborator/6397399909931660840741c6

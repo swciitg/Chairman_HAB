@@ -1,8 +1,34 @@
-import React, { useEffect } from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
+import { BACKEND_API } from '../../../constant';
 
 const AboutScreen = () => {
-    const about = [{"desc" : "Sample description"}]
+  const [about,setAbout] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${BACKEND_API}/about`, {
+      })
+      .then((response) => {
+        const data = response.data;
+        if (data.status === "success") {
+          setAbout(data.data.AboutData);
+        } else {
+        }
+      })
+      .catch((error) => {
+        console.log(error)
+      });
+  }, []);
+
+  const aboutDelete = (id) => {
+    axios
+      .delete(`${BACKEND_API}/about/${id}`)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  };
+
     return (
         <>
           <h1 className="text-3xl text-black pb-6">About Us</h1>
@@ -11,7 +37,7 @@ const AboutScreen = () => {
               className="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded"
               to={`/admin/about/add`}
             >
-              Add About
+              Change AboutUs
             </Link>
           </div>
           <div className="w-full mt-6 overflow-auto">
@@ -25,9 +51,9 @@ const AboutScreen = () => {
                     <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                       Edit
                     </th>
-                    <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
+                    {/* <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                       Delete
-                    </th>
+                    </th> */}
                   </tr>
                 </thead>
                 <tbody className="text-gray-700">
@@ -35,11 +61,12 @@ const AboutScreen = () => {
                     about.map((data, idx) => {
                       return (
                         <tr key={idx}>
-                          <td className="text-left py-3 px-4">{data?.desc}</td>
+                       
+                          <td className="text-left py-3 px-4">{data?.description}</td>
                           <td className="text-left py-3 px-4">
                             <Link
                               to={{
-                                pathname: `/admin/about/${data?.id}`,
+                                pathname: `/admin/about/${data?._id}`,
                               }}
                               state={data}
                             >
@@ -47,14 +74,15 @@ const AboutScreen = () => {
                             </Link>
                           </td>
                           <td className="text-left py-3 px-4">
-                            <button
+                            {/* <button
                               className="hover:text-red-500"
-                            //   onClick={() =>
-                            //     dispatch()
-                            //   }
+                              onClick={(event) => {
+                                aboutDelete(event.target.value);
+                              }}
+                              value={data?._id}
                             >
                               Delete
-                            </button>
+                            </button> */}
                           </td>
                         </tr>
                       );

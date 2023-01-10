@@ -3,7 +3,7 @@ import BooksForm from "../../../components/Admin/BooksForm/BooksForm";
 import { useLinkClickHandler, useLocation } from "react-router-dom";
 
 const EditBooksScreen = () => {
-    const location = useLocation();
+  const location = useLocation();
   return (
     <>
       <BooksForm type="Edit" formData={location.state} />

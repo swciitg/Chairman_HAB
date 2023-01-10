@@ -1,8 +1,34 @@
-import React, { useEffect } from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
+import { BACKEND_API } from '../../../constant';
 
 const InvitedTalksScreen = () => {
-    const invitedtalks = [{"title" : "Sample title", "name" : "Sample name", "body" : "Sample body"}]
+  const [invitedtalks,setInvitedtalks] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${BACKEND_API}/invitedTalks`, {
+      })
+      .then((response) => {
+        const data = response.data;
+        if (data.status === "success") {
+          setInvitedtalks(data.data.InvitedTalk);
+        } else {
+        }
+      })
+      .catch((error) => {
+        console.log(error)
+      });
+  }, []);
+
+  const invitedTalksDelete = (id) => {
+    axios
+      .delete(`${BACKEND_API}/invitedTalks/${id}`)
+      .then((res) => window.location.reload())
+      .catch((err) => console.log(err));
+  };
+
     return (
         <>
           <h1 className="text-3xl text-black pb-6">Invited Talks</h1>
@@ -28,9 +54,9 @@ const InvitedTalksScreen = () => {
                     <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                       Body
                     </th>
-                    <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
+                    {/* <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                       Edit
-                    </th>
+                    </th> */}
                     <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                       Delete
                     </th>
@@ -41,14 +67,14 @@ const InvitedTalksScreen = () => {
                     invitedtalks.map((data, idx) => {
                       return (
                         <tr key={idx}>
-                          <td className="text-left py-3 px-4">{data?.title}</td>
+                          <td className="text-left py-3 px-4">{data?.invitedTalktitle}</td>
                           <td className="text-left py-3 px-4">
-                          {data?.name}
+                          {data?.invitedTalkname}
                           </td>
                           <td className="image-left py-3 px-4">
-                          {data?.body}
+                          {data?.invitedTalkBody}
                           </td>
-                          <td className="text-left py-3 px-4">
+                          {/* <td className="text-left py-3 px-4">
                             <Link
                               to={{
                                 pathname: `/admin/invitedtalks/${data?.id}`,
@@ -57,13 +83,14 @@ const InvitedTalksScreen = () => {
                             >
                               <button className="hover:text-blue-500">Edit</button>
                             </Link>
-                          </td>
+                          </td> */}
                           <td className="text-left py-3 px-4">
                             <button
                               className="hover:text-red-500"
-                            //   onClick={() =>
-                            //     dispatch()
-                            //   }
+                              onClick={(event) =>{
+                                invitedTalksDelete(event.target.value);
+                              }}
+                              value={data?._id}
                             >
                               Delete
                             </button>

@@ -1,8 +1,33 @@
-import React, { useEffect } from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
+import { BACKEND_API } from '../../../constant';
 
 const PublishedConferencePapersScreen = () => {
-    const publishedconferencepapers = [{"title" : "Sample title", "name" : "Sample name", "body" : "Sample body"}]
+  const [publishedConferencePapers, setPublishedconferencepapers] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${BACKEND_API}/publishedConferencePapers`, {
+      })
+      .then((response) => {
+        const data = response.data;
+        if (data.status === "success") {
+          setPublishedconferencepapers(data.data.PublishedConferencePaper);
+        } else {
+        }
+      })
+      .catch((error) => {
+        console.log(error)
+      });
+  }, []);
+
+  const publishedConferencePapersDelete = (id) => {
+    axios
+      .delete(`${BACKEND_API}/publishedConferencePapers/${id}`)
+      .then((res) => window.location.reload())
+      .catch((err) => console.log(err));
+  };
     return (
         <>
           <h1 className="text-3xl text-black pb-6">Published Conference Papers</h1>
@@ -20,7 +45,7 @@ const PublishedConferencePapersScreen = () => {
                 <thead className="bg-gray-800 text-white">
                   <tr>
                     <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
-                      Title
+                    Description
                     </th>
                     <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                       Name
@@ -28,42 +53,43 @@ const PublishedConferencePapersScreen = () => {
                     <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                       Body
                     </th>
-                    <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
+                    {/* <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                       Edit
-                    </th>
+                    </th> */}
                     <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                       Delete
                     </th>
                   </tr>
                 </thead>
                 <tbody className="text-gray-700">
-                  {publishedconferencepapers.length !== 0 &&
-                    publishedconferencepapers.map((data, idx) => {
+                  {publishedConferencePapers.length !== 0 &&
+                    publishedConferencePapers.map((data, idx) => {
                       return (
                         <tr key={idx}>
-                          <td className="text-left py-3 px-4">{data?.title}</td>
+                          <td className="text-left py-3 px-4">{data?.conferencePapertitle}</td>
                           <td className="text-left py-3 px-4">
-                          {data?.name}
+                          {data?.conferencePapername}
                           </td>
                           <td className="image-left py-3 px-4">
-                          {data?.body}
+                          {data?.conferencePaperBody}
                           </td>
-                          <td className="text-left py-3 px-4">
+                          {/* <td className="text-left py-3 px-4">
                             <Link
                               to={{
-                                pathname: `/admin/publishedconferencepapers/${data?.id}`,
+                                pathname: `/admin/publishedconferencepapers/${data?._id}`,
                               }}
                               state={data}
                             >
                               <button className="hover:text-blue-500">Edit</button>
                             </Link>
-                          </td>
+                          </td> */}
                           <td className="text-left py-3 px-4">
                             <button
                               className="hover:text-red-500"
-                            //   onClick={() =>
-                            //     dispatch()
-                            //   }
+                              onClick={(event) =>{
+                                publishedConferencePapersDelete(event.target.value);
+                              }}
+                              value={data?._id}
                             >
                               Delete
                             </button>

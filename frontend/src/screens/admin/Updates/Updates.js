@@ -1,8 +1,33 @@
-import React, { useEffect } from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
+import { BACKEND_API } from '../../../constant';
 
-const UpdatesScreencreen = () => {
-    const updates = [{"title" : "xyz", "description" : "Sample description"}]
+const UpdatesScreen = () => {
+  const [updates, setUpdates] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${BACKEND_API}/updates`, {
+      })
+      .then((response) => {
+        const data = response.data;
+        if (data.status === "success") {
+          setUpdates(data.data.Update);
+        } else {
+        }
+      })
+      .catch((error) => {
+        console.log(error)
+      });
+  }, []);
+
+  const updatesDelete = (id) => {
+    axios
+      .delete(`${BACKEND_API}/updates/${id}`)
+      .then((res) => window.location.reload())
+      .catch((err) => console.log(err));
+  };
     return (
         <>
           <h1 className="text-3xl text-black pb-6">Updates</h1>
@@ -25,9 +50,9 @@ const UpdatesScreencreen = () => {
                     <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                       Description
                     </th>
-                    <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
+                    {/* <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                       Edit
-                    </th>
+                    </th> */}
                     <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                       Delete
                     </th>
@@ -42,22 +67,23 @@ const UpdatesScreencreen = () => {
                           <td className="text-left py-3 px-4">
                           {data?.description}
                           </td>
-                          <td className="text-left py-3 px-4">
+                          {/* <td className="text-left py-3 px-4">
                             <Link
                               to={{
-                                pathname: `/admin/updates/${data?.id}`,
+                                pathname: `/admin/updates/${data?._id}`,
                               }}
                               state={data}
                             >
                               <button className="hover:text-blue-500">Edit</button>
                             </Link>
-                          </td>
+                          </td> */}
                           <td className="text-left py-3 px-4">
                             <button
                               className="hover:text-red-500"
-                            //   onClick={() =>
-                            //     dispatch()
-                            //   }
+                              onClick={(event) =>{
+                                updatesDelete(event.target.value);
+                              }}
+                              value={data?._id}
                             >
                               Delete
                             </button>
@@ -73,4 +99,4 @@ const UpdatesScreencreen = () => {
       );
     };
     
-    export default UpdatesScreencreen;
+    export default UpdatesScreen;

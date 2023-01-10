@@ -1,5 +1,7 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { BACKEND_API } from "../../../constant";
 
 const SimulationSoftwaresForm = ({ type, formData }) => {
   const [simulationsoftwarestitle, setsimulationsoftwarestitle] = useState(
@@ -11,6 +13,41 @@ const SimulationSoftwaresForm = ({ type, formData }) => {
   );
 
   let navigate = useNavigate();
+  const formSubmitHandler = async (e) => {
+    e.preventDefault();
+    try {
+      let res;
+      if (simulationsoftwaresimage) {
+        console.log(simulationsoftwaresimage);
+        const formData1 = new FormData();
+        formData1.append("simulationSoftwaresTitle", simulationsoftwarestitle);
+        formData1.append("simulationSoftwaresImage", simulationsoftwaresimage, simulationsoftwaresimage.name);
+        console.log(formData1);
+        res = await axios.post(`${BACKEND_API}/simulationSoftwares`, formData1, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            // Accept: "multipart/form-data",
+          },
+        }).then(window.location.href = "./" );
+        // .then(window.location.href = "./" );
+      } else {
+        res = await axios.post(
+          `${BACKEND_API}/simulationSoftwares`,
+          {
+            simulationSoftwaresTitle: simulationsoftwarestitle,
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
+          }
+        );
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <>
       <h1 className="text-3xl text-black pb-6">{type} Simulation Softwares</h1>
@@ -22,7 +59,7 @@ const SimulationSoftwaresForm = ({ type, formData }) => {
           <div className="leading-loose">
             <form
               className="p-10 bg-white rounded shadow-xl"
-              // onSubmit={(e) => formSubmitHandler(e)}
+              onSubmit={formSubmitHandler}
             >
               <div className="mt-2">
                 <label className="block text-sm text-gray-600" htmlFor="simulationsoftwarestitle">
@@ -48,8 +85,8 @@ const SimulationSoftwaresForm = ({ type, formData }) => {
                   id="simulationsoftwaresimage"
                   name="simulationsoftwaresimage"
                   type="file"
-                  onChange={(e) => setsimulationsoftwaresimage(e.target.value)}
-                  value={simulationsoftwaresimage}
+                  onChange={(e) => setsimulationsoftwaresimage(e.target.files[0])}
+                  // value={simulationsoftwaresimage}
                   required
                 />
               </div>
