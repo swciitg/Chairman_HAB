@@ -56,6 +56,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(bodyParser.json());
+app.use('/api/uploads', express.static('../uploads'))
 
 // set up routes
 app.use("/api/about", require("./routes/about"));
@@ -72,6 +73,7 @@ app.use("/api/keyResearchArea", require("./routes/keyReasearchArea"));
 app.use("/api/miscellaneous", require("./routes/miscellaneous"));
 app.use("/api/pastMembers", require("./routes/pastMember"));
 app.use("/api/projects", require("./routes/projects"));
+app.use("/api/homePageImage", require("./routes/homePageImage"));
 app.use(
   "/api/publishedConferencePapers",
   require("./routes/publishedConferencePaper")

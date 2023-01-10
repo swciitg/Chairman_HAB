@@ -20,12 +20,12 @@ const PublicationScreen = () => {
       .catch((error) => {
         console.log(error)
       });
-  });
+  }, []);
 
   const publicationsDelete = (id) => {
     axios
       .delete(`${BACKEND_API}/publications/${id}`)
-      .then((res) => console.log(res))
+      .then((res) => window.location.reload())
       .catch((err) => console.log(err));
   };
     return (
@@ -45,7 +45,7 @@ const PublicationScreen = () => {
                 <thead className="bg-gray-800 text-white">
                   <tr>
                     <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
-                      Title
+                    Description
                     </th>
                     <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                       Name
@@ -89,7 +89,7 @@ const PublicationScreen = () => {
                               onClick={(event) =>{
                                 publicationsDelete(event.target.value);
                               }}
-                              value={data?.id}
+                              value={data?._id}
                             >
                               Delete
                             </button>

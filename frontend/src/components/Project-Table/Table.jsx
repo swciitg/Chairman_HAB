@@ -8,7 +8,7 @@ const Table =() =>{
 
   return (
     <>
-    <div className={`${styles.main} flex flex-col justify-center  ${styles.alignment} `}>
+    <div className={`${styles.main} flex flex-col   ${styles.alignment} `}>
 
       <div className={`${styles.heading2}`}>
 

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
 import { BACKEND_API } from '../../../constant';
 
-const UpdatesScreencreen = () => {
+const UpdatesScreen = () => {
   const [updates, setUpdates] = useState([]);
 
   useEffect(() => {
@@ -20,12 +20,12 @@ const UpdatesScreencreen = () => {
       .catch((error) => {
         console.log(error)
       });
-  });
+  }, []);
 
   const updatesDelete = (id) => {
     axios
       .delete(`${BACKEND_API}/updates/${id}`)
-      .then((res) => console.log(res))
+      .then((res) => window.location.reload())
       .catch((err) => console.log(err));
   };
     return (
@@ -50,9 +50,9 @@ const UpdatesScreencreen = () => {
                     <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                       Description
                     </th>
-                    <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
+                    {/* <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                       Edit
-                    </th>
+                    </th> */}
                     <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                       Delete
                     </th>
@@ -67,7 +67,7 @@ const UpdatesScreencreen = () => {
                           <td className="text-left py-3 px-4">
                           {data?.description}
                           </td>
-                          <td className="text-left py-3 px-4">
+                          {/* <td className="text-left py-3 px-4">
                             <Link
                               to={{
                                 pathname: `/admin/updates/${data?._id}`,
@@ -76,14 +76,14 @@ const UpdatesScreencreen = () => {
                             >
                               <button className="hover:text-blue-500">Edit</button>
                             </Link>
-                          </td>
+                          </td> */}
                           <td className="text-left py-3 px-4">
                             <button
                               className="hover:text-red-500"
                               onClick={(event) =>{
                                 updatesDelete(event.target.value);
                               }}
-                              value={data?.id}
+                              value={data?._id}
                             >
                               Delete
                             </button>
@@ -99,4 +99,4 @@ const UpdatesScreencreen = () => {
       );
     };
     
-    export default UpdatesScreencreen;
+    export default UpdatesScreen;

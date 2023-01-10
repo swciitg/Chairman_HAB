@@ -3,23 +3,29 @@ import styles from "./Members.module.css";
 import React, { useState } from "react";
 
 import axios from "axios";
+import { useEffect } from "react";
+import { BACKEND_API } from "../../constant";
 
 const PastMembers = () => {
   const [cards, setCards] = useState([]);
-  const url = "http://localhost:5000/api/PastMembers";
-  const promise = axios.get(url);
-  promise.then((res) => {
-    const data = res.data.data.PastMember;
-    setCards(data);
-    // console.log(data);
-  });
+ 
+
+  useEffect(() => {
+    const promise = axios.get(`${BACKEND_API}/PastMembers`, {});
+    promise.then((res) => {
+      const data = res.data.data.PastMember;
+      setCards(data);
+      // console.log(data);
+    });
+
+  }, []);
 
   return (
     <>
      {cards.length !== 0 &&
                   cards.map((data, idx) => {
                     return (
-                      <div key={idx} className={`flex items-center  ${styles.pastmembers_cards}`}>
+                      <div key={idx} className={`flex items-center bg-white  ${styles.pastmembers_cards}`}>
                             <b> {data?.pastMemberName}</b> (  {data?.qualificationOfStudent} , {data?.yearOfProjectCompletion} )
                           </div>
       );

@@ -20,12 +20,12 @@ const JournalPublicationsScreen = () => {
       .catch((error) => {
         console.log(error)
       });
-  });
+  }, []);
 
   const journalPublicationsDelete = (id) => {
     axios
       .delete(`${BACKEND_API}/journalPublications/${id}`)
-      .then((res) => console.log(res))
+      .then((res) => window.location.reload())
       .catch((err) => console.log(err));
   };
     return (
@@ -45,7 +45,7 @@ const JournalPublicationsScreen = () => {
                 <thead className="bg-gray-800 text-white">
                   <tr>
                     <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
-                      Title
+                    Description
                     </th>
                     <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                       Name
@@ -53,9 +53,9 @@ const JournalPublicationsScreen = () => {
                     <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                       Body
                     </th>
-                    <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
+                    {/* <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                       Edit
-                    </th>
+                    </th> */}
                     <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                       Delete
                     </th>
@@ -73,7 +73,7 @@ const JournalPublicationsScreen = () => {
                           <td className="image-left py-3 px-4">
                           {data?.journalBody}
                           </td>
-                          <td className="text-left py-3 px-4">
+                          {/* <td className="text-left py-3 px-4">
                             <Link
                               to={{
                                 pathname: `/admin/journalpublications/${data?.id}`,
@@ -82,14 +82,14 @@ const JournalPublicationsScreen = () => {
                             >
                               <button className="hover:text-blue-500">Edit</button>
                             </Link>
-                          </td>
+                          </td> */}
                           <td className="text-left py-3 px-4">
                             <button
                               className="hover:text-red-500"
                               onClick={(event) =>{
                                   journalPublicationsDelete(event.target.value);
                                 }}
-                                value={data?.id}
+                                value={data?._id}
                             >
                               Delete
                             </button>

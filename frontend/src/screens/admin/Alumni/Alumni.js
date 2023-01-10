@@ -20,12 +20,12 @@ const AlumniScreen = () => {
       .catch((error) => {
         console.log(error)
       });
-  });
+  }, []);
 
   const deleteAlumniProfile = (id) => {
     axios
       .delete(`${BACKEND_API}/alumni/${id}`)
-      .then((res) => console.log(res))
+      .then((res) => window.location.reload())
       .catch((err) => console.log(err));
   };
     return (
@@ -65,9 +65,9 @@ const AlumniScreen = () => {
                     <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                       Phone
                     </th>
-                    <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
+                    {/* <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                       Edit
-                    </th>
+                    </th> */}
                     <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                       Delete
                     </th>
@@ -97,7 +97,7 @@ const AlumniScreen = () => {
                           <td className="text-left py-3 px-4">
                           {data?.phone}
                           </td>
-                          <td className="text-left py-3 px-4">
+                          {/* <td className="text-left py-3 px-4">
                             <Link
                               to={{
                                 pathname: `/admin/alumni/${data?.id}`,
@@ -106,14 +106,14 @@ const AlumniScreen = () => {
                             >
                               <button className="hover:text-blue-500">Edit</button>
                             </Link>
-                          </td>
+                          </td> */}
                           <td className="text-left py-3 px-4">
                             <button
                               className="hover:text-red-500"
                               onClick={(event) =>{
                                 deleteAlumniProfile(event.target.value);
                               }}
-                              value={data?.id}
+                              value={data?._id}
                             >
                               Delete
                             </button>

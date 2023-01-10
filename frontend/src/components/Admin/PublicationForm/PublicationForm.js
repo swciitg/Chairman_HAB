@@ -18,15 +18,16 @@ const PublicationForm = ({ type, formData }) => {
 
   const addNote = () => {
     const note = {
-      conferencePapertitle: journaltitle,
-      conferencePapername: journalname,
-      conferencePaperBody: journalBody,
+      journaltitle: journaltitle,
+      journalname: journalname,
+      journalBody: journalBody,
     };
     const req = axios
-      .post(`${BACKEND_API}/books`, note)
+      .post(`${BACKEND_API}/journalPublications`, note)
       .then((res) => {
         console.log(res);
-        alert("Note successfully added.");
+        alert("Publication successfully added.");
+        window.location.href = "./" ;
       })
       .catch((err) => {
         console.log(err);
@@ -75,12 +76,12 @@ const PublicationForm = ({ type, formData }) => {
                   className="block text-sm text-gray-600"
                   htmlFor="journaltitle"
                 >
-                  Journal Title
+                  Journal Description
                 </label>
                 <input
                   className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
                   id="journaltitle"
-                  name="journaltitle"
+                  name="description"
                   type="text"
                   onChange={(e) => setjournaltitle(e.target.value)}
                   value={journaltitle}
@@ -111,7 +112,7 @@ const PublicationForm = ({ type, formData }) => {
                   className="block text-sm text-gray-600"
                   htmlFor="journalBody"
                 >
-                  Journal Body
+                  Journal Link
                 </label>
                 <input
                   className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"

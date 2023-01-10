@@ -2,15 +2,22 @@ import styles from "./Members.module.css";
 import React, { useState } from "react";
 
 import axios from "axios";
+import { useEffect } from "react";
+import { BACKEND_API } from "../../constant";
 const Collaberatorscards = () => {
   const [cards, setCards] = useState([]);
-  const url = "http://localhost:5000/api/collaborator";
-  const promise = axios.get(url);
-  promise.then((res) => {
-    const data = res.data.data.Collaborator;
-    setCards(data);
-    // console.log(data);
-  });
+
+  useEffect(() => {
+    const promise = axios.get(`${BACKEND_API}/collaborator`, {});
+    promise.then((res) => {
+      const data = res.data.data.Collaborator;
+      setCards(data);
+      // console.log(data);
+    });
+
+  }, []);
+
+ 
   return (
     <>
       
@@ -18,7 +25,7 @@ const Collaberatorscards = () => {
                     cards.map((data, idx) => {
                       return (
                         <div key={idx}
-                        className={`flex flex-col justify-center ${styles.collaberators_cards}`}
+                        className={`flex flex-col justify-center bg-white ${styles.collaberators_cards}`}
                       >
                         <div>
                           <b> 

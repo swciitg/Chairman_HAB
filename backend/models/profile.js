@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 const profileSchema = new Schema({
   proffessorName: { type: String, required: true },
   proffesorimage: { data: Buffer, contentType: String },
+  imagePath: {type: String},
   proffessorDesignation: { type: String, required: true },
   proffessorDepartment: { type: String, required: true },
   instituteName: { type: String, required: true },

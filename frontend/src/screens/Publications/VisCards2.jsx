@@ -1,23 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Card from "./Card";
 import axios from "axios";
 import { BACKEND_API } from "../../constant";
 
 const VisCards = () => {
   const [notes, setNotes] = useState([]);
-  const url = `${BACKEND_API}/publishedConferencePapers`;
+  useEffect(() => {
+    const url = `${BACKEND_API}/publishedConferencePapers`;
   const promise = axios.get(url);
   promise.then((res) => {
     const data = res.data.data.PublishedConferencePaper;
     setNotes(data);
     // console.log(data);
   });
+  }, []);
+  
 
   return (
     <>
       {notes.slice(0, 3).map((item, index) => {
         return (
-          <Card key={index} head={item.conferencePapertitle} bold={item.conferencePapername} />
+          <Card key={index} head={item.conferencePapertitle} bold={item.conferencePapername} link={item.conferencePaperBody}/>
         );
       })}
     </>

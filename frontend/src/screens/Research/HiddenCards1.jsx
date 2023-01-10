@@ -1,16 +1,28 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { BACKEND_API } from "../../constant";
 import Card from "./Card";
 
 export default () => {
-  const str =
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ac enim sit amet nunc iaculis placerat ac in ligula. Vestibulum ante ipsum primis in faucibus";
+  const [notes, setNotes] = useState([]);
+ 
+  useEffect(() => {
+    const url = `${BACKEND_API}/keyResearchArea`;
+  const promise = axios.get(url);
+  promise.then((res) => {
+    const data = res.data.data.keyReasearchAreaData;
+    setNotes(data);
+    //  console.log(data);
+  });
 
+  }, []);
   return (
     <div className="hidden mb-24 md:grid md:grid-cols-3 md:gap-24">
-      <Card head="Tetrahert Spectroscopy" content={str} />
-      <Card head="Tetrahert Spectroscopy" content={str} />
-      <Card head="Tetrahert Spectroscopy" content={str} />
-      <Card head="Tetrahert Spectroscopy" content={str} />
+     {notes.length > 3 && notes.slice(3).map((item, index) => {
+        return (
+          <Card head={item.keyResearchAreaTitle} content={item.keyResearchAreaDescription} image={item.imagePath} type="reas" />
+        );
+      })}
     </div>
   );
 };

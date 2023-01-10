@@ -54,9 +54,11 @@ import EditPublishedConferencePapersScreen from "./PublishedConferencePapers/Edi
 import AddSimulationSoftwaresScreen from "./SimulationSoftwares/AddSimulationSoftwares";
 import EditSimulationSoftwaresScreen from "./SimulationSoftwares/EditSimulationSoftwares";
 import SimulationSoftwaresScreen from "./SimulationSoftwares/SimulationSoftwares";
-import UpdatesScreencreen from "./Updates/Updates";
-import AddUserScreen from "./User/AddUser";
+import UpdatesScreen from "./Updates/Updates";
+import AddUpdatesScreen from "./Updates/AddUpdates";
 import EditUpdatesScreen from "./Updates/EditUpdates";
+import UserScreen from "./User/User";
+import AddUserScreen from "./User/AddUser";
 
 // import useAuthCheck from "../../hooks/useAuthCheck";
 
@@ -125,11 +127,11 @@ const AdminScreen = () => {
                   path={`/alumni/:id`}
                   element={<EditAlumniScreen />}
                 />
-                 <Route
+                 {/* <Route
                   exact
                   path={`/publication`}
                   element={<PublicationScreen />}
-                />
+                /> */}
                  <Route
                   exact
                   path={`/publication/add`}
@@ -355,12 +357,12 @@ const AdminScreen = () => {
               <Route
                   exact
                   path={`/updates`}
-                  element={<UpdatesScreencreen />}
+                  element={<UpdatesScreen />}
                 />
                  <Route
                   exact 
                   path={`/updates/add`}
-                  element={<AddUserScreen />}
+                  element={<AddUpdatesScreen />}
                 />
                  <Route
                   exact

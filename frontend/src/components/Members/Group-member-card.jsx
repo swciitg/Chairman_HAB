@@ -3,21 +3,26 @@ import Pic from './pic.png';
 import React, { useState } from "react";
 
 import axios from "axios";
+import { BACKEND_API } from "../../constant";
+import { useEffect } from "react";
 const Groupmembercards = () =>  {
     const [cards, setCards] = useState([]);
-    const url = "http://localhost:5000/api/groupMembers";
-    const promise = axios.get(url);
-    promise.then((res) => {
-      const data = res.data.data;
-      setCards(data);
-      // console.log(data);
-    });
+    
+    useEffect(() => {
+        const promise = axios.get(`${BACKEND_API}/groupMembers`, {});
+        promise.then((res) => {
+            const data = res.data.data.GroupMembersData;
+            setCards(data);
+            // console.log(data);
+          });
+    
+      }, []);
     return (
         <>
          {cards.length !== 0 &&
                     cards.map((data, idx) => {
                       return (
-        <div key={idx} className={`flex items-center justify-center  ${styles.members_cards} `}>
+        <div key={idx} className={`flex items-center justify-center bg-white ${styles.members_cards} `}>
        <div className={` ${styles.members_cardsimg}  flex justify-center items-center w-1/3`}>
 <img scr={Pic} alt=""/>
        </div>

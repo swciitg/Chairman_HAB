@@ -7,37 +7,44 @@ import Pic from "./pic.png";
 import React, { useState } from "react";
 
 import axios from "axios";
+import { useEffect } from "react";
+import { BACKEND_API } from "../../constant";
 
 
 const Members = () => {
   const [cards, setCards] = useState([]);
-  const url = "http://localhost:5000/api/Profile";
-  const promise = axios.get(url);
-  promise.then((res) => {
-    const data = res.data.data;
-    setCards(data);
-    // console.log(data);
-  });
+ 
+ 
+  useEffect(() => {
+    const promise = axios.get(`${BACKEND_API}/Profile`, {});
+    promise.then((res) => {
+      const data = res.data.data.ProfileData;
+      setCards(data);
+      // console.log(data);
+    });
+
+  }, []);
   return (
     <>
     
    
     <div className={` ${styles.mainbody} flex flex-col`}>
-    {cards.length !== 0 &&
-                    cards.map((data) => {
-                      return (
-      <div className={`${styles.research_group} flex flex-col  `}>
-        <div className={` ${styles.research_groupheading} flex items-center `}>
+    <div className={` ${styles.research_groupheading} flex items-center `}>
         {" "}
           Research Group
         </div>
+    {cards.length !== 0 &&
+                    cards.map((data) => {
+                      return (
+      <div className={`${styles.research_group} flex flex-col bg-white `}>
+       
         <div
           className={`flex items-center justify-evenly ${styles.research_groupcontent}  `}
         >
           <div
             className={` flex items-center justify-center ${styles.height1}`}
           >
-            <img className={` ${styles.imgheight1}`} src={Pic} alt="" />
+            <img className={` ${styles.imgheight1}`} src={`${BACKEND_API}/uploads/prof/${data?.imagePath}`} alt="" />
           </div>
           <div
             className={` flex justify-center items-center  ${styles.height3}`}
@@ -102,7 +109,7 @@ const Members = () => {
                   </span>
                 </div>
                 <div className={` ${styles.research_groupdetails3}`}>
-                  <a href="">Education {">"}</a>
+                  {/* <a href="">Education </a> */}
                 </div>
               </div>
             </div>
@@ -121,6 +128,22 @@ const Members = () => {
         <div className={`flex  ${styles.cards} ${styles.wild_cards} `}>
           <Groupmembercards />
         </div>
+        <br />
+        <div
+          className={`flex items-center justify-center ${styles.loadButton} `}
+        >
+          <button>
+            <a
+              href=""
+              className={`${styles.load_button} flex items-center justify-center`}
+            >
+              {" "}
+              LOAD MORE<span className={`${styles.drop_arrow} `}>
+                &#8964;{" "}
+              </span>{" "}
+            </a>
+          </button>
+        </div>
       </div>
       <div className={` ${styles.alumni}`}>
         <div className={`${styles.research_groupheading}  flex items-center `}>
@@ -131,6 +154,22 @@ const Members = () => {
         <br />
         <div className={`flex ${styles.cards} `}>
           <Alumnicards />
+        </div>
+        <br />
+        <div
+          className={`flex items-center justify-center ${styles.loadButton} `}
+        >
+          <button>
+            <a
+              href=""
+              className={`${styles.load_button} flex items-center justify-center`}
+            >
+              {" "}
+              LOAD MORE<span className={`${styles.drop_arrow} `}>
+                &#8964;{" "}
+              </span>{" "}
+            </a>
+          </button>
         </div>
       </div>
       <div className={`${styles.past_members}`}>
@@ -144,7 +183,7 @@ const Members = () => {
         </div>
         <br />
         <div
-          className={`flex items-center justify-center ${styles.loadBUtton} `}
+          className={`flex items-center justify-center ${styles.loadButton} `}
         >
           <button>
             <a

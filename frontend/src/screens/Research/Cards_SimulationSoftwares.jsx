@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Cards from "./VisCards3";
 import HiddenCards from "./HiddenCards3";
 import Swiper from "./Swiperr";
+import SwiperSoftware from "./SwiperSoftware";
 
 const SimulationSoftware = () => {
   const [state, setState] = useState(0);
@@ -40,7 +41,7 @@ const SimulationSoftware = () => {
         {state ? <HiddenCards /> : null}
       </div>
       <div className="md:hidden">
-        <Swiper />
+        <SwiperSoftware />
       </div>
     </>
   );

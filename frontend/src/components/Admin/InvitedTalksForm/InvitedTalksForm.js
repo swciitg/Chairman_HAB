@@ -25,8 +25,9 @@ const InvitedTalksForm = ({ type, formData }) => {
     const req = axios
       .post(`${BACKEND_API}/invitedTalks`, note)
       .then((res) => {
-        console.log(res);
-        alert("Note successfully added.");
+        alert("Talk successfully added.");
+        window.location.href = "./" ;
+
       })
       .catch((err) => {
         console.log(err);
@@ -71,12 +72,12 @@ const InvitedTalksForm = ({ type, formData }) => {
               }}            >
               <div className="mt-2">
                 <label className="block text-sm text-gray-600" htmlFor="Title">
-                  Title
+                Description
                 </label>
                 <input
                   className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
                   id="title"
-                  name="title"
+                  name="description"
                   type="text"
                   onChange={(e) => setTitle(e.target.value)}
                   value={title}
@@ -101,7 +102,7 @@ const InvitedTalksForm = ({ type, formData }) => {
 
               <div className="mt-2">
                 <label className="block text-sm text-gray-600" htmlFor="body">
-                  Body
+                  Link
                 </label>
                 <input
                   className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"

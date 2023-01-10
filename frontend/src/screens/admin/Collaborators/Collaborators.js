@@ -20,12 +20,12 @@ const CollaboratorsScreen = () => {
       .catch((error) => {
         console.log(error)
       });
-  });
+  }, []);
 
   const collaboratorsDelete = (id) => {
     axios
       .delete(`${BACKEND_API}/collaborator/${id}`)
-      .then((res) => console.log(res))
+      .then((res) => window.location.reload())
       .catch((err) => console.log(err));
   };
     return (
@@ -56,9 +56,9 @@ const CollaboratorsScreen = () => {
                     <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                       Country Name
                     </th>
-                    <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
+                    {/* <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                       Edit
-                    </th>
+                    </th> */}
                     <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                       Delete
                     </th>
@@ -79,7 +79,7 @@ const CollaboratorsScreen = () => {
                           <td className="image-left py-3 px-4">
                           {data?.countryName}
                           </td>
-                          <td className="text-left py-3 px-4">
+                          {/* <td className="text-left py-3 px-4">
                             <Link
                               to={{
                                 pathname: `/admin/collaborators/${data?.id}`,
@@ -88,14 +88,14 @@ const CollaboratorsScreen = () => {
                             >
                               <button className="hover:text-blue-500">Edit</button>
                             </Link>
-                          </td>
+                          </td> */}
                           <td className="text-left py-3 px-4">
                             <button
                               className="hover:text-red-500"
                               onClick={(event) =>{
                                 collaboratorsDelete(event.target.value);
                               }}
-                              value={data?.id}
+                              value={data?._id}
                             >
                               Delete
                             </button>
