@@ -58,7 +58,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(bodyParser.json());
-app.use(process.env.FD_BASEURL + '/uploads', express.static('../uploads'))
+app.use(process.env.BD_BASEURL + '/uploads', express.static('../uploads'))
 
 app.get(`${process.env.FD_BASEURL}`, (req, res) => {
   res.sendFile(__dirname + "/build/index.html");
@@ -66,31 +66,31 @@ app.get(`${process.env.FD_BASEURL}`, (req, res) => {
 app.use(`${process.env.FD_BASEURL}`, express.static(__dirname + "/build"));
 
 // set up routes
-app.use(`${process.env.FD_BASEURL}/about`, require("./routes/about"));
-app.use(process.env.FD_BASEURL + "/books", require("./routes/books"));
-app.use(process.env.FD_BASEURL + "/collaborator", require("./routes/collaborator"));
+app.use(`${process.env.BD_BASEURL}/about`, require("./routes/about"));
+app.use(process.env.BD_BASEURL + "/books", require("./routes/books"));
+app.use(process.env.BD_BASEURL + "/collaborator", require("./routes/collaborator"));
 app.use(
-  process.env.FD_BASEURL + "/experimentalFacilities",
+  process.env.BD_BASEURL + "/experimentalFacilities",
   require("./routes/experimentalFacilities")
 );
-app.use(process.env.FD_BASEURL + "/groupMembers", require("./routes/groupMembers"));
-app.use(process.env.FD_BASEURL + "/invitedTalks", require("./routes/invitedTalks"));
-app.use(process.env.FD_BASEURL + "/journalPublications", require("./routes/journalPublications"));
-app.use(process.env.FD_BASEURL + "/keyResearchArea", require("./routes/keyReasearchArea"));
-app.use(process.env.FD_BASEURL + "/miscellaneous", require("./routes/miscellaneous"));
-app.use(process.env.FD_BASEURL + "/pastMembers", require("./routes/pastMember"));
-app.use(process.env.FD_BASEURL + "/projects", require("./routes/projects"));
-app.use(process.env.FD_BASEURL + "/homePageImage", require("./routes/homePageImage"));
+app.use(process.env.BD_BASEURL + "/groupMembers", require("./routes/groupMembers"));
+app.use(process.env.BD_BASEURL + "/invitedTalks", require("./routes/invitedTalks"));
+app.use(process.env.BD_BASEURL + "/journalPublications", require("./routes/journalPublications"));
+app.use(process.env.BD_BASEURL + "/keyResearchArea", require("./routes/keyReasearchArea"));
+app.use(process.env.BD_BASEURL + "/miscellaneous", require("./routes/miscellaneous"));
+app.use(process.env.BD_BASEURL + "/pastMembers", require("./routes/pastMember"));
+app.use(process.env.BD_BASEURL + "/projects", require("./routes/projects"));
+app.use(process.env.BD_BASEURL + "/homePageImage", require("./routes/homePageImage"));
 app.use(
-  process.env.FD_BASEURL + "/publishedConferencePapers",
+  process.env.BD_BASEURL + "/publishedConferencePapers",
   require("./routes/publishedConferencePaper")
 );
-app.use(process.env.FD_BASEURL + "/simulationSoftwares", require("./routes/simulationSoftwares"));
-app.use(process.env.FD_BASEURL + "/updates", require("./routes/updates"));
-app.use(process.env.FD_BASEURL + "/profile", require("./routes/profile"));
-app.use(process.env.FD_BASEURL + "/alumni", require("./routes/alumni(PhD-Scholars)"));
+app.use(process.env.BD_BASEURL + "/simulationSoftwares", require("./routes/simulationSoftwares"));
+app.use(process.env.BD_BASEURL + "/updates", require("./routes/updates"));
+app.use(process.env.BD_BASEURL + "/profile", require("./routes/profile"));
+app.use(process.env.BD_BASEURL + "/alumni", require("./routes/alumni(PhD-Scholars)"));
 
-app.use(process.env.FD_BASEURL + "/auth", authRoutes);
+app.use(process.env.BD_BASEURL + "/auth", authRoutes);
 
 app.use(function (err, req, res, next) {
   // console.log(err);
