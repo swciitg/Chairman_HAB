@@ -60,7 +60,7 @@ const GroupMembersForm = ({ type, formData }) => {
               // Accept: "multipart/form-data",
             },
           })
-          // .then((window.location.href = "./"));
+          .then((window.location.href = "./"));
       } else {
         res = await axios.post(
           `${BACKEND_API}/groupMembers`,

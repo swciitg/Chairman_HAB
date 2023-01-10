@@ -39,7 +39,7 @@ const AlumniForm = ({ type, formData }) => {
       if (alumniImage) {
         console.log(alumniImage);
         const formData1 = new FormData();
-        formData1.append("alunmniName", alumniName);
+        formData1.append("alumniName", alumniName);
         formData1.append("designation", alumniDesignation);
         formData1.append("yearOfCompletion", alumniyoc);
         formData1.append("nameOfInstitution", alumniInstitute);
@@ -52,13 +52,13 @@ const AlumniForm = ({ type, formData }) => {
             "Content-Type": "multipart/form-data",
             // Accept: "multipart/form-data",
           },
-        });
-        // .then((window.location.href = "./"));
+        })
+        .then((window.location.href = "./"));
       } else {
         res = await axios.post(
           `${BACKEND_API}/alumni`,
           {
-            alunmniName: alumniName,
+            alumniName: alumniName,
             designation: alumniDesignation,
             yearOfCompletion: alumniyoc,
             nameOfInstitution: alumniInstitute,
