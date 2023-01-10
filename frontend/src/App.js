@@ -9,8 +9,8 @@ function App() {
     <>
       <BrowserRouter basename={BASEURL}>
         <Routes >
-        <Route path="/*" exact element={<Main />} />
         <Route path="/admin/*" exact element={<AdminScreen />} />
+        <Route path="/*" exact element={<Main />} />
         </Routes>
       </BrowserRouter>
       <Toaster />
