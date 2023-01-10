@@ -29,7 +29,7 @@ const Details = () =>  {
                     projects.map((data, idx) => {
                       return (
                         // <div className="py-2">
-                        <tr key={idx} className={`w-24`} >
+                        <tr key={idx} className={`w-24 h-20 border-b-4 border-solid	`} >
                         <td>{idx+1}</td>
                         <td >{data?.projectTitle} </td>
                         <td>{data?.fundingAgencyName}</td>

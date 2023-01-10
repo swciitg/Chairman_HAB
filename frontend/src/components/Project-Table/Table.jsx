@@ -15,9 +15,7 @@ const Table =() =>{
         Projects
 
       </div>
-      <br />
-      <br />
-      <br />
+    
       <div >
 
         <table className={`border-collapse ${styles.scroll} `}>
