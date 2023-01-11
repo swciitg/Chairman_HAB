@@ -60,11 +60,6 @@ app.use(passport.session());
 app.use(bodyParser.json());
 app.use(process.env.BD_BASEURL + '/uploads', express.static('../uploads'))
 
-app.get(`${process.env.FD_BASEURL}`, (req, res) => {
-  res.sendFile(__dirname + "/build/index.html");
-});
-app.use(`${process.env.FD_BASEURL}`, express.static(__dirname + "/build"));
-
 // set up routes
 app.use(`${process.env.BD_BASEURL}/about`, require("./routes/about"));
 app.use(process.env.BD_BASEURL + "/books", require("./routes/books"));
@@ -101,6 +96,12 @@ app.use(function (err, req, res, next) {
 app.get("/", (req, res) => {
   res.send("home");
 });
+
+app.get(`${process.env.FD_BASEURL}/*`, (req, res) => {
+  res.sendFile(__dirname + "/build/index.html");
+});
+app.use(`${process.env.FD_BASEURL}`, express.static(__dirname + "/build"));
+
 const port = process.env.APP_PORT;
 app.listen(port || 5000, () => {
   console.log(`The server is listening at 5000`);
