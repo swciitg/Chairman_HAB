@@ -97,10 +97,11 @@ app.get("/", (req, res) => {
   res.send("home");
 });
 
+app.use(`${process.env.FD_BASEURL}`, express.static(__dirname + "/build"));
+
 app.get(`${process.env.FD_BASEURL}/*`, (req, res) => {
   res.sendFile(__dirname + "/build/index.html");
 });
-app.use(`${process.env.FD_BASEURL}`, express.static(__dirname + "/build"));
 
 const port = process.env.APP_PORT;
 app.listen(port || 5000, () => {
