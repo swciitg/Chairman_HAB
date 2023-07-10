@@ -1,6 +1,6 @@
 <h2 align="center">CHAIRMAN HAB</h2>
 
-**A React-Node Based  Application**  
+**A React-Node Based Application** developed by Students' Web Committee, IIT Guwahati, for HAB Chairman Dr. Gagan Kumar.
 
 -------
 
@@ -33,7 +33,9 @@ In order to install all packages follow the steps below:
  6. Then run `node index.js`
  7. Your server should start!
 
- > The server will be served on **http://localhost:8080/**
+ > The server will be served on **http://localhost:5000/**
+
+<br>
 
 ### Steps To Set Up Frontend
 
@@ -45,3 +47,84 @@ In order to install all packages follow the steps below:
 
 > You can now view frontend in the browser **http://localhost:3000/chairman_hab**.
 
+### Directory Structure
+
+The following is a high-level overview of relevant files and folders.
+
+```
+backend
+├── config
+│   ├── keys.js
+│   └── passport-setup.js
+├── controller
+│   ├── about.js
+│   ├── alumni(PhD-Scholars).js
+│   └── ...
+├── dirname.js
+├── index.js
+├── models
+│   ├── about.js
+│   ├── alumni(PhD-Scholars).js
+│   ├── books.js
+│   ├── collabarators.js
+│   ├── collaborators.js
+│   ├── experimentalFacilities.js
+│   ├── groupMembers.js
+│   ├── homePageImage.js
+│   ├── invitedTalks.js
+│   ├── journalPublications.js
+│   ├── keyReasearchArea.js
+│   ├── miscellaneous.js
+│   ├── pastMember.js
+│   ├── profile.js
+│   ├── projects.js
+│   ├── publishedConferencePapers.js
+│   ├── simulationSoftwares.js
+│   ├── updates.js
+│   └── user.js
+├── package-lock.json
+├── package.json
+├── requests
+│   └── post.rest
+├── routes
+│   └── ...
+└── utils
+    └── appError.js
+
+
+frontend
+├── README.md
+├── dist
+│   └── output.css
+├── package-lock.json
+├── package.json
+├── postcss.config.js
+├── public
+│   └── ...
+├── src
+│   ├── App.js
+│   ├── components
+│   │   ├── Aboutus
+│   │   ├── Admin
+│   │   │   ├── AboutForm
+│   │   │   ├── AlumniForm
+│   │   │   ...
+│   │   │   └── UserForm
+│   │   ├── Footer
+│   │   ├── Header
+│   │   ├── Members
+│   │   └── Project-Table
+│   ├── constant
+│   ├── index.css
+│   ├── index.js
+│   └── screens
+│       ├── Home
+│       │   ├── HomeScreen.js
+│       │   └── image1.png
+│       ├── Main
+│       │   └── Main.js
+│       │   ...
+│       │   └── User
+└── tailwind.config.js
+
+```
