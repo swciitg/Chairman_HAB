@@ -124,7 +124,7 @@ frontend
 │       ├── Main
 │       │   └── Main.js
 │       │   ...
-│       │   └── User
+│       ├── admin
 └── tailwind.config.js
 
 ```
